@@ -1,0 +1,19 @@
+{
+  "name": "rating-dashboard",
+  "version": "1.0.0",
+  "description": "Rating dashboard for educational purpose. Technologies JamStack, Netlify, Angular SSR, Boorstrap 4, (FaunaDB /GrapgQL DB)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derfloDev/rating-dashboard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/derfloDev/rating-dashboard/issues"
+  },
+  "homepage": "https://github.com/derfloDev/rating-dashboard#readme"
+}
