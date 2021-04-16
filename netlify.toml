@@ -2,7 +2,7 @@
 [build]
   command = "ng build --prod"
   functions = "functions"
-  publish = "dist/angular.io.example/browser"
+  publish = "dist/rating-dashboard/browser"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
