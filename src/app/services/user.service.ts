@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ReplaySubject } from 'rxjs';
 import { User } from '../models/user';
 declare let netlifyIdentity: any;
 import * as UserActions from '../store/user/user.actions';
@@ -12,6 +11,7 @@ import { UserState } from '../store/user/user.reducer';
 export class UserService {
 
   constructor(private readonly store: Store<UserState>) {
+    netlifyIdentity.init();
     netlifyIdentity.on('init', (user: User) => console.log('init', user));
     netlifyIdentity.on('error', (err: any) => {
       console.error('Error', err);

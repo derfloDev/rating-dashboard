@@ -1,5 +1,5 @@
-<div class="user-infos d-none d-sm-block">
-    <button class="" *ngIf="isAuthenticated|async" (click)="showUserDialog()">
+<div class="d-none d-sm-block">
+    <button class="user-infos" *ngIf="isAuthenticated|async" (click)="showUserDialog()">
         <img class="user-icon rounded-circle" [src]="userData?.avatar_url">
         <span class="navbar-text">
             {{userData?.full_name}}
