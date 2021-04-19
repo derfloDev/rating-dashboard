@@ -9,3 +9,11 @@ export const factsLoadedError = createAction('[Nutrition] facts loaded error', p
 export const loadNutrientNames = createAction('[Nutrition] load nutrient names');
 export const nutrientNamesLoaded = createAction('[Nutrition] nutrient names loaded', props<{ names: NutritientName[] }>());
 export const nutrientNamesLoadedError = createAction('[Nutrition] nutrient names loaded error', props<{ error: any }>());
+
+export const loadIngredientNames = createAction('[Nutrition] load ingredient names');
+export const ingredientNamesLoaded = createAction('[Nutrition] ingredient names loaded', props<{ names: NutritientName[] }>());
+export const ingredientNamesLoadedError = createAction('[Nutrition] ingredient names loaded error', props<{ error: any }>());
+
+export const loadIngredientAnalysisNames = createAction('[Nutrition] load ingredient analysis names');
+export const ingredientAnalysisNamesLoaded = createAction('[Nutrition] ingredient analysis names loaded', props<{ names: NutritientName[] }>());
+export const ingredientAnalysisNamesLoadedError = createAction('[Nutrition] ingredient analysis names loaded error', props<{ error: any }>());

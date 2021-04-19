@@ -1,0 +1,25 @@
+<table class="table ">
+    <caption>Ingredients facts</caption>
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Vegan</th>
+            <th scope="col">Vegetarisch</th>
+            <th scope="col">Anteil</th>
+            <th scope="col">Position</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let ingredient of ingredients; let i = index">
+            <ng-container *ngIf="!!showIngredient(ingredient)">
+                <tr>
+                    <td>{{getIngredientName(ingredient)}}</td>
+                    <td>{{ingredient.vegan}}</td>
+                    <td>{{ingredient.vegetarian}}</td>
+                    <td>{{ingredient.percent_estimate.toFixed(2)}}%</td>
+                    <td>{{ingredient.rank}}</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+    </tbody>
+</table>

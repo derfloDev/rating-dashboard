@@ -31,17 +31,29 @@ export class OpenfoodfactsService {
   }
 
   getNutrientNames(): Observable<any> {
-    const url = 'https://static.openfoodfacts.org/data/taxonomies/nutrients.json';
+    const url = '/.netlify/functions/getNutrients';
     return this.httpClient.get<any>(url).pipe(
       map((response) => {
-        const nutritientNames: NutritientName[] = [];
-        Object.entries(response).forEach(
-          ([key, value]) => {
-            nutritientNames.push({ key: key, value: (value as any).name.de })
-          }
-        );
-
+        const nutritientNames: NutritientName[] = response.message;
         return nutritientNames;
+      }));
+  }
+
+  getIngredientNames(): Observable<any> {
+    const url = '/.netlify/functions/getIngredients';
+    return this.httpClient.get<any>(url).pipe(
+      map((response) => {
+        const ingretientNames: NutritientName[] = response.message;
+        return ingretientNames;
+      }));
+  }
+
+  getIngredientAnalysisNames(): Observable<any> {
+    const url = '/.netlify/functions/getIngredientAnalysis';
+    return this.httpClient.get<any>(url).pipe(
+      map((response) => {
+        const ingretientAnylysisNames: NutritientName[] = response.message;
+        return ingretientAnylysisNames;
       }));
   }
 }

@@ -39,16 +39,28 @@
     </div>
   </div>
   <div class="row">
+    <div class="d-flex ingredient-analysis">
+      <span *ngFor="let ingredientAnalysis of product.ingredients_analysis_tags" class="badge badge-secondary"
+        [ngClass]="getIngredientAnalysisClass(ingredientAnalysis)">{{
+        getIngredientAnalysis(ingredientAnalysis) }}</span>
+    </div>
+  </div>
+  <div class="row">
     <div class="table-responsive">
       <app-nutriments-table [nutriments]="product.nutriments" [nutritionDataPer]="product.nutrition_data_per">
       </app-nutriments-table>
+    </div>
+    <div class="table-responsive">
+      <app-ingredients-table [ingredients]="product.ingredients">
+      </app-ingredients-table>
     </div>
   </div>
   <div class="row">
     <div>
       <img [src]="nutriscoreImageUrl" style="height:72px;float:right;margin-left:0.5rem;">
       <img [src]="novaImageUrl" style="height:72px;float:right;margin-left:0.5rem;">
-      {{product|json}}
+      <img *ngIf="product.ecoscore_grade && product.ecoscore_grade !== 'unknown'" [src]="ecoScoreImageUrl" style="height:72px;float:right;margin-left:0.5rem;">
+      <!-- {{product|json}} -->
     </div>
   </div>
 </div>

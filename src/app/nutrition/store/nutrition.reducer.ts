@@ -8,12 +8,16 @@ export interface NutritionState {
     currentProduct?: Product
     products: Product[]
     nutritientNames: NutritientName[]
+    ingredientNames: NutritientName[]
+    ingredientAnalysisNames: NutritientName[]
 }
 
 export const initialNutritionState: NutritionState = {
     products: [],
     loading: false,
-    nutritientNames: []
+    nutritientNames: [],
+    ingredientNames: [],
+    ingredientAnalysisNames: []
 };
 
 export const nurtitionFeatureKey = 'nutrition';
@@ -23,5 +27,7 @@ export const nutritionReducer = createReducer(
     on(NutritionActions.loadFacts, (state) => ({ ...state, loading: true, currentProduct: null })),
     on(NutritionActions.factsLoaded, (state, action) => ({ ...state, loading: false, currentProduct: action.product })),
     on(NutritionActions.factsLoadedError, (state, action) => ({ ...state, loading: false, currentProduct: null })),
-    on(NutritionActions.nutrientNamesLoaded, (state, action) => ({ ...state, nutritientNames: action.names }))
+    on(NutritionActions.nutrientNamesLoaded, (state, action) => ({ ...state, nutritientNames: action.names })),
+    on(NutritionActions.ingredientNamesLoaded, (state, action) => ({ ...state, ingredientNames: action.names })),
+    on(NutritionActions.ingredientAnalysisNamesLoaded, (state, action) => ({ ...state, ingredientAnalysisNames: action.names }))
 );

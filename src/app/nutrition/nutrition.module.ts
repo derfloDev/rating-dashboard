@@ -10,13 +10,15 @@ import { EffectsModule } from '@ngrx/effects';
 import { nurtitionFeatureKey, nutritionReducer } from './store/nutrition.reducer';
 import { NutritionEffects } from './store/nutrition.effects';
 import { NutrimentsTableComponent } from './components/nutriments-table/nutriments-table.component';
+import { IngredientsTableComponent } from './components/ingredients-table/ingredients-table.component';
 
 
 @NgModule({
   declarations: [
     NutritionDetailComponent,
     NutritionOverviewComponent,
-    NutrimentsTableComponent
+    NutrimentsTableComponent,
+    IngredientsTableComponent
   ],
   imports: [
     CommonModule,

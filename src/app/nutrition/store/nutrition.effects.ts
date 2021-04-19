@@ -15,8 +15,31 @@ export class NutritionEffects {
             this.openFoodfactsService.getNutrientNames().pipe(
                 map(names => NutritionActions.nutrientNamesLoaded({ names: names })),
                 catchError(error => {
-                    console.log(error);
                     return of(NutritionActions.nutrientNamesLoadedError({ error: error }));
+                }),
+            )
+        )
+    ))
+
+    loadIngredientNames$ = createEffect(() => this.actions$.pipe(
+        ofType(NutritionActions.loadIngredientNames),
+        mergeMap(() =>
+            this.openFoodfactsService.getIngredientNames().pipe(
+                map(names => NutritionActions.ingredientNamesLoaded({ names: names })),
+                catchError(error => {
+                    return of(NutritionActions.ingredientNamesLoadedError({ error: error }));
+                }),
+            )
+        )
+    ))
+
+    loadIngredAnalysisientNames$ = createEffect(() => this.actions$.pipe(
+        ofType(NutritionActions.loadIngredientAnalysisNames),
+        mergeMap(() =>
+            this.openFoodfactsService.getIngredientAnalysisNames().pipe(
+                map(names => NutritionActions.ingredientAnalysisNamesLoaded({ names: names })),
+                catchError(error => {
+                    return of(NutritionActions.ingredientAnalysisNamesLoadedError({ error: error }));
                 }),
             )
         )

@@ -9,4 +9,11 @@
             margin: auto;
         }
     }
+    margin-bottom: 1rem;
+}
+.ingredient-analysis {
+    margin-bottom: 1rem;
+    .badge:not(:last-child) {
+        margin-right: 1em;
+    }
 }
