@@ -44,6 +44,7 @@
     "express": "^4.15.2",
     "jquery": "^3.6.0",
     "netlify-identity-widget": "^1.9.1",
+    "node-fetch": "^2.6.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "web-component-essentials": "^0.0.4",

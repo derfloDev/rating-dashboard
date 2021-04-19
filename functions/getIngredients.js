@@ -1,15 +1,21 @@
-const path = require("path")
-const fs = require("fs")
-const fileName = "./ingredients.json"
-const resolved = (process.env.LAMBDA_TASK_ROOT) ? path.resolve(process.env.LAMBDA_TASK_ROOT, fileName) : path.resolve(__dirname, fileName)
-
+const fileName = "ingredients.json"
+const fetch = require('node-fetch');
 
 exports.handler = async function (event, context) {
+    const url = `${process.env.URL}/assets/${fileName}`
+    let response;
+    try {
+        response = await fetch(url);
+    } catch (err) {
+        return {
+            statusCode: err.statusCode || 500,
+            body: JSON.stringify({
+                error: err.message
+            })
+        }
+    }
     const language = event.queryStringParameters.lang || 'de';
-    const promise = new Promise((resolve, reject) => {
-        fs.readFile(resolved, "utf8", (err, results) => ingredientNames = resolve(JSON.parse(results)))
-    })
-    const ingredients = await promise;
+    const ingredients = await response.json();
     const nutritientNames = [];
     console.log(nutritientNames)
 
