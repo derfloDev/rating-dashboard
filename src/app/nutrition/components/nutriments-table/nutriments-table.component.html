@@ -1,0 +1,23 @@
+<table class="table ">
+    <caption>Nutrition facts</caption>
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">pro {{nutritionDataPer}}</th>
+            <th scope="col">pro Portion</th>
+            <th scope="col">unit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let nutriment of nutrimentsToDisplay; let i = index">
+            <ng-container *ngIf="showNutriment(nutriment.key)">
+                <tr>
+                    <td>{{nutriment.value}}</td>
+                    <td>{{getNutrimentValue(nutriment.key+'_100g')}}</td>
+                    <td>{{getNutrimentValue(nutriment.key+'_serving')}}</td>
+                    <td>{{getNutrimentValue(nutriment.key+'_unit')}}</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+    </tbody>
+</table>

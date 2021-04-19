@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { User } from '../models/user';
+import { User } from '../model/user';
 declare let netlifyIdentity: any;
-import * as UserActions from '../store/user/user.actions';
-import { UserState } from '../store/user/user.reducer';
+import * as UserActions from '../store/user.actions';
+import { UserState } from '../store/user.reducer';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class UserService {
     netlifyIdentity.init();
     netlifyIdentity.on('init', (user: User) => console.log('init', user));
     netlifyIdentity.on('error', (err: any) => {
-      console.error('Error', err);
+      this.store.dispatch(UserActions.error({ error: String(err) }));
       this.store.dispatch(UserActions.loggedOut());
     });
     netlifyIdentity.on('open', () => console.log('Widget opened'));

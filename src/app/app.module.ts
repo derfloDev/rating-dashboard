@@ -8,8 +8,10 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { UserContextComponent } from './components/navigation/user-context/user-context.component';
 import { StoreModule } from '@ngrx/store';
-import { userReducer } from './store/user/user.reducer';
-import { UserModule } from './store/user/user.module';
+import { UserModule } from './user/user.module';
+import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,17 @@ import { UserModule } from './store/user/user.module';
     HomeComponent,
     NotFoundComponent,
     NavigationComponent,
-    UserContextComponent
+    UserContextComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     StoreModule.forRoot({}),
-    UserModule
+    EffectsModule.forRoot(),
+    UserModule,
+
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

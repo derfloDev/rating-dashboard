@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserMetadata } from 'src/app/models/userMetadata';
 import { Store } from '@ngrx/store';
-import { selectUser } from 'src/app/store/user/user.selector';
+import { selectUser } from 'src/app/user/store/user.selector';
+import { UserMetadata } from 'src/app/user/model/userMetadata';
 
 @Component({
   selector: 'app-navigation',

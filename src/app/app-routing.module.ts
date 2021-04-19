@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'nutrition', loadChildren: () => import('./nutrition/nutrition.module').then(m => m.NutritionModule) },
   { path: '**', redirectTo: 'not-found' }
 ];
 
