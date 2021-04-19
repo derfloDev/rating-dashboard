@@ -1,0 +1,19 @@
+@import "~/node_modules/bootstrap/scss/bootstrap";
+
+.user-infos {
+    background: none;
+    border: none;
+    outline: none;
+    .user-icon {
+        display: inline-block;
+        margin-right: 0.5em;
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .user-infos {
+        padding-right: 1em;
+    }
+}

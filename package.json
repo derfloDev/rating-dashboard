@@ -1,7 +1,7 @@
 {
   "name": "rating-dashboard",
   "version": "1.0.0",
-  "description": "Rating dashboard for educational purpose. Technologies JamStack, Netlify, Angular SSR, Boorstrap 4, (FaunaDB /GrapgQL DB)",
+  "description": "Rating dashboard for educational purpose. Technologies JamStack, Netlify, Angular SSR, Bootstrap 4, (FaunaDB /GrapgQL DB)",
   "main": "index.js",
   "scripts": {
     "ng": "ng",
@@ -36,11 +36,16 @@
     "@angular/platform-browser-dynamic": "~11.2.9",
     "@angular/platform-server": "~11.2.9",
     "@angular/router": "~11.2.9",
+    "@ngrx/effects": "^11.1.0",
+    "@ngrx/store": "^11.1.0",
     "@nguniversal/express-engine": "^11.2.1",
     "bootstrap": "^4.6.0",
     "express": "^4.15.2",
+    "jquery": "^3.6.0",
+    "netlify-identity-widget": "^1.9.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
+    "web-component-essentials": "^0.0.4",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {
