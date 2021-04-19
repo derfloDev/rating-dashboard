@@ -5,7 +5,7 @@
             <th scope="col">Name</th>
             <th scope="col">Vegan</th>
             <th scope="col">Vegetarisch</th>
-            <th scope="col">Anteil</th>
+            <th scope="col">Anteil (in %)</th>
             <th scope="col">Position</th>
         </tr>
     </thead>
@@ -16,7 +16,7 @@
                     <td>{{getIngredientName(ingredient)}}</td>
                     <td>{{ingredient.vegan}}</td>
                     <td>{{ingredient.vegetarian}}</td>
-                    <td>{{ingredient.percent_estimate.toFixed(2)}}%</td>
+                    <td>{{toFixed(ingredient.percent_estimate)}}</td>
                     <td>{{ingredient.rank}}</td>
                 </tr>
             </ng-container>

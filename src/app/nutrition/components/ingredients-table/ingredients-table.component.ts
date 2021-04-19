@@ -21,7 +21,7 @@ export class IngredientsTableComponent implements OnInit {
   nutritionDataPer: string;
 
   public ingredientsToDisplay: NutritientName[];
-  
+
   constructor(private store: Store) {
     this.store.select(selectIngredientNames).subscribe(ingredientNames =>
       this.ingredientsToDisplay = ingredientNames);
@@ -36,6 +36,10 @@ export class IngredientsTableComponent implements OnInit {
 
   getIngredientName(ingredient: Ingredient): string {
     return this.findIngredientName(ingredient).value;
+  }
+
+  toFixed(number: Number): string {
+    return Number(number).toFixed(2);
   }
 
   private findIngredientName(ingredient: Ingredient): NutritientName {

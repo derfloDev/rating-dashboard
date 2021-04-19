@@ -44,6 +44,7 @@
         [ngClass]="getIngredientAnalysisClass(ingredientAnalysis)">{{
         getIngredientAnalysis(ingredientAnalysis) }}</span>
     </div>
+    <!-- <div>{{product.serving_quantity}}</div> -->
   </div>
   <div class="row">
     <div class="table-responsive">
@@ -59,7 +60,8 @@
     <div>
       <img [src]="nutriscoreImageUrl" style="height:72px;float:right;margin-left:0.5rem;">
       <img [src]="novaImageUrl" style="height:72px;float:right;margin-left:0.5rem;">
-      <img *ngIf="product.ecoscore_grade && product.ecoscore_grade !== 'unknown'" [src]="ecoScoreImageUrl" style="height:72px;float:right;margin-left:0.5rem;">
+      <img *ngIf="product.ecoscore_grade && product.ecoscore_grade !== 'unknown'" [src]="ecoScoreImageUrl"
+        style="height:72px;float:right;margin-left:0.5rem;">
       <!-- {{product|json}} -->
     </div>
   </div>
