@@ -17,7 +17,13 @@ export const selectIngredientNames = createSelector(
     getNutritionState,
     (state: NutritionState) => state.ingredientNames
 );
+
 export const selectIngredientAnalysisNames = createSelector(
     getNutritionState,
     (state: NutritionState) => state.ingredientAnalysisNames
+);
+
+export const selectProducts = createSelector(
+    getNutritionState,
+    (state: NutritionState) => state.products
 );

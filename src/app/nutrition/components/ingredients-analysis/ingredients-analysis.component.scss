@@ -1,0 +1,13 @@
+.ingredient-analysis {
+    flex-wrap: wrap;
+    margin-left: -15px;    
+    margin-right: -15px;
+
+    .badge{
+        margin-bottom: 1em;
+    }
+
+    .badge:not(:last-child) {
+        margin-right: 1em;
+    }
+}

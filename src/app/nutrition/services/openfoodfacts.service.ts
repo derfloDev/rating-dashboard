@@ -14,6 +14,22 @@ export class OpenfoodfactsService {
   constructor(private httpClient: HttpClient) {
   }
 
+  searchProducts(tag: string): Observable<Product[]> {
+    const url = `https://world.openfoodfacts.org/api/v1/search?action=process&tag_contains_1=contains&tag_1=A&json=true`
+    return this.httpClient.get<any>(url).pipe(
+      map((response) => {
+        if (!!response.products) {
+          return response.products;
+        }
+        else {
+          throw new Error(response.status_verbose);
+        }
+      }),
+      catchError((error) => {
+        return throwError(error);
+      }));
+  }
+
   getFacts(barcode: string): Observable<Product> {
     const url = this.foodFactsApi.replace('{barcode}', barcode);
     return this.httpClient.get<any>(url).pipe(

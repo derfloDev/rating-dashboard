@@ -29,5 +29,6 @@ export const nutritionReducer = createReducer(
     on(NutritionActions.factsLoadedError, (state, action) => ({ ...state, loading: false, currentProduct: null })),
     on(NutritionActions.nutrientNamesLoaded, (state, action) => ({ ...state, nutritientNames: action.names })),
     on(NutritionActions.ingredientNamesLoaded, (state, action) => ({ ...state, ingredientNames: action.names })),
-    on(NutritionActions.ingredientAnalysisNamesLoaded, (state, action) => ({ ...state, ingredientAnalysisNames: action.names }))
+    on(NutritionActions.ingredientAnalysisNamesLoaded, (state, action) => ({ ...state, ingredientAnalysisNames: action.names })),
+    on(NutritionActions.productsLoaded, (state, action) => ({ ...state, products: action.products }))
 );

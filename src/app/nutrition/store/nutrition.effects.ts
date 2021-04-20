@@ -58,6 +58,19 @@ export class NutritionEffects {
         )
     ))
 
+    searchProducts$ = createEffect(() => this.actions$.pipe(
+        ofType(NutritionActions.searchProducts),
+        mergeMap(action =>
+            this.openFoodfactsService.searchProducts(action.tag).pipe(
+                map(products => NutritionActions.productsLoaded({ products: products })),
+                catchError(error => {
+                    console.log(error);
+                    return of(NutritionActions.productsLoadedError({ error: error }));
+                }),
+            )
+        )
+    ))
+
     factsLoaded$ = createEffect(() => this.actions$.pipe(
         ofType(NutritionActions.factsLoaded),
         map(() => {

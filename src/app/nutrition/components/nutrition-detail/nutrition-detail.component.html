@@ -38,11 +38,18 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="d-flex ingredient-analysis">
-      <span *ngFor="let ingredientAnalysis of product.ingredients_analysis_tags" class="badge badge-secondary"
-        [ngClass]="getIngredientAnalysisClass(ingredientAnalysis)">{{
-        getIngredientAnalysis(ingredientAnalysis) }}</span>
+  <div class="row justify-content-between align-items-end badges-scores">
+    <div class="col-12 col-md-6">
+      <app-ingredients-analysis [ingredientsAnalysisTags]="product.ingredients_analysis_tags">
+      </app-ingredients-analysis>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="scores">
+        <img [src]="nutriscoreImageUrl" class="score-image">
+        <img [src]="novaImageUrl" class="score-image">
+        <img *ngIf="product.ecoscore_grade && product.ecoscore_grade !== 'unknown'" [src]="ecoScoreImageUrl"
+          class="score-image">
+      </div>
     </div>
     <!-- <div>{{product.serving_quantity}}</div> -->
   </div>
@@ -54,15 +61,6 @@
     <div class="table-responsive">
       <app-ingredients-table [ingredients]="product.ingredients">
       </app-ingredients-table>
-    </div>
-  </div>
-  <div class="row">
-    <div>
-      <img [src]="nutriscoreImageUrl" style="height:72px;float:right;margin-left:0.5rem;">
-      <img [src]="novaImageUrl" style="height:72px;float:right;margin-left:0.5rem;">
-      <img *ngIf="product.ecoscore_grade && product.ecoscore_grade !== 'unknown'" [src]="ecoScoreImageUrl"
-        style="height:72px;float:right;margin-left:0.5rem;">
-      <!-- {{product|json}} -->
     </div>
   </div>
 </div>

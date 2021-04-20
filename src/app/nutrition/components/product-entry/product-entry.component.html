@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-img-top d-flex">
+        <img [src]="product.image_url" alt="Product image">
+        <div class="background-blur" [style.background-image]="'url(' +product.image_url + ')'"></div>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{productName}}</h5>
+        <p class="card-text">{{product.ingredients_text_en}}</p>
+        <p class="card-text">{{product.ingredients_text}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>

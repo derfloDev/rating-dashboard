@@ -12,6 +12,8 @@ import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { NotificationComponent } from './components/notification/notification.component';
+import { ProductListComponent } from './nutrition/components/product-list/product-list.component';
+import { ProductEntryComponent } from './nutrition/components/product-entry/product-entry.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { NotificationComponent } from './components/notification/notification.co
     NavigationComponent,
     UserContextComponent,
     NotificationComponent,
+    ProductListComponent,
+    ProductEntryComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

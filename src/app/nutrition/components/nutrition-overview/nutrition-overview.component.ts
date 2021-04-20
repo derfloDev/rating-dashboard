@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { loadFacts, loadIngredientAnalysisNames, loadIngredientNames, loadNutrientNames } from '../../store/nutrition.actions';
+import { loadFacts, loadIngredientAnalysisNames, loadIngredientNames, loadNutrientNames, searchProducts } from '../../store/nutrition.actions';
 
 @Component({
   selector: 'app-nutrition-overview',
@@ -22,7 +22,8 @@ export class NutritionOverviewComponent implements OnInit {
   }
 
   loadFacts(): void {
-    this.store.dispatch(loadFacts({ barcode: this.searchControl.value }))
+    this.store.dispatch(searchProducts({ tag: this.searchControl.value }))
+    // this.store.dispatch(loadFacts({ barcode: this.searchControl.value }))
   }
 
 }

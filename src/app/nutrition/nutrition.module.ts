@@ -11,6 +11,7 @@ import { nurtitionFeatureKey, nutritionReducer } from './store/nutrition.reducer
 import { NutritionEffects } from './store/nutrition.effects';
 import { NutrimentsTableComponent } from './components/nutriments-table/nutriments-table.component';
 import { IngredientsTableComponent } from './components/ingredients-table/ingredients-table.component';
+import { IngredientsAnalysisComponent } from './components/ingredients-analysis/ingredients-analysis.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { IngredientsTableComponent } from './components/ingredients-table/ingred
     NutritionDetailComponent,
     NutritionOverviewComponent,
     NutrimentsTableComponent,
-    IngredientsTableComponent
+    IngredientsTableComponent,
+    IngredientsAnalysisComponent
   ],
   imports: [
     CommonModule,
