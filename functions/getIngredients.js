@@ -17,15 +17,13 @@ exports.handler = async function (event, context) {
     const language = event.queryStringParameters.lang || 'de';
     const ingredients = await response.json();
     const nutritientNames = [];
-    console.log(nutritientNames)
 
     Object.entries(ingredients).forEach(
         ([key, value]) => {
             nutritientNames.push({ key: key, value: value.name[language] })
         }
     );
-
-    console.log(nutritientNames[0])
+    
     return {
         statusCode: 200,
         body: JSON.stringify({ message: nutritientNames })

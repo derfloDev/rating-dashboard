@@ -7,12 +7,17 @@ import { NutritionOverviewComponent } from './components/nutrition-overview/nutr
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { nurtitionFeatureKey, nutritionReducer } from './store/nutrition.reducer';
+import {
+  nurtitionFeatureKey,
+  nutritionReducer,
+} from './store/nutrition.reducer';
 import { NutritionEffects } from './store/nutrition.effects';
 import { NutrimentsTableComponent } from './components/nutriments-table/nutriments-table.component';
 import { IngredientsTableComponent } from './components/ingredients-table/ingredients-table.component';
 import { IngredientsAnalysisComponent } from './components/ingredients-analysis/ingredients-analysis.component';
-
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductEntryComponent } from './components/product-entry/product-entry.component';
+import { ScoreImageComponent } from './components/score-image/score-image.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,10 @@ import { IngredientsAnalysisComponent } from './components/ingredients-analysis/
     NutritionOverviewComponent,
     NutrimentsTableComponent,
     IngredientsTableComponent,
-    IngredientsAnalysisComponent
+    IngredientsAnalysisComponent,
+    ProductListComponent,
+    ProductEntryComponent,
+    ScoreImageComponent,
   ],
   imports: [
     CommonModule,
@@ -28,7 +36,7 @@ import { IngredientsAnalysisComponent } from './components/ingredients-analysis/
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forFeature(nurtitionFeatureKey, nutritionReducer),
-    EffectsModule.forFeature([NutritionEffects])
-  ]
+    EffectsModule.forFeature([NutritionEffects]),
+  ],
 })
-export class NutritionModule { }
+export class NutritionModule {}

@@ -1,22 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { map } from 'rxjs/operators';
-import { Nutriments } from '../../model/nutriments';
+import { Nutriments } from 'openfoodfac-ts/dist/OpenFoodFactsApi/types';
 import { NutritientName } from '../../model/nutritient-name';
 import { selectNutritienNames } from '../../store/nutrition.selector';
 
 @Component({
   selector: 'app-nutriments-table',
   templateUrl: './nutriments-table.component.html',
-  styleUrls: ['./nutriments-table.component.scss']
+  styleUrls: ['./nutriments-table.component.scss'],
 })
 export class NutrimentsTableComponent implements OnInit {
-
   @Input()
   nutriments: Nutriments;
 
   @Input()
-  nutritionDataPer:string;
+  nutritionDataPer: string;
 
   public nutrimentsToDisplay: NutritientName[];
   // = [
@@ -24,19 +22,21 @@ export class NutrimentsTableComponent implements OnInit {
   // ];
 
   constructor(private store: Store) {
-    this.store.select(selectNutritienNames).subscribe(nutritionNames =>
-      this.nutrimentsToDisplay = nutritionNames);
+    this.store
+      .select(selectNutritienNames)
+      .subscribe(
+        (nutritionNames) => (this.nutrimentsToDisplay = nutritionNames)
+      );
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   showNutriment(key: string): boolean {
     return Object.keys(this.nutriments).indexOf(this.clearKey(key)) >= 0;
   }
 
   getNutrimentValue<K extends keyof Nutriments>(key: string): string {
-    const checkedKey = this.clearKey(key) as unknown as K;
+    const checkedKey = (this.clearKey(key) as unknown) as K;
     const value = this.prop(this.nutriments, checkedKey);
     return String(value);
   }

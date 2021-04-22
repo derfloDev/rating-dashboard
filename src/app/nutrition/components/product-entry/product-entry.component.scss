@@ -1,3 +1,11 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+.card {
+    margin-bottom: 15px;
+}
+
 .card-img-top {
     position: relative;
     overflow: hidden;
@@ -34,5 +42,19 @@
         display: -webkit-box;
         -webkit-line-clamp: 5;
         -webkit-box-orient: vertical;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .card-body {
+        padding: 1rem;
+    }
+    .card-img-top {
+        img {
+            height: 130px;
+        }
+    }
+    .card-text {
+        height: 70px;
     }
 }

@@ -6,33 +6,43 @@ import { selectIngredientAnalysisNames } from '../../store/nutrition.selector';
 @Component({
   selector: 'app-ingredients-analysis',
   templateUrl: './ingredients-analysis.component.html',
-  styleUrls: ['./ingredients-analysis.component.scss']
+  styleUrls: ['./ingredients-analysis.component.scss'],
 })
 export class IngredientsAnalysisComponent implements OnInit {
-
   @Input()
   ingredientsAnalysisTags: string[];
 
   public ingredientAnalysisNames: NutritientName[];
 
   constructor(private store: Store) {
-    this.store.select(selectIngredientAnalysisNames).subscribe(ingredientAnalysisNames =>
-      this.ingredientAnalysisNames = ingredientAnalysisNames);
+    this.store
+      .select(selectIngredientAnalysisNames)
+      .subscribe(
+        (ingredientAnalysisNames) =>
+          (this.ingredientAnalysisNames = ingredientAnalysisNames)
+      );
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   getIngredientAnalysis(ingredientAnalysisTag: string): string {
-    return this.ingredientAnalysisNames.find((name) => name.key === ingredientAnalysisTag)?.value;
+    return this.ingredientAnalysisNames.find(
+      (name) => name.key === ingredientAnalysisTag
+    )?.value;
   }
 
   getIngredientAnalysisClass(ingredientAnalysisTag: string): string {
-    if (ingredientAnalysisTag.includes('may-contain') || ingredientAnalysisTag.includes('maybe')) {
+    if (
+      ingredientAnalysisTag.includes('may-contain') ||
+      ingredientAnalysisTag.includes('maybe')
+    ) {
       return 'badge-warning';
     } else if (ingredientAnalysisTag.includes('unknown')) {
       return 'badge-secondary';
-    } else if (ingredientAnalysisTag.includes('non-') || ingredientAnalysisTag.includes('palm-oil')) {
+    } else if (
+      ingredientAnalysisTag.includes('non-') ||
+      ingredientAnalysisTag === 'en:palm-oil'
+    ) {
       return 'badge-danger';
     } else if (ingredientAnalysisTag.includes('-free')) {
       return 'badge-success';

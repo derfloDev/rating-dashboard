@@ -12,8 +12,6 @@ import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { NotificationComponent } from './components/notification/notification.component';
-import { ProductListComponent } from './nutrition/components/product-list/product-list.component';
-import { ProductEntryComponent } from './nutrition/components/product-entry/product-entry.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +21,6 @@ import { ProductEntryComponent } from './nutrition/components/product-entry/prod
     NavigationComponent,
     UserContextComponent,
     NotificationComponent,
-    ProductListComponent,
-    ProductEntryComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -33,9 +29,9 @@ import { ProductEntryComponent } from './nutrition/components/product-entry/prod
     EffectsModule.forRoot(),
     UserModule,
 
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

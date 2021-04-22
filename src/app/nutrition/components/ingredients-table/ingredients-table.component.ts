@@ -1,11 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NumberValueAccessor } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { map } from 'rxjs/operators';
-import { Ingredient } from '../../model/ingredient';
-import { Nutriments } from '../../model/nutriments';
+import { Ingredient } from 'openfoodfac-ts/dist/OpenFoodFactsApi/types';
 import { NutritientName } from '../../model/nutritient-name';
-import { selectIngredientNames, selectNutritienNames } from '../../store/nutrition.selector';
+import { selectIngredientNames } from '../../store/nutrition.selector';
 
 @Component({
   selector: 'app-ingredients-table',
