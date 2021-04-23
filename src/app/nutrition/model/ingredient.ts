@@ -1,12 +1,8 @@
-export interface Ingredient {
-    "text": string,
-    "vegan": string,
-    "rank": number,
-    "vegetarian": string,
-    "id": string,
-    "has_sub_ingredients": string,
-    "percent_estimate": number,
-    "percent_max": number,
-    "percent_min": number,
-    "processing": string,
+import { Ingredient as ApiIngredient } from 'openfoodfac-ts/dist/OpenFoodFactsApi/types';
+export interface Ingredient extends ApiIngredient {
+  vegan: string;
+  vegetarian: string;
+  has_sub_ingredients: string;
+  percent_estimate: number;
+  processing: string;
 }

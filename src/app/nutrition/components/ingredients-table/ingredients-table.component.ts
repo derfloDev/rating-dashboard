@@ -1,31 +1,29 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Ingredient } from 'openfoodfac-ts/dist/OpenFoodFactsApi/types';
-import { NutritientName } from '../../model/nutritient-name';
+import { LocalizedName } from 'src/app/shared/models/localized-name';
+import { Ingredient } from '../../model/ingredient';
 import { selectIngredientNames } from '../../store/nutrition.selector';
 
 @Component({
   selector: 'app-ingredients-table',
   templateUrl: './ingredients-table.component.html',
-  styleUrls: ['./ingredients-table.component.scss']
+  styleUrls: ['./ingredients-table.component.scss'],
 })
 export class IngredientsTableComponent implements OnInit {
-
   @Input()
   ingredients: Ingredient[];
 
-  @Input()
-  nutritionDataPer: string;
-
-  public ingredientsToDisplay: NutritientName[];
+  public ingredientsToDisplay: LocalizedName[];
 
   constructor(private store: Store) {
-    this.store.select(selectIngredientNames).subscribe(ingredientNames =>
-      this.ingredientsToDisplay = ingredientNames);
+    this.store
+      .select(selectIngredientNames)
+      .subscribe(
+        (ingredientNames) => (this.ingredientsToDisplay = ingredientNames)
+      );
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   showIngredient(ingredient: Ingredient): boolean {
     return !!this.findIngredientName(ingredient);
@@ -39,7 +37,10 @@ export class IngredientsTableComponent implements OnInit {
     return Number(number).toFixed(2);
   }
 
-  private findIngredientName(ingredient: Ingredient): NutritientName {
-    return this.ingredientsToDisplay.find(ingredientToDisplay => ingredientToDisplay.key == ingredient.id);
+  private findIngredientName(ingredient: Ingredient): LocalizedName {
+    return this.ingredientsToDisplay.find(
+      (ingredientToDisplay) =>
+        ingredientToDisplay.key == ingredient.id.replace(/^[^:]+:/, '')
+    );
   }
 }

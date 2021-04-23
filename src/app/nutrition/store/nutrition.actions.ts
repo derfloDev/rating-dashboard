@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { NutritientName } from '../model/nutritient-name';
+import { LocalizedName } from 'src/app/shared/models/localized-name';
 import { Product } from '../model/product';
 
 export const loadFacts = createAction(
@@ -17,7 +17,7 @@ export const factsLoadedError = createAction(
 
 export const searchProducts = createAction(
   '[Nutrition] search products',
-  props<{ tag: string }>()
+  props<{ searchTerm: string }>()
 );
 export const productsLoaded = createAction(
   '[Nutrition] products loaded',
@@ -28,38 +28,38 @@ export const productsLoadedError = createAction(
   props<{ error: any }>()
 );
 
-export const loadNutrientNames = createAction(
+export const loadLocalizedNutrientNames = createAction(
   '[Nutrition] load nutrient names'
 );
-export const nutrientNamesLoaded = createAction(
+export const localizeNutrientNamesLoaded = createAction(
   '[Nutrition] nutrient names loaded',
-  props<{ names: NutritientName[] }>()
+  props<{ names: LocalizedName[] }>()
 );
-export const nutrientNamesLoadedError = createAction(
+export const localizedNutrientNamesLoadedError = createAction(
   '[Nutrition] nutrient names loaded error',
   props<{ error: any }>()
 );
 
-export const loadIngredientNames = createAction(
+export const loadLocalizedIngredientNames = createAction(
   '[Nutrition] load ingredient names'
 );
-export const ingredientNamesLoaded = createAction(
+export const localizedIngredientNamesLoaded = createAction(
   '[Nutrition] ingredient names loaded',
-  props<{ names: NutritientName[] }>()
+  props<{ names: LocalizedName[] }>()
 );
-export const ingredientNamesLoadedError = createAction(
+export const localizedIngredientNamesLoadedError = createAction(
   '[Nutrition] ingredient names loaded error',
   props<{ error: any }>()
 );
 
-export const loadIngredientAnalysisNames = createAction(
+export const loadLocalizedIngredientAnalysisNames = createAction(
   '[Nutrition] load ingredient analysis names'
 );
-export const ingredientAnalysisNamesLoaded = createAction(
+export const localizedIngredientAnalysisNamesLoaded = createAction(
   '[Nutrition] ingredient analysis names loaded',
-  props<{ names: NutritientName[] }>()
+  props<{ names: LocalizedName[] }>()
 );
-export const ingredientAnalysisNamesLoadedError = createAction(
+export const localizedIngredientAnalysisNamesLoadedError = createAction(
   '[Nutrition] ingredient analysis names loaded error',
   props<{ error: any }>()
 );

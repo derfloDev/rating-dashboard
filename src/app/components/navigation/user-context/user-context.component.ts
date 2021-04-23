@@ -8,21 +8,17 @@ import { selectIsAuthenticated } from 'src/app/user/store/user.selector';
 @Component({
   selector: 'app-user-context',
   templateUrl: './user-context.component.html',
-  styleUrls: ['./user-context.component.scss']
+  styleUrls: ['./user-context.component.scss'],
 })
 export class UserContextComponent implements OnInit {
-
   @Input()
   public userData: UserMetadata | null;
 
-  public isAuthenticated: Observable<boolean>;
+  public isAuthenticated$ = this.store.select(selectIsAuthenticated);
 
-  constructor(private store: Store) {
-    this.isAuthenticated = this.store.select(selectIsAuthenticated);
-  }
+  constructor(private store: Store) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public showUserDialog(): void {
     this.store.dispatch(UserActions.logIn());

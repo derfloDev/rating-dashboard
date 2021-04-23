@@ -2,9 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { from, Observable, throwError } from 'rxjs';
 import { catchError, filter, map } from 'rxjs/operators';
-import { NutritientName } from '../model/nutritient-name';
 import { OpenFoodFactsApi } from 'openfoodfac-ts';
 import { Product } from '../model/product';
+import { LocalizedName } from 'src/app/shared/models/localized-name';
 
 @Injectable({
   providedIn: 'root',
@@ -46,11 +46,11 @@ export class OpenfoodfactsService {
     );
   }
 
-  getNutrientNames(): Observable<any> {
+  getLocalizedNutrientNames(): Observable<any> {
     const url = '/.netlify/functions/getNutrients';
     return this.httpClient.get<any>(url).pipe(
       map((response) => {
-        const nutritientNames: NutritientName[] = response.message;
+        const nutritientNames: LocalizedName[] = response.message;
         return nutritientNames;
       })
     );
@@ -60,18 +60,8 @@ export class OpenfoodfactsService {
     const url = '/.netlify/functions/getIngredients';
     return this.httpClient.get<any>(url).pipe(
       map((response) => {
-        const ingretientNames: NutritientName[] = response.message;
+        const ingretientNames: LocalizedName[] = response.message;
         return ingretientNames;
-      })
-    );
-  }
-
-  getIngredientAnalysisNames(): Observable<any> {
-    const url = '/.netlify/functions/getIngredientAnalysis';
-    return this.httpClient.get<any>(url).pipe(
-      map((response) => {
-        const ingretientAnylysisNames: NutritientName[] = response.message;
-        return ingretientAnylysisNames;
       })
     );
   }

@@ -1,43 +1,55 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
-import { catchError, map, mergeMap } from 'rxjs/operators';
+import { catchError, exhaustMap, map, mergeMap } from 'rxjs/operators';
 import { NotificationService } from 'src/app/services/notification.service';
+import { LoadMetadataService } from 'src/app/shared/services/load-metadata.service';
 import { OpenfoodfactsService } from '../services/openfoodfacts.service';
 import * as NutritionActions from './nutrition.actions';
+import { selectProduct } from './nutrition.selector';
 
 @Injectable()
 export class NutritionEffects {
-  loadNutrientNames$ = createEffect(() =>
+  loadLocalizedNutrientNames$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(NutritionActions.loadNutrientNames),
-      mergeMap(() =>
-        this.openFoodfactsService.getNutrientNames().pipe(
-          map((names) =>
-            NutritionActions.nutrientNamesLoaded({ names: names })
-          ),
-          catchError((error) => {
-            return of(
-              NutritionActions.nutrientNamesLoadedError({ error: error })
-            );
-          })
-        )
-      )
+      ofType(NutritionActions.loadLocalizedNutrientNames),
+      concatLatestFrom(() => this.store.select(selectProduct)),
+      mergeMap(([action, product]) => {
+        if (!!product) {
+          return of(NutritionActions.factsLoaded({ product: product }));
+        } else {
+          return this.openFoodfactsService.getLocalizedNutrientNames().pipe(
+            map((names) =>
+              NutritionActions.localizeNutrientNamesLoaded({ names: names })
+            ),
+            catchError((error) => {
+              return of(
+                NutritionActions.localizedNutrientNamesLoadedError({
+                  error: error,
+                })
+              );
+            })
+          );
+        }
+      })
     )
   );
 
   loadIngredientNames$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(NutritionActions.loadIngredientNames),
+      ofType(NutritionActions.loadLocalizedIngredientNames),
       mergeMap(() =>
         this.openFoodfactsService.getIngredientNames().pipe(
           map((names) =>
-            NutritionActions.ingredientNamesLoaded({ names: names })
+            NutritionActions.localizedIngredientNamesLoaded({ names: names })
           ),
           catchError((error) => {
             return of(
-              NutritionActions.ingredientNamesLoadedError({ error: error })
+              NutritionActions.localizedIngredientNamesLoadedError({
+                error: error,
+              })
             );
           })
         )
@@ -45,17 +57,19 @@ export class NutritionEffects {
     )
   );
 
-  loadIngredAnalysisientNames$ = createEffect(() =>
+  loadLocalizedIngredAnalysisientNames$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(NutritionActions.loadIngredientAnalysisNames),
+      ofType(NutritionActions.loadLocalizedIngredientAnalysisNames),
       mergeMap(() =>
-        this.openFoodfactsService.getIngredientAnalysisNames().pipe(
+        this.loadMetadataService.getLocalizedIngredientAnalysisNames().pipe(
           map((names) =>
-            NutritionActions.ingredientAnalysisNamesLoaded({ names: names })
+            NutritionActions.localizedIngredientAnalysisNamesLoaded({
+              names: names,
+            })
           ),
           catchError((error) => {
             return of(
-              NutritionActions.ingredientAnalysisNamesLoadedError({
+              NutritionActions.localizedIngredientAnalysisNamesLoadedError({
                 error: error,
               })
             );
@@ -83,8 +97,9 @@ export class NutritionEffects {
   searchProducts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(NutritionActions.searchProducts),
-      mergeMap((action) =>
-        this.openFoodfactsService.searchProducts(action.tag).pipe(
+      exhaustMap((action) => {
+        this.router.navigate([`/nutrition/products/${action.searchTerm}`]);
+        return this.openFoodfactsService.searchProducts(action.searchTerm).pipe(
           map((products) =>
             NutritionActions.productsLoaded({ products: products })
           ),
@@ -92,8 +107,8 @@ export class NutritionEffects {
             console.log(error);
             return of(NutritionActions.productsLoadedError({ error: error }));
           })
-        )
-      )
+        );
+      })
     )
   );
 
@@ -101,19 +116,8 @@ export class NutritionEffects {
     () =>
       this.actions$.pipe(
         ofType(NutritionActions.factsLoaded),
-        map(() => {
-          this.router.navigate(['/nutrition/details']);
-        })
-      ),
-    { dispatch: false }
-  );
-
-  productsLoaded$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(NutritionActions.productsLoaded),
-        map(() => {
-          this.router.navigate(['/nutrition']);
+        map((action) => {
+          this.router.navigate([`/nutrition/product/${action.product.code}`]);
         })
       ),
     { dispatch: false }
@@ -134,6 +138,8 @@ export class NutritionEffects {
     private actions$: Actions,
     private openFoodfactsService: OpenfoodfactsService,
     private router: Router,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private loadMetadataService: LoadMetadataService,
+    private store: Store
   ) {}
 }

@@ -1,0 +1,29 @@
+<div>
+  <h1 class="display-4">Beauty facts</h1>
+  <p class="lead">Get Beauty facts from OpenBeautyFacts</p>
+  <hr class="my-4" />
+  <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
+  <div class="lead">
+    <div class="row justify-content-md-center">
+      <div class="col-md-auto">
+        <div class="input-group input-group-lg">
+          <input
+            type="search"
+            id="form1"
+            placeholder="Search"
+            aria-label="Products barcode"
+            class="form-control"
+            [formControl]="searchControl"
+          />
+          <div class="input-group-append">
+            <button type="button" class="btn btn-primary" (click)="loadFacts()">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <app-test-outer><app-test-inner></app-test-inner></app-test-outer> -->
+  <router-outlet></router-outlet>
+</div>

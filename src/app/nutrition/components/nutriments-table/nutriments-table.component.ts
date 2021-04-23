@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Nutriments } from 'openfoodfac-ts/dist/OpenFoodFactsApi/types';
-import { NutritientName } from '../../model/nutritient-name';
+import { LocalizedName } from 'src/app/shared/models/localized-name';
 import { selectNutritienNames } from '../../store/nutrition.selector';
 
 @Component({
@@ -16,7 +16,7 @@ export class NutrimentsTableComponent implements OnInit {
   @Input()
   nutritionDataPer: string;
 
-  public nutrimentsToDisplay: NutritientName[];
+  public nutrimentsToDisplay: LocalizedName[];
   // = [
   //   'energy', 'energy-kcal', 'proteins', 'casein', 'serum-proteins', 'nucleotides', 'carbohydrates', 'sugars', 'sucrose', 'glucose', 'fructose', 'lactose', 'maltose', 'maltodextrins', 'starch', 'polyols', 'fat', 'saturated-fat', 'butyric-acid', 'caproic-acid', 'caprylic-acid', 'capric-acid', 'lauric-acid', 'myristic-acid', 'palmitic-acid', 'stearic-acid', 'arachidic-acid', 'behenic-acid', 'lignoceric-acid', 'cerotic-acid', 'montanic-acid', 'melissic-acid', 'monounsaturated-fat', 'polyunsaturated-fat', 'omega-3-fat', 'alpha-linolenic-acid', 'eicosapentaenoic-acid', 'docosahexaenoic-acid', 'omega-6-fat', 'linoleic-acid', 'arachidonic-acid', 'gamma-linolenic-acid', 'dihomo-gamma-linolenic-acid', 'omega-9-fat', 'oleic-acid', 'elaidic-acid', 'gondoic-acid', 'mead-acid', 'erucic-acid', 'nervonic-acid', 'trans-fat', 'cholesterol', 'fiber', 'sodium', 'alcohol: % vol of alcohol', 'vitamin-a', 'vitamin-d', 'vitamin-e', 'vitamin-k', 'vitamin-c', 'vitamin-b1', 'vitamin-b2', 'vitamin-pp', 'vitamin-b6', 'vitamin-b9', 'vitamin-b12', 'biotin', 'pantothenic-acid', 'silica', 'bicarbonate', 'potassium', 'chloride', 'calcium', 'phosphorus', 'iron', 'magnesium', 'zinc', 'copper', 'manganese', 'fluoride', 'selenium', 'chromium', 'molybdenum', 'iodine', 'caffeine', 'taurine'
   // ];

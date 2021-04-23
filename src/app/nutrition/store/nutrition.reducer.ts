@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { NutritientName } from '../model/nutritient-name';
+import { LocalizedName } from 'src/app/shared/models/localized-name';
 import { Product } from '../model/product';
 import * as NutritionActions from './nutrition.actions';
 
@@ -7,9 +7,9 @@ export interface NutritionState {
   loading: boolean;
   currentProduct?: Product;
   products: Product[];
-  nutritientNames: NutritientName[];
-  ingredientNames: NutritientName[];
-  ingredientAnalysisNames: NutritientName[];
+  nutritientNames: LocalizedName[];
+  ingredientNames: LocalizedName[];
+  ingredientAnalysisNames: LocalizedName[];
 }
 
 export const initialNutritionState: NutritionState = {
@@ -29,6 +29,11 @@ export const nutritionReducer = createReducer(
     loading: true,
     currentProduct: null,
   })),
+  on(NutritionActions.searchProducts, (state) => ({
+    ...state,
+    loading: true,
+    products: [],
+  })),
   on(NutritionActions.factsLoaded, (state, action) => ({
     ...state,
     loading: false,
@@ -39,20 +44,24 @@ export const nutritionReducer = createReducer(
     loading: false,
     currentProduct: null,
   })),
-  on(NutritionActions.nutrientNamesLoaded, (state, action) => ({
+  on(NutritionActions.localizeNutrientNamesLoaded, (state, action) => ({
     ...state,
     nutritientNames: action.names,
   })),
-  on(NutritionActions.ingredientNamesLoaded, (state, action) => ({
+  on(NutritionActions.localizedIngredientNamesLoaded, (state, action) => ({
     ...state,
     ingredientNames: action.names,
   })),
-  on(NutritionActions.ingredientAnalysisNamesLoaded, (state, action) => ({
-    ...state,
-    ingredientAnalysisNames: action.names,
-  })),
+  on(
+    NutritionActions.localizedIngredientAnalysisNamesLoaded,
+    (state, action) => ({
+      ...state,
+      ingredientAnalysisNames: action.names,
+    })
+  ),
   on(NutritionActions.productsLoaded, (state, action) => ({
     ...state,
     products: action.products,
+    loading: false,
   }))
 );

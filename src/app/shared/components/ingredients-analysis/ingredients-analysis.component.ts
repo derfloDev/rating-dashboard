@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { NutritientName } from '../../model/nutritient-name';
-import { selectIngredientAnalysisNames } from '../../store/nutrition.selector';
+import { LocalizedName } from 'src/app/shared/models/localized-name';
 
 @Component({
   selector: 'app-ingredients-analysis',
@@ -9,19 +7,29 @@ import { selectIngredientAnalysisNames } from '../../store/nutrition.selector';
   styleUrls: ['./ingredients-analysis.component.scss'],
 })
 export class IngredientsAnalysisComponent implements OnInit {
-  @Input()
-  ingredientsAnalysisTags: string[];
-
-  public ingredientAnalysisNames: NutritientName[];
-
-  constructor(private store: Store) {
-    this.store
-      .select(selectIngredientAnalysisNames)
-      .subscribe(
-        (ingredientAnalysisNames) =>
-          (this.ingredientAnalysisNames = ingredientAnalysisNames)
-      );
+  private defaultIngredientsAnalysisTags = [
+    'en:palm-oil-content-unknown',
+    'en:vegan-status-unknown',
+    'en:vegetarian-status-unknown',
+  ];
+  private _ingredientsAnalysisTags: string[];
+  get ingredientsAnalysisTags(): string[] {
+    return this._ingredientsAnalysisTags;
   }
+
+  @Input()
+  set ingredientsAnalysisTags(val: string[]) {
+    if (!!val && val.length > 0) {
+      this._ingredientsAnalysisTags = val;
+    } else {
+      this._ingredientsAnalysisTags = this.defaultIngredientsAnalysisTags;
+    }
+  }
+
+  @Input()
+  public ingredientAnalysisNames: LocalizedName[];
+
+  constructor() {}
 
   ngOnInit(): void {}
 

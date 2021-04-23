@@ -29,3 +29,8 @@ export const selectProducts = createSelector(
   getNutritionState,
   (state: NutritionState) => state.products
 );
+
+export const selectLoading = createSelector(
+  getNutritionState,
+  (state: NutritionState) => state.loading
+);

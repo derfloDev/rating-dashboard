@@ -7,14 +7,25 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'nutrition', loadChildren: () => import('./nutrition/nutrition.module').then(m => m.NutritionModule) },
-  { path: '**', redirectTo: 'not-found' }
+  {
+    path: 'nutrition',
+    loadChildren: () =>
+      import('./nutrition/nutrition.module').then((m) => m.NutritionModule),
+  },
+  {
+    path: 'beauty',
+    loadChildren: () =>
+      import('./beauty/beauty.module').then((m) => m.BeautyModule),
+  },
+  { path: '**', redirectTo: 'not-found' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabled'
-  })],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabled',
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

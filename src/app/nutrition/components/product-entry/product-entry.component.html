@@ -8,10 +8,11 @@
   </div>
   <div class="card-body">
     <h5 class="card-title">{{ productName }}</h5>
-    <p class="card-text">{{ productIngredients }}</p>
+    <p class="card-text" [innerHtml]="productIngredients"></p>
 
     <app-ingredients-analysis
       [ingredientsAnalysisTags]="product.ingredients_analysis_tags"
+      [ingredientAnalysisNames]="ingredientAnalysisNames$ | async"
     >
     </app-ingredients-analysis>
   </div>

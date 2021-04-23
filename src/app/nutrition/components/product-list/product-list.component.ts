@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectProducts } from '../../store/nutrition.selector';
+import { selectLoading, selectProducts } from '../../store/nutrition.selector';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  public products = this.store.select(selectProducts);
-  
-  constructor(private store: Store) { }
+  public products$ = this.store.select(selectProducts);
 
-  ngOnInit(): void {
-  }
+  public loading$ = this.store.select(selectLoading);
 
+  constructor(private store: Store) {}
+
+  ngOnInit(): void {}
 }

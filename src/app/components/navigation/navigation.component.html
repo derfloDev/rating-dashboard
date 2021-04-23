@@ -1,27 +1,37 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
-        aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarToggler">
-        <!-- Links -->
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="home">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="nutrition">Nutrition</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="gjhsdfgklh">Not Found</a>
-            </li>
-        </ul>
-        <div class="d-block d-sm-none">
-            <app-user-context></app-user-context>
-        </div>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarToggler"
+    aria-controls="navbarToggler"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="nutrition">Nutrition</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="beauty">Beauty</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="gjhsdfgklh">Not Found</a>
+      </li>
+    </ul>
+    <div class="d-block d-sm-none">
+      <app-user-context></app-user-context>
     </div>
-    <div class="my-lg-0 d-none d-sm-inline-block">
-        <!-- <div class="user-infos d-block d-sm-none">
+  </div>
+  <div class="my-lg-0 d-none d-sm-inline-block">
+    <!-- <div class="user-infos d-block d-sm-none">
             <button class="d-block d-sm-none" >
                 <img class="user-icon rounded-circle">
                 <span class="navbar-text">
@@ -31,6 +41,6 @@
             <button class="btn btn-primary" type="button" 
                 >Login</button>
         </div> -->
-        <app-user-context [userData]="userData|async"></app-user-context>       
-    </div>
+    <app-user-context [userData]="userData$ | async"></app-user-context>
+  </div>
 </nav>

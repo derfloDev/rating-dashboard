@@ -1,22 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NutritionOverviewComponent } from './components/nutrition-overview/nutrition-overview.component';
-import { NutritionDetailComponent } from './components/nutrition-detail/nutrition-detail.component';
+import { ProductOverviewComponent } from './components/product-overview/product-overview.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 
 const routes: Routes = [
   {
-    path: '', component: NutritionOverviewComponent,
+    path: '',
+    component: ProductOverviewComponent,
     children: [
-      { path: 'details', component: NutritionDetailComponent },
+      { path: 'product/:productId', component: ProductDetailComponent },
       { path: 'products', component: ProductListComponent },
+      { path: 'products/:searchTerm', component: ProductListComponent },
       { path: '', redirectTo: 'products', pathMatch: 'full' },
-    ]
+    ],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class NutritionRoutingModule { }
+export class NutritionRoutingModule {}

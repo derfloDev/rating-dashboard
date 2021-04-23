@@ -10,7 +10,7 @@ import { UserMetadata } from 'src/app/user/model/userMetadata';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  public userData: Observable<UserMetadata> = this.store.select(selectUser);
+  public userData$: Observable<UserMetadata> = this.store.select(selectUser);
 
   constructor(private readonly store: Store) {
   }

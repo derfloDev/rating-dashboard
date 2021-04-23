@@ -1,4 +1,4 @@
-export interface NutritientName {
+export interface LocalizedName {
     key: string;
     value: string;
 }
