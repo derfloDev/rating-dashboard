@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { NutritionRoutingModule } from './nutrition-routing.module';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
@@ -19,6 +18,7 @@ import { ProductEntryComponent } from './components/product-entry/product-entry.
 import { ScoreImageComponent } from './components/score-image/score-image.component';
 import { SharedModule } from '../shared/shared.module';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
