@@ -1,3 +1,19 @@
+<ngb-carousel
+  *ngIf="mappedImages"
+  class="carousel"
+  [showNavigationArrows]="mappedImages.length > 1"
+>
+  <ng-template ngbSlide *ngFor="let image of mappedImages; let i = index">
+    <div class="picsum-img-wrapper">
+      <img [src]="image.src" [attr.alt]="image.name" />
+    </div>
+    <div class="carousel-caption">
+      <h3>{{ image.name }}</h3>
+      <!-- <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
+    </div>
+  </ng-template>
+</ngb-carousel>
+<!-- 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li
@@ -37,4 +53,4 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
+</div> -->

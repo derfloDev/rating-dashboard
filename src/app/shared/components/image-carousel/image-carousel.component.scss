@@ -1,12 +1,15 @@
 .carousel {
     height: 500px;
+    outline: none;
 
     .carousel-inner {
         height: 500px;
 
         img {
             height: 500px;
-            margin: auto;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
         }
     }
     margin-bottom: 1rem;

@@ -1,22 +1,71 @@
 <div>
-    <h1 class="display-4">Nutrition facts</h1>
-    <p class="lead">Get Nutrition facts from OpenFoodFacts</p>
-    <hr class="my-4">
-    <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
-    <div class="lead">
-        <div class="row justify-content-md-center">
-            <div class="col-md-auto">
-                <div class="input-group input-group-lg">
-                    <input type="search" id="form1" placeholder="Search" aria-label="Products barcode"
-                        class="form-control" [formControl]="searchControl" />
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-primary" (click)="loadFacts()">
-                            <i class="bi bi-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+  <h1 class="display-4">Nutrition facts</h1>
+  <p class="lead">Get Nutrition facts from OpenFoodFacts</p>
+  <hr class="my-4" />
+  <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
+  <div class="lead">
+    <div class="row justify-content-md-center">
+      <div class="col-md-auto">
+        <div class="input-group input-group-lg">
+          <input
+            type="search"
+            id="form1"
+            placeholder="Search"
+            aria-label="Products barcode"
+            class="form-control"
+            [formControl]="searchControl"
+          />
+          <div class="input-group-append">
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="searchProducts()"
+            >
+              <i class="bi bi-search"></i>
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="scanCode(content)"
+            >
+              <i class="bi bi-upc-scan"></i>
+            </button>
+            <input
+              type="file"
+              class="file-upload"
+              (change)="fileUploaded($event)"
+              #fileUpload
+            />
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="fileUpload.click()"
+            >
+              <i class="bi bi-upload"></i>
+            </button>
+          </div>
         </div>
+      </div>
     </div>
-    <router-outlet></router-outlet>
+  </div>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Scan code</h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div id="barcode" class="barcode-scanner"></div>
+    </div>
+    <div class="modal-footer justify-content-center">
+      <p>Place the barcode in front of your camera.</p>
+    </div>
+  </ng-template>
+  <router-outlet></router-outlet>
 </div>

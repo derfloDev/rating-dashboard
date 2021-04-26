@@ -5,9 +5,11 @@ import { Store } from '@ngrx/store';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { BarcodeService } from 'src/app/shared/services/barcode.service';
 import {
+  loadFacts,
   loadLocalizedIngredientAnalysisNames,
   searchProducts,
 } from '../../store/beauty.actions';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product-overview',
@@ -17,20 +19,20 @@ import {
 })
 export class ProductOverviewComponent implements OnInit {
   searchControl = new FormControl('Nivea'); //'4005900388490');
-  scanningCode = false;
 
   constructor(
     private store: Store,
     private route: ActivatedRoute,
     private barcodeService: BarcodeService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private modalService: NgbModal
   ) {
     // this.store.dispatch(loadNutrientNames());
     this.store.dispatch(loadLocalizedIngredientAnalysisNames());
     this.route.firstChild.params.subscribe((params) => {
       if (!!params.searchTerm) {
         this.searchControl.setValue(params.searchTerm);
-        this.loadFacts();
+        this.searchProducts();
       }
     });
   }
@@ -48,8 +50,9 @@ export class ProductOverviewComponent implements OnInit {
     }
   }
 
-  scanCode(): void {
-    this.scanningCode = true;
+  scanCode(content: any): void {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+
     this.barcodeService.initStream('#barcode').subscribe(
       (barcode) => this.barcodeProcessed(barcode),
       (error) => this.barcodeError(error)
@@ -60,8 +63,8 @@ export class ProductOverviewComponent implements OnInit {
     if (!!barcode) {
       this.searchControl.setValue(barcode);
       this.barcodeService.close('#barcode');
-      this.loadFacts();
-      this.scanningCode = false;
+      this.loadFacts(barcode);
+      this.modalService.dismissAll();
     }
   }
 
@@ -69,7 +72,11 @@ export class ProductOverviewComponent implements OnInit {
     this.notificationService.error(error.toString());
   }
 
-  loadFacts(): void {
+  loadFacts(barcode: string): void {
+    this.store.dispatch(loadFacts({ barcode: barcode }));
+  }
+
+  searchProducts(): void {
     this.store.dispatch(
       searchProducts({ searchTerm: this.searchControl.value })
     );

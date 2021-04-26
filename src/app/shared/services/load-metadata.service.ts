@@ -13,7 +13,7 @@ export class LoadMetadataService {
   getLocalizedNutrientNames(): Observable<any> {
     const url = '/.netlify/functions/getNutrients';
     return this.httpClient.get<any>(url).pipe(
-      map((response) => {
+      map((response: any) => {
         const nutritientNames: LocalizedName[] = response.message;
         return nutritientNames;
       })
@@ -23,7 +23,7 @@ export class LoadMetadataService {
   getLocalizedIngredientNames(): Observable<any> {
     const url = '/.netlify/functions/getIngredients';
     return this.httpClient.get<any>(url).pipe(
-      map((response) => {
+      map((response: any) => {
         const ingretientNames: LocalizedName[] = response.message;
         return ingretientNames;
       })
@@ -33,7 +33,7 @@ export class LoadMetadataService {
   getLocalizedIngredientAnalysisNames(): Observable<any> {
     const url = '/.netlify/functions/getIngredientAnalysis';
     return this.httpClient.get<any>(url).pipe(
-      map((response) => {
+      map((response: any) => {
         const ingretientAnylysisNames: LocalizedName[] = response.message;
         return ingretientAnylysisNames;
       })

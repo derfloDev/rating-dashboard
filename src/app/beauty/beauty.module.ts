@@ -1,5 +1,3 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ProductOverviewComponent } from './components/product-overview/product-overview.component';
 import { BeautyRoutingModule } from './beauty-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,6 +12,9 @@ import { TestOuterComponent } from './components/test-outer/test-outer.component
 import { TestInnerComponent } from './components/test-inner/test-inner.component';
 import { SharedModule } from '../shared/shared.module';
 import { IngredientsTableComponent } from './components/ingredients-table/ingredients-table.component';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { IngredientsTableComponent } from './components/ingredients-table/ingred
     IngredientsTableComponent,
   ],
   imports: [
+    NgbModalModule,
     CommonModule,
     BeautyRoutingModule,
     FormsModule,

@@ -28,7 +28,6 @@ import { NotificationComponent } from './components/notification/notification.co
     StoreModule.forRoot({}),
     EffectsModule.forRoot(),
     UserModule,
-
     HttpClientModule,
   ],
   providers: [],

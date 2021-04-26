@@ -27,15 +27,10 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets", "src/_redirects"],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/scss/bootstrap.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": [
               "node_modules/netlify-identity-widget/build/netlify-identity.js",
               "node_modules/netlify-identity-widget/build/netlify-identity-widget.js",
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/quagga/dist/quagga.min.js"
             ]
           },

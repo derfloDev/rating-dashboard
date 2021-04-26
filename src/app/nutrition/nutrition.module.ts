@@ -18,6 +18,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductEntryComponent } from './components/product-entry/product-entry.component';
 import { ScoreImageComponent } from './components/score-image/score-image.component';
 import { SharedModule } from '../shared/shared.module';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SharedModule } from '../shared/shared.module';
     StoreModule.forFeature(nurtitionFeatureKey, nutritionReducer),
     EffectsModule.forFeature([NutritionEffects]),
     SharedModule,
+    NgbModalModule,
   ],
 })
 export class NutritionModule {}
