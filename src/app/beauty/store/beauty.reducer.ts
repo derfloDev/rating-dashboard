@@ -23,7 +23,6 @@ export const beautyReducer = createReducer(
   on(BeautyActions.loadFacts, (state) => ({
     ...state,
     loading: true,
-    // currentProduct: null,
   })),
   on(BeautyActions.factsLoaded, (state, action) => ({
     ...state,

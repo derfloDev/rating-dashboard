@@ -1,12 +1,18 @@
 <div *ngIf="!(loading$ | async)">
-    <div class="row">
-        <div class="col-6 col-sm-4 col-md-3" *ngFor="let product of (products$|async)">
-            <app-product-entry [product]="product"></app-product-entry>
-        </div>
-    </div>
-</div>
-<div *ngIf="loading$ | async" class="text-center">
-    <div class="spinner-grow" role="status">
-      <span class="sr-only">Loading...</span>
+  <div class="row">
+    <div
+      class="col-6 col-sm-4 col-md-3"
+      *ngFor="let product of products$ | async"
+    >
+      <app-product-entry [product]="product"></app-product-entry>
     </div>
   </div>
+  <div class="not-found" *ngIf="(products$ | async).length == 0">
+    No Products found
+  </div>
+</div>
+<div *ngIf="loading$ | async" class="text-center">
+  <div class="spinner-grow" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>

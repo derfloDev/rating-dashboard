@@ -97,7 +97,7 @@ export class BarcodeService {
     });
   }
 
-  close(selector: string): void {
+  close(): void {
     Quagga.stop();
   }
 }

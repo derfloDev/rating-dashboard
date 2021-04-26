@@ -14,6 +14,9 @@ export class UserContextComponent implements OnInit {
   @Input()
   public userData: UserMetadata | null;
 
+  @Input()
+  hiddenXs: boolean = true;
+
   public isAuthenticated$ = this.store.select(selectIsAuthenticated);
 
   constructor(private store: Store) {}

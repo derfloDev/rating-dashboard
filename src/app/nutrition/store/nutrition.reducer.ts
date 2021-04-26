@@ -27,7 +27,6 @@ export const nutritionReducer = createReducer(
   on(NutritionActions.loadFacts, (state) => ({
     ...state,
     loading: true,
-    currentProduct: null,
   })),
   on(NutritionActions.searchProducts, (state) => ({
     ...state,

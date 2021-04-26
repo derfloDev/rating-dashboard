@@ -7,6 +7,9 @@
       <app-product-entry [product]="product"></app-product-entry>
     </div>
   </div>
+  <div class="not-found" *ngIf="(products$ | async).length == 0">
+    No Products found
+  </div>
 </div>
 <div *ngIf="loading$ | async" class="text-center">
   <div class="spinner-grow" role="status">

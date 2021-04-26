@@ -1,4 +1,4 @@
-<div class="d-none d-sm-block">
+<div [ngClass]="{ 'd-none d-sm-block': hiddenXs }">
   <button
     class="user-infos"
     *ngIf="isAuthenticated$ | async"

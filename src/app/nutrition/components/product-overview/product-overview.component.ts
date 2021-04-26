@@ -55,25 +55,32 @@ export class ProductOverviewComponent implements OnInit {
   }
 
   scanCode(content: any): void {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+    const modal = this.modalService.open(content, {
+      ariaLabelledBy: 'modal-basic-title',
+    });
 
     this.barcodeService.initStream('#barcode').subscribe(
       (barcode) => this.barcodeProcessed(barcode),
       (error) => this.barcodeError(error)
     );
+
+    modal.dismissed.subscribe(() => {
+      this.barcodeService.close();
+    });
   }
 
   barcodeProcessed(barcode: string): void {
     if (!!barcode) {
       this.searchControl.setValue(barcode);
-      this.barcodeService.close('#barcode');
+      this.barcodeService.close();
       this.loadFacts(barcode);
       this.modalService.dismissAll();
     }
   }
 
   barcodeError(error: any): void {
-    this.notificationService.error(error.toString());
+    this.notificationService.error("Barcode not found");
+    // this.notificationService.error(error.toString());
   }
 
   loadFacts(barcode: string): void {

@@ -15,25 +15,20 @@ export class NutritionEffects {
   loadLocalizedNutrientNames$ = createEffect(() =>
     this.actions$.pipe(
       ofType(NutritionActions.loadLocalizedNutrientNames),
-      concatLatestFrom(() => this.store.select(selectProduct)),
-      mergeMap(([action, product]) => {
-        if (!!product) {
-          return of(NutritionActions.factsLoaded({ product: product }));
-        } else {
-          return this.openFoodfactsService.getLocalizedNutrientNames().pipe(
-            map((names) =>
-              NutritionActions.localizeNutrientNamesLoaded({ names: names })
-            ),
-            catchError((error) => {
-              return of(
-                NutritionActions.localizedNutrientNamesLoadedError({
-                  error: error,
-                })
-              );
-            })
-          );
-        }
-      })
+      mergeMap(() =>
+        this.openFoodfactsService.getLocalizedNutrientNames().pipe(
+          map((names) =>
+            NutritionActions.localizeNutrientNamesLoaded({ names: names })
+          ),
+          catchError((error) => {
+            return of(
+              NutritionActions.localizedNutrientNamesLoadedError({
+                error: error,
+              })
+            );
+          })
+        )
+      )
     )
   );
 
@@ -82,15 +77,22 @@ export class NutritionEffects {
   loadFacts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(NutritionActions.loadFacts),
-      mergeMap((action) =>
-        this.openFoodfactsService.getFacts(action.barcode).pipe(
-          map((product) => NutritionActions.factsLoaded({ product: product })),
-          catchError((error) => {
-            console.log(error);
-            return of(NutritionActions.factsLoadedError({ error: error }));
-          })
-        )
-      )
+      concatLatestFrom(() => this.store.select(selectProduct)),
+      mergeMap(([action, product]) => {
+        if (!!product) {
+          return of(NutritionActions.factsLoaded({ product: product }));
+        } else {
+          return this.openFoodfactsService.getFacts(action.barcode).pipe(
+            map((product) => {
+              return NutritionActions.factsLoaded({ product: product });
+            }),
+            catchError((error) => {
+              console.log(error);
+              return of(NutritionActions.factsLoadedError({ error: error }));
+            })
+          );
+        }
+      })
     )
   );
 
