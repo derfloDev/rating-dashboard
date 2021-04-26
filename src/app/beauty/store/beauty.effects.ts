@@ -4,7 +4,7 @@ import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map, mergeMap } from 'rxjs/operators';
-import { NotificationService } from 'src/app/services/notification.service';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { LoadMetadataService } from 'src/app/shared/services/load-metadata.service';
 import { OpenBeautyfactsService } from '../services/open-beautyfacts.service';
 import * as BeautyActions from './beauty.actions';
