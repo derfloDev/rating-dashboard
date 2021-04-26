@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { BarcodeService } from 'src/app/shared/services/barcode.service';
 import {
   loadLocalizedIngredientAnalysisNames,
   searchProducts,
@@ -15,7 +16,11 @@ import {
 export class ProductOverviewComponent implements OnInit {
   searchControl = new FormControl('Nivea'); //'4005900388490');
 
-  constructor(private store: Store, private route: ActivatedRoute) {
+  constructor(
+    private store: Store,
+    private route: ActivatedRoute,
+    private barcodeService: BarcodeService
+  ) {
     // this.store.dispatch(loadNutrientNames());
     this.store.dispatch(loadLocalizedIngredientAnalysisNames());
     this.route.firstChild.params.subscribe((params) => {
@@ -26,7 +31,9 @@ export class ProductOverviewComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.barcodeService.init('#barcode');
+  }
 
   loadFacts(): void {
     this.store.dispatch(
