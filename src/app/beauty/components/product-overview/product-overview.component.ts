@@ -62,7 +62,6 @@ export class ProductOverviewComponent implements OnInit {
       this.barcodeService.close('#barcode');
       this.loadFacts();
       this.scanningCode = false;
-      $('#exampleModal').modal('hide')
     }
   }
 
