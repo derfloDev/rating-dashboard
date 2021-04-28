@@ -12,6 +12,7 @@ import { LocalizedName } from 'src/app/shared/models/localized-name';
 import getProductImages from 'src/app/shared/functions/get-product-images';
 import { ActivatedRoute } from '@angular/router';
 import { loadProduct } from '../../store/nutrition.actions';
+import { FavoritesService } from '../../services/favorites.service';
 
 @Component({
   selector: 'app-product',
@@ -30,7 +31,8 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private store: Store,
     private location: Location,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private favoritesService: FavoritesService
   ) {
     this.route.params.subscribe((params) => {
       if (!!params.productId) {
@@ -48,6 +50,10 @@ export class ProductDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  addFavorite(): void {
+    this.favoritesService.add(this.product.code).subscribe();
   }
 
   get images(): { name: string; src: string }[] {
