@@ -42,6 +42,8 @@ export class ProductDetailComponent implements OnInit {
     this.store
       .select(selectProduct)
       .subscribe((product) => (this.product = product));
+
+    this.favoritesService.get().subscribe();
   }
 
   ngOnInit(): void {
