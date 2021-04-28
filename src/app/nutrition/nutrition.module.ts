@@ -19,6 +19,8 @@ import { ScoreImageComponent } from './components/score-image/score-image.compon
 import { SharedModule } from '../shared/shared.module';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from '../shared/interceptor/token.interceptor';
 
 @NgModule({
   declarations: [

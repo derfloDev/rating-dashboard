@@ -9,12 +9,24 @@ import { map } from 'rxjs/operators';
 export class FavoritesService {
   constructor(private httpClient: HttpClient) {}
 
-  add(productId:string): Observable<any> {
-    const url = '/.netlify/functions/add-product-favorite';
+  add(productId: string): Observable<any> {
+    const url = '/.netlify/functions/add-productFavorite';
     return this.httpClient
       .post<any>(url, {
         productId: productId,
       })
+      .pipe(
+        map((response: any) => {
+          console.log(response);
+          return response;
+        })
+      );
+  }
+
+  get(): Observable<any> {
+    const url = '/.netlify/functions/get-productFavoritesByUser';
+    return this.httpClient
+      .get<any>(url)
       .pipe(
         map((response: any) => {
           console.log(response);

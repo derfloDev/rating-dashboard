@@ -9,10 +9,11 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { UserContextComponent } from './components/navigation/user-context/user-context.component';
 import { StoreModule } from '@ngrx/store';
 import { UserModule } from './user/user.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { NotificationComponent } from './components/notification/notification.component';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { TokenInterceptor } from './shared/interceptor/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
     UserModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
