@@ -16,3 +16,9 @@
     <span class="sr-only">Loading...</span>
   </div>
 </div>
+<app-pager
+  [page]="currentPage$ | async"
+  [pageSize]="pageSize$ | async"
+  [totalItems]="totalItems$ | async"
+  (pageChange)="pageChanged($event)"
+></app-pager>

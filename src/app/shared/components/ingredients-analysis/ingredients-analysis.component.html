@@ -1,5 +1,8 @@
 <div class="d-flex ingredient-analysis">
-    <span *ngFor="let ingredientAnalysis of ingredientsAnalysisTags" class="badge badge-secondary"
-        [ngClass]="getIngredientAnalysisClass(ingredientAnalysis)">{{
-        getIngredientAnalysis(ingredientAnalysis) }}</span>
+  <span
+    *ngFor="let ingredientAnalysis of ingredientsAnalysisTags"
+    class="badge badge-secondary"
+    [ngClass]="getIngredientAnalysisClass(ingredientAnalysis)"
+    >{{ getIngredientAnalysis(ingredientAnalysis) }}</span
+  >
 </div>

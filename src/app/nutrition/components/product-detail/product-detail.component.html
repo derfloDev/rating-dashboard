@@ -18,15 +18,21 @@
         </app-ingredients-analysis>
       </div>
       <div class="col-12 col-md-6">
-        <div class="scores">
+        <div class="scores d-flex justify-content-sm-end justify-content-between">
           <app-score-image
             [product]="product"
             type="nutriscore"
+            class="score"
           ></app-score-image>
-          <app-score-image [product]="product" type="nova"></app-score-image>
+          <app-score-image
+            [product]="product"
+            type="nova"
+            class="score"
+          ></app-score-image>
           <app-score-image
             [product]="product"
             type="ecoscore"
+            class="score"
           ></app-score-image>
         </div>
       </div>

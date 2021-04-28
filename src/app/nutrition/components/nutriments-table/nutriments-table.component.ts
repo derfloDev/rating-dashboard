@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Nutriments } from 'openfoodfac-ts/dist/OpenFoodFactsApi/types';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
+import { Nutriments } from '../../model/product';
 import { selectNutritienNames } from '../../store/nutrition.selector';
 
 @Component({

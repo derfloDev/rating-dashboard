@@ -34,3 +34,23 @@ export const selectLoading = createSelector(
   getNutritionState,
   (state: NutritionState) => state.loading
 );
+
+export const selectCurrentPage = createSelector(
+  getNutritionState,
+  (state: NutritionState) => state.curentPage
+);
+
+export const selectTotalItems = createSelector(
+  getNutritionState,
+  (state: NutritionState) => state.totalItems
+);
+
+export const selectPageSize = createSelector(
+  getNutritionState,
+  (state: NutritionState) => state.pageSize
+);
+
+export const selectSearchTerm = createSelector(
+  getNutritionState,
+  (state: NutritionState) => state.searchTerm
+);

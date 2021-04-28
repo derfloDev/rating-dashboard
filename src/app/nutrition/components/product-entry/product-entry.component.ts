@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import getImageSource from 'src/app/shared/functions/get-image-sources';
 import getProductIngredients from 'src/app/shared/functions/get-product-ingredients';
 import getProductName from 'src/app/shared/functions/get-product-name';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
 import { Product } from '../../model/product';
-import { factsLoaded } from '../../store/nutrition.actions';
+import { productLoaded } from '../../store/nutrition.actions';
 import { selectIngredientAnalysisNames } from '../../store/nutrition.selector';
 
 @Component({
@@ -32,8 +33,12 @@ export class ProductEntryComponent implements OnInit {
   get productIngredients(): string {
     return getProductIngredients(this.product);
   }
-
+  
+  get productImage(): string {
+    return getImageSource(this.product.selected_images?.front?.display);
+  }
+  
   showDetails(): void {
-    this.store.dispatch(factsLoaded({ product: this.product }));
+    this.store.dispatch(productLoaded({ product: this.product }));
   }
 }

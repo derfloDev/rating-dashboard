@@ -4,6 +4,16 @@ export interface LanguagesCodes {
   fr: number;
 }
 
+export interface ProductsResponse {
+  page: number;
+  page_size: number;
+  page_count: number;
+  count: number;
+  skip: number;
+  products: Product[];
+  status_verbose: string;
+}
+
 export interface FrontFrFr {
   geometry: string;
   normalize?: any;

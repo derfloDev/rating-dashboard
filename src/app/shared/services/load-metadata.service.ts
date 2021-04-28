@@ -39,4 +39,14 @@ export class LoadMetadataService {
       })
     );
   }
+
+  getCountryNames(): Observable<any> {
+    const url = '/.netlify/functions/getCountries';
+    return this.httpClient.get<any>(url).pipe(
+      map((response: any) => {
+        const ingretientAnylysisNames: LocalizedName[] = response.message;
+        return ingretientAnylysisNames;
+      })
+    );
+  }
 }

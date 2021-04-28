@@ -1,11 +1,24 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
 .ingredient-analysis {
     flex-wrap: wrap;
 
     .badge {
         margin-bottom: 1em;
+        overflow-wrap: anywhere;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .badge:not(:last-child) {
         margin-right: 1em;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .badge {
+        margin-bottom: 0.5em;
     }
 }

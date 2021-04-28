@@ -5,9 +5,10 @@ import { Store } from '@ngrx/store';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { BarcodeService } from 'src/app/shared/services/barcode.service';
 import {
-  loadFacts,
+  loadProduct,
   loadLocalizedIngredientAnalysisNames,
-  searchProducts,
+  search,
+  loadCountryNames,
 } from '../../store/beauty.actions';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -27,12 +28,12 @@ export class ProductOverviewComponent implements OnInit {
     private notificationService: NotificationService,
     private modalService: NgbModal
   ) {
-    // this.store.dispatch(loadNutrientNames());
+    this.store.dispatch(loadCountryNames());
     this.store.dispatch(loadLocalizedIngredientAnalysisNames());
     this.route.firstChild.params.subscribe((params) => {
       if (!!params.searchTerm) {
         this.searchControl.setValue(params.searchTerm);
-        this.searchProducts();
+        this.search();
       }
     });
   }
@@ -69,7 +70,7 @@ export class ProductOverviewComponent implements OnInit {
     if (!!barcode) {
       this.searchControl.setValue(barcode);
       this.barcodeService.close();
-      this.loadFacts(barcode);
+      this.loadProduct(barcode);
       this.modalService.dismissAll();
     }
   }
@@ -78,13 +79,13 @@ export class ProductOverviewComponent implements OnInit {
     this.notificationService.error('Barcode not found');
   }
 
-  loadFacts(barcode: string): void {
-    this.store.dispatch(loadFacts({ barcode: barcode }));
+  loadProduct(barcode: string): void {
+    this.store.dispatch(loadProduct({ barcode: barcode }));
   }
 
-  searchProducts(): void {
+  search(): void {
     this.store.dispatch(
-      searchProducts({ searchTerm: this.searchControl.value })
+      search({ searchTerm: this.searchControl.value, page: 1 })
     );
   }
 }

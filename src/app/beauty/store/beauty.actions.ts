@@ -2,43 +2,48 @@ import { createAction, props } from '@ngrx/store';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
 import { Product } from '../model/product';
 
-export const loadFacts = createAction(
-  '[Beauty] load facts',
+export const loadProduct = createAction(
+  '[Beauty] load product',
   props<{ barcode: string }>()
 );
-export const factsLoaded = createAction(
-  '[Beauty] facts loaded',
+export const productLoaded = createAction(
+  '[Beauty] product loaded',
   props<{ product: Product }>()
 );
-export const factsLoadedError = createAction(
-  '[Beauty] facts loaded error',
+export const productLoadedError = createAction(
+  '[Beauty] product loaded error',
   props<{ error: any }>()
+);
+
+export const search = createAction(
+  '[Beauty] search',
+  props<{ searchTerm: string; page: number }>()
 );
 
 export const searchProducts = createAction(
   '[Beauty] search products',
-  props<{ searchTerm: string }>()
+  props<{ searchTerm: string; page: number }>()
 );
 export const productsLoaded = createAction(
   '[Beauty] products loaded',
-  props<{ products: Product[] }>()
+  props<{ products: Product[]; totalItems: number }>()
 );
 export const productsLoadedError = createAction(
   '[Beauty] products loaded error',
   props<{ error: any }>()
 );
 
-// export const loadIngredientNames = createAction(
-//   '[Beauty] load ingredient names'
-// );
-// export const ingredientNamesLoaded = createAction(
-//   '[Beauty] ingredient names loaded',
-//   props<{ names: NutritientName[] }>()
-// );
-// export const ingredientNamesLoadedError = createAction(
-//   '[Beauty] ingredient names loaded error',
-//   props<{ error: any }>()
-// );
+export const loadCountryNames = createAction(
+  '[Beauty] load countries'
+);
+export const countryNamesLoaded = createAction(
+  '[Beauty] countries loaded',
+  props<{ names: LocalizedName[] }>()
+);
+export const countryNamesLoadedError = createAction(
+  '[Beauty] countries loaded error',
+  props<{ error: any }>()
+);
 
 export const loadLocalizedIngredientAnalysisNames = createAction(
   '[Beauty] load ingredient analysis names'

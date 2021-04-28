@@ -1,9 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { from, Observable, throwError } from 'rxjs';
-import { catchError, filter, map } from 'rxjs/operators';
-import { OpenFoodFactsApi } from 'openfoodfac-ts';
-import { Product } from '../model/product';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { Product, ProductsResponse } from '../model/product';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
 
 @Injectable({
@@ -15,17 +14,23 @@ export class OpenfoodfactsService {
 
   constructor(private httpClient: HttpClient) {}
 
-  searchProducts(tag: string): Observable<Product[]> {
-    const openFoodFactsApi = new OpenFoodFactsApi({
-      country: 'de',
-      userAgent: 'Sample Rating App - Web - Version 0.1',
-    });
-
-    return from(openFoodFactsApi.findProductsBySearchTerm(tag)).pipe(
+  searchProducts(
+    tag: string,
+    page: number,
+    pageSize: number
+  ): Observable<ProductsResponse> {
+    const url = `https://de.openfoodfacts.org/cgi/search.pl?search_terms=${tag}&search_simple=1&action=process&json=1.json&page_size=${pageSize}&page=${page}`;
+    return this.httpClient.get<any>(url).pipe(
       map((response) => {
-        let products: Product[];
-        products = (response.products as unknown) as Product[];
-        return products;
+        const castedResponse = (response as unknown) as ProductsResponse;
+        if (!!castedResponse.products) {
+          return castedResponse;
+        } else {
+          throw new Error(castedResponse.status_verbose);
+        }
+      }),
+      catchError((error) => {
+        return throwError(error);
       })
     );
   }

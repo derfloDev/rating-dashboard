@@ -5,8 +5,13 @@ import * as NutritionActions from './nutrition.actions';
 
 export interface NutritionState {
   loading: boolean;
+  searchTerm: string;
   currentProduct?: Product;
   products: Product[];
+  totalItems: number;
+  curentPage: number;
+  pageSize: number;
+  pageCount: number;
   nutritientNames: LocalizedName[];
   ingredientNames: LocalizedName[];
   ingredientAnalysisNames: LocalizedName[];
@@ -15,30 +20,38 @@ export interface NutritionState {
 export const initialNutritionState: NutritionState = {
   products: [],
   loading: false,
+  searchTerm: '',
   nutritientNames: [],
   ingredientNames: [],
   ingredientAnalysisNames: [],
+  totalItems: 0,
+  curentPage: 0,
+  pageSize: 20,
+  pageCount: 0,
 };
 
 export const nurtitionFeatureKey = 'nutrition';
 
 export const nutritionReducer = createReducer(
   initialNutritionState,
-  on(NutritionActions.loadFacts, (state) => ({
+  on(NutritionActions.loadProduct, (state, action) => ({
     ...state,
     loading: true,
   })),
-  on(NutritionActions.searchProducts, (state) => ({
+  on(NutritionActions.search, (state, action) => ({
     ...state,
-    loading: true,
     products: [],
+    loading: true,
+    currentProduct: null,
+    searchTerm: action.searchTerm,
+    curentPage: action.page,
   })),
-  on(NutritionActions.factsLoaded, (state, action) => ({
+  on(NutritionActions.productLoaded, (state, action) => ({
     ...state,
     loading: false,
     currentProduct: action.product,
   })),
-  on(NutritionActions.factsLoadedError, (state, action) => ({
+  on(NutritionActions.productLoadedError, (state, action) => ({
     ...state,
     loading: false,
     currentProduct: null,
@@ -62,5 +75,6 @@ export const nutritionReducer = createReducer(
     ...state,
     products: action.products,
     loading: false,
+    totalItems: action.totalItems,
   }))
 );

@@ -3,12 +3,18 @@ import { Router } from '@angular/router';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
-import { catchError, exhaustMap, map, mergeMap } from 'rxjs/operators';
+import {
+  catchError,
+  exhaustMap,
+  map,
+  mergeMap,
+  withLatestFrom,
+} from 'rxjs/operators';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { LoadMetadataService } from 'src/app/shared/services/load-metadata.service';
 import { OpenfoodfactsService } from '../services/openfoodfacts.service';
 import * as NutritionActions from './nutrition.actions';
-import { selectProduct } from './nutrition.selector';
+import { selectPageSize, selectProduct } from './nutrition.selector';
 
 @Injectable()
 export class NutritionEffects {
@@ -74,23 +80,39 @@ export class NutritionEffects {
     )
   );
 
-  loadFacts$ = createEffect(() =>
+  loadProduct$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(NutritionActions.loadFacts),
+      ofType(NutritionActions.loadProduct),
       concatLatestFrom(() => this.store.select(selectProduct)),
       mergeMap(([action, product]) => {
         if (!!product) {
-          return of(NutritionActions.factsLoaded({ product: product }));
+          return of(NutritionActions.productLoaded({ product: product }));
         } else {
           return this.openFoodfactsService.getFacts(action.barcode).pipe(
             map((product) => {
-              return NutritionActions.factsLoaded({ product: product });
+              return NutritionActions.productLoaded({ product: product });
             }),
             catchError((error) => {
               console.log(error);
-              return of(NutritionActions.factsLoadedError({ error: error }));
+              return of(NutritionActions.productLoadedError({ error: error }));
             })
           );
+        }
+      })
+    )
+  );
+
+  search$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(NutritionActions.search),
+      map((action) => {
+        if (isNaN(parseInt(action.searchTerm))) {
+          return NutritionActions.searchProducts({
+            searchTerm: action.searchTerm,
+            page: action.page,
+          });
+        } else {
+          return NutritionActions.loadProduct({ barcode: action.searchTerm });
         }
       })
     )
@@ -99,17 +121,23 @@ export class NutritionEffects {
   searchProducts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(NutritionActions.searchProducts),
-      exhaustMap((action) => {
+      withLatestFrom(this.store.select(selectPageSize)),
+      exhaustMap(([action, pageSize]) => {
         this.router.navigate([`/nutrition/products/${action.searchTerm}`]);
-        return this.openFoodfactsService.searchProducts(action.searchTerm).pipe(
-          map((products) =>
-            NutritionActions.productsLoaded({ products: products })
-          ),
-          catchError((error) => {
-            console.log(error);
-            return of(NutritionActions.productsLoadedError({ error: error }));
-          })
-        );
+        return this.openFoodfactsService
+          .searchProducts(action.searchTerm, action.page, pageSize)
+          .pipe(
+            map((response) =>
+              NutritionActions.productsLoaded({
+                products: response.products,
+                totalItems: response.count,
+              })
+            ),
+            catchError((error) => {
+              console.log(error);
+              return of(NutritionActions.productsLoadedError({ error: error }));
+            })
+          );
       })
     )
   );
@@ -117,7 +145,7 @@ export class NutritionEffects {
   factsLoaded$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(NutritionActions.factsLoaded),
+        ofType(NutritionActions.productLoaded),
         map((action) => {
           this.router.navigate([`/nutrition/product/${action.product.code}`]);
         })
@@ -128,7 +156,7 @@ export class NutritionEffects {
   factsLoadedError$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(NutritionActions.factsLoadedError),
+        ofType(NutritionActions.productLoadedError),
         map((action) => {
           this.notificationService.error(action.error);
         })

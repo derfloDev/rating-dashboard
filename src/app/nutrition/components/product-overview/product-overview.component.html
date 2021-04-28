@@ -6,45 +6,42 @@
   <div class="lead">
     <div class="row justify-content-md-center">
       <div class="col-md-auto">
-        <div class="input-group input-group-lg">
-          <input
-            type="search"
-            id="form1"
-            placeholder="Search"
-            aria-label="Products barcode"
-            class="form-control"
-            [formControl]="searchControl"
-          />
-          <div class="input-group-append">
-            <button
-              type="button"
-              class="btn btn-primary"
-              (click)="searchProducts()"
-            >
-              <i class="bi bi-search"></i>
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              (click)="scanCode(content)"
-            >
-              <i class="bi bi-upc-scan"></i>
-            </button>
+        <form (ngSubmit)="search()">
+          <div class="input-group input-group-lg">
             <input
-              type="file"
-              class="file-upload"
-              (change)="fileUploaded($event)"
-              #fileUpload
+              type="search"
+              placeholder="Productname or code"
+              aria-label="Productname or code"
+              class="form-control"
+              [formControl]="searchControl"
             />
-            <button
-              type="button"
-              class="btn btn-primary"
-              (click)="fileUpload.click()"
-            >
-              <i class="bi bi-upload"></i>
-            </button>
+            <div class="input-group-append">
+              <button type="button" class="btn btn-primary" (click)="search()">
+                <i class="bi bi-search"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="scanCode(content)"
+              >
+                <i class="bi bi-upc-scan"></i>
+              </button>
+              <input
+                type="file"
+                class="file-upload"
+                (change)="fileUploaded($event)"
+                #fileUpload
+              />
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="fileUpload.click()"
+              >
+                <i class="bi bi-upload"></i>
+              </button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>

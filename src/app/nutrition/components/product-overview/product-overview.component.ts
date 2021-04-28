@@ -6,11 +6,11 @@ import { Store } from '@ngrx/store';
 import { BarcodeService } from 'src/app/shared/services/barcode.service';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import {
-  loadFacts,
+  loadProduct,
   loadLocalizedIngredientAnalysisNames,
   loadLocalizedIngredientNames,
   loadLocalizedNutrientNames,
-  searchProducts,
+  search,
 } from '../../store/nutrition.actions';
 
 @Component({
@@ -36,7 +36,7 @@ export class ProductOverviewComponent implements OnInit {
     this.route.firstChild.params.subscribe((params) => {
       if (!!params.searchTerm) {
         this.searchControl.setValue(params.searchTerm);
-        this.searchProducts();
+        this.search();
       }
     });
   }
@@ -73,23 +73,23 @@ export class ProductOverviewComponent implements OnInit {
     if (!!barcode) {
       this.searchControl.setValue(barcode);
       this.barcodeService.close();
-      this.loadFacts(barcode);
+      this.loadProduct(barcode);
       this.modalService.dismissAll();
     }
   }
 
   barcodeError(error: any): void {
-    this.notificationService.error("Barcode not found");
+    this.notificationService.error('Barcode not found');
     // this.notificationService.error(error.toString());
   }
 
-  loadFacts(barcode: string): void {
-    this.store.dispatch(loadFacts({ barcode: barcode }));
+  loadProduct(barcode: string): void {
+    this.store.dispatch(loadProduct({ barcode: barcode }));
   }
 
-  searchProducts(): void {
+  search(): void {
     this.store.dispatch(
-      searchProducts({ searchTerm: this.searchControl.value })
+      search({ searchTerm: this.searchControl.value, page: 1 })
     );
   }
 }

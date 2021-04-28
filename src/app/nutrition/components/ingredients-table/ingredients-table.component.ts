@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
-import { Ingredient } from '../../model/ingredient';
+import { Ingredient } from '../../model/product';
 import { selectIngredientNames } from '../../store/nutrition.selector';
 
 @Component({

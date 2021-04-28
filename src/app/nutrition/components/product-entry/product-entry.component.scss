@@ -6,9 +6,14 @@
     margin-bottom: 15px;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .card-img-top {
     position: relative;
     overflow: hidden;
+
     img {
         height: 200px;
         margin: auto;
@@ -45,16 +50,35 @@
     }
 }
 
+.ingredients {
+    margin-bottom: -0.7em;
+}
+
+.card-body {
+    &.controls {
+        // padding-top: 0;
+
+        .btn {
+            width: 100%;
+        }
+    }
+    &.content {
+        padding-bottom: 0;
+    }
+}
+
 @include media-breakpoint-down(sm) {
     .card-body {
-        padding: 1rem;
+        padding: 0.5rem;
+        font-size: 14px;
     }
+
     .card-img-top {
         img {
             height: 130px;
         }
     }
     .card-text {
-        height: 70px;
+        height: 61px;
     }
 }

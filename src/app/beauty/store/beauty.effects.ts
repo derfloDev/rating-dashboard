@@ -3,30 +3,52 @@ import { Router } from '@angular/router';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
-import { catchError, exhaustMap, map, mergeMap } from 'rxjs/operators';
+import {
+  catchError,
+  exhaustMap,
+  map,
+  mergeMap,
+  withLatestFrom,
+} from 'rxjs/operators';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { LoadMetadataService } from 'src/app/shared/services/load-metadata.service';
 import { OpenBeautyfactsService } from '../services/open-beautyfacts.service';
 import * as BeautyActions from './beauty.actions';
-import { selectProduct } from './beauty.selector';
+import { selectPageSize, selectProduct } from './beauty.selector';
 
 @Injectable()
 export class BeautyEffects {
-  loadFacts$ = createEffect(() =>
+  loadProduct$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(BeautyActions.loadFacts),
+      ofType(BeautyActions.loadProduct),
       concatLatestFrom(() => this.store.select(selectProduct)),
       mergeMap(([action, product]) => {
         if (!!product) {
-          return of(BeautyActions.factsLoaded({ product: product }));
+          return of(BeautyActions.productLoaded({ product: product }));
         } else {
           return this.openBeautyfactsService.getFacts(action.barcode).pipe(
-            map((product) => BeautyActions.factsLoaded({ product: product })),
+            map((product) => BeautyActions.productLoaded({ product: product })),
             catchError((error) => {
               console.log(error);
-              return of(BeautyActions.factsLoadedError({ error: error }));
+              return of(BeautyActions.productLoadedError({ error: error }));
             })
           );
+        }
+      })
+    )
+  );
+
+  search$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BeautyActions.search),
+      map((action) => {
+        if (isNaN(parseInt(action.searchTerm))) {
+          return BeautyActions.searchProducts({
+            searchTerm: action.searchTerm,
+            page: action.page,
+          });
+        } else {
+          return BeautyActions.loadProduct({ barcode: action.searchTerm });
         }
       })
     )
@@ -35,13 +57,17 @@ export class BeautyEffects {
   searchProducts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BeautyActions.searchProducts),
-      exhaustMap((action) => {
+      withLatestFrom(this.store.select(selectPageSize)),
+      exhaustMap(([action, pageSize]) => {
         this.router.navigate([`/beauty/products/${action.searchTerm}`]);
         return this.openBeautyfactsService
-          .searchProducts(action.searchTerm)
+          .searchProducts(action.searchTerm, action.page, pageSize)
           .pipe(
-            map((products) =>
-              BeautyActions.productsLoaded({ products: products })
+            map((response) =>
+              BeautyActions.productsLoaded({
+                products: response.products,
+                totalItems: response.count,
+              })
             ),
             catchError((error) => {
               console.log(error);
@@ -55,7 +81,7 @@ export class BeautyEffects {
   factsLoaded$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(BeautyActions.factsLoaded),
+        ofType(BeautyActions.productLoaded),
         map((action) => {
           this.router.navigate([`/beauty/product/${action.product.code}`]);
         })
@@ -66,7 +92,7 @@ export class BeautyEffects {
   factsLoadedError$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(BeautyActions.factsLoadedError),
+        ofType(BeautyActions.productLoadedError),
         map((action) => {
           this.notificationService.error(action.error);
         })
@@ -87,6 +113,30 @@ export class BeautyEffects {
           catchError((error) => {
             return of(
               BeautyActions.localizedIngredientAnalysisNamesLoadedError({
+                error: error,
+              })
+            );
+          })
+        )
+      )
+    )
+  );
+
+  
+
+  loadCountries$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BeautyActions.loadCountryNames),
+      mergeMap(() =>
+        this.loadMetadataService.getCountryNames().pipe(
+          map((names) =>
+            BeautyActions.countryNamesLoaded({
+              names: names,
+            })
+          ),
+          catchError((error) => {
+            return of(
+              BeautyActions.countryNamesLoadedError({
                 error: error,
               })
             );

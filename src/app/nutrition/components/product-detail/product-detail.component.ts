@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
 import getProductImages from 'src/app/shared/functions/get-product-images';
 import { ActivatedRoute } from '@angular/router';
-import { loadFacts } from '../../store/nutrition.actions';
+import { loadProduct } from '../../store/nutrition.actions';
 
 @Component({
   selector: 'app-product',
@@ -34,7 +34,7 @@ export class ProductDetailComponent implements OnInit {
   ) {
     this.route.params.subscribe((params) => {
       if (!!params.productId) {
-        this.store.dispatch(loadFacts({ barcode: params.productId }));
+        this.store.dispatch(loadProduct({ barcode: params.productId }));
       }
     });
     this.store
@@ -42,7 +42,9 @@ export class ProductDetailComponent implements OnInit {
       .subscribe((product) => (this.product = product));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
+  }
 
   goBack(): void {
     this.location.back();

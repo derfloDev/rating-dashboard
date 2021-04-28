@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Product } from '../model/product';
+import { Product, ProductsResponse, RootObject } from '../model/product';
 
 @Injectable({
   providedIn: 'root',
@@ -10,15 +10,16 @@ import { Product } from '../model/product';
 export class OpenBeautyfactsService {
   constructor(private httpClient: HttpClient) {}
 
-  searchProducts(tag: string): Observable<Product[]> {
-    const url = `https://de.openbeautyfacts.org/cgi/search.pl?search_terms=${tag}&page=1&search_simple=1&action=process&json=1.json`;
-    // const headers = new HttpHeaders({
-    //   'User-Agent': 'Sample Rating App - Web - Version 0.1',
-    // });
-    return this.httpClient.get<any>(url).pipe(
+  searchProducts(
+    tag: string,
+    page: number,
+    pageSize: number
+  ): Observable<ProductsResponse> {
+    const url = `https://de.openbeautyfacts.org/cgi/search.pl?search_terms=${tag}&search_simple=1&action=process&json=1.json&page_size=${pageSize}&page=${page}`;
+    return this.httpClient.get<ProductsResponse>(url).pipe(
       map((response) => {
         if (!!response.products) {
-          return response.products;
+          return response;
         } else {
           throw new Error(response.status_verbose);
         }

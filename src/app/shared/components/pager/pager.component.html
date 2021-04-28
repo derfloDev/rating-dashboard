@@ -1,0 +1,11 @@
+<ngb-pagination
+  *ngIf="totalItems > 0"
+  [collectionSize]="totalItems"
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [maxSize]="5"
+  [rotate]="true"
+  [boundaryLinks]="true"
+  (pageChange)="pageChanged($event)"
+  class="d-flex justify-content-center"
+></ngb-pagination>

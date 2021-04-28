@@ -1,23 +1,30 @@
 <div class="card">
-  <div class="card-img-top d-flex">
-    <img [src]="product.image_url" alt="Product image" />
+  <div class="card-img-top d-flex pointer">
+    <img [src]="productImage" alt="Product image" />
     <div
       class="background-blur"
-      [style.background-image]="'url(' + product.image_url + ')'"
+      [style.background-image]="'url(' + productImage + ')'"
     ></div>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">{{ product.brands }} {{ productName }}</h5>
+  <div class="card-body content">
+    <h5
+      class="card-title pointer"
+      [innerText]="product.brands + ' ' + productName"
+    ></h5>
     <p class="card-text" [innerHtml]="productIngredients"></p>
     <app-ingredients-analysis
-      class="ingredient-analysis d-block"
       [ingredientsAnalysisTags]="product.ingredients_analysis_tags"
       [ingredientAnalysisNames]="ingredientAnalysisNames$ | async"
+      class="d-block ingredients"
     >
     </app-ingredients-analysis>
   </div>
-  <div class="card-body">
+  <div class="card-body controls">
+    {{ product.complete }}
     <a class="btn btn-primary" (click)="showDetails()">Details</a>
-    <!-- <app-score-image [product]="product" type="nutriscore"></app-score-image> -->
+    <!-- <div class="d-flex justify-content-between">
+      <app-score-image [product]="product" type="nutriscore"></app-score-image>
+      <app-score-image [product]="product" type="nova"></app-score-image>
+    </div> -->
   </div>
 </div>

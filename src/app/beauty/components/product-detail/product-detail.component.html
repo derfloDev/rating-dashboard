@@ -1,8 +1,15 @@
 <div *ngIf="!(loading$ | async)">
-  <button type="button" class="btn btn-primary btn-back" (click)="goBack()">
+  <button
+    type="button"
+    class="btn btn-primary btn-back d-none d-md-block"
+    (click)="goBack()"
+  >
     Back
   </button>
   <div class="container" *ngIf="!!product">
+    <div class="row justify-content-center">
+      <h2>{{ productName }}</h2>
+    </div>
     <div class="row">
       <div class="col">
         <app-image-carousel [images]="images"></app-image-carousel>
@@ -27,15 +34,21 @@
           <app-score-image [product]="product" type="ecoscore"></app-score-image> -->
         </div>
       </div>
-      <!-- <div>{{product.serving_quantity}}</div> -->
+    </div>
+    <div class="row d-flex flex-row">
+      <div class="p-3">
+        <span class="label">Vertriebsländer:</span> {{ countryNames$ | async }}
+      </div>
+      <div class="p-3">
+        <span class="label">Marke:</span> {{ product.brands }}
+      </div>
+      <div class="p-3">
+        <span class="label">Menge:</span> {{ product.quantity }}
+      </div>
     </div>
     <div class="row">
       <div class="table-responsive">
-        <!-- <app-nutriments-table
-          [nutriments]="product.nutriments"
-          [nutritionDataPer]="product.nutrition_data_per"
-        >
-        </app-nutriments-table> -->
+        {{ product | json }}
       </div>
       <div [innerHtml]="ingredients"></div>
       <div class="table-responsive">

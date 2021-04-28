@@ -1,17 +1,4 @@
-import { Product as ApiProduct } from 'openfoodfac-ts/dist/OpenFoodFactsApi/types';
 import { SelectedImages } from 'src/app/shared/models/image.model';
-import { Ingredient } from './ingredient';
-
-// export interface Product extends ApiProduct {
-//   nova_group: number;
-//   nova_group_debug: string;
-//   nova_groups: string;
-//   nova_groups_tags: string[];
-//   ecoscore_grade: string;
-//   ecoscore_tags: string[];
-//   ingredients: Ingredient[];
-//   selected_images: SelectedImages;
-// }
 
 export interface CategoriesProperties {
   'agribalyse_proxy_food_code:en': string;
@@ -176,6 +163,26 @@ export interface NutriscoreData {
 export interface Packaging {
   material: string;
   shape: string;
+}
+
+export interface Ingredient {
+  id: string;
+  vegan: string;
+  vegetarian: string;
+  has_sub_ingredients: string;
+  percent_estimate: number;
+  processing: string;
+  rank: string;
+}
+
+export interface ProductsResponse {
+  page: number;
+  page_size: number;
+  count: number;
+  skip: number;
+  status_verbose: string;
+  fuck: string;
+  products: Product[];
 }
 
 export interface Product {

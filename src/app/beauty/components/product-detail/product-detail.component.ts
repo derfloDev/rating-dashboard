@@ -2,18 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Product } from '../../model/product';
 import {
+  selectCountryNamesByTags,
+  selectCountryNames,
   selectIngredientAnalysisNames,
   selectLoading,
   selectProduct,
 } from '../../store/beauty.selector';
 import { Location } from '@angular/common';
-import getImageSource from 'src/app/shared/functions/get-image-sources';
-import { Observable } from 'rxjs';
+import { Observable, ObservableLike } from 'rxjs';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
 import getProductIngredients from 'src/app/shared/functions/get-product-ingredients';
 import getProductImages from 'src/app/shared/functions/get-product-images';
 import { ActivatedRoute } from '@angular/router';
-import { loadFacts } from '../../store/beauty.actions';
+import { loadProduct } from '../../store/beauty.actions';
+import getProductName from 'src/app/shared/functions/get-product-name';
 
 @Component({
   selector: 'app-product-detail',
@@ -26,8 +28,9 @@ export class ProductDetailComponent implements OnInit {
   public ingredientAnalysisNames$: Observable<
     LocalizedName[]
   > = this.store.select(selectIngredientAnalysisNames);
-  
+
   public loading$ = this.store.select(selectLoading);
+  public countryNames$: Observable<string>;
 
   constructor(
     private store: Store,
@@ -36,15 +39,23 @@ export class ProductDetailComponent implements OnInit {
   ) {
     this.route.params.subscribe((params) => {
       if (!!params.productId) {
-        this.store.dispatch(loadFacts({ barcode: params.productId }));
+        this.store.dispatch(loadProduct({ barcode: params.productId }));
       }
     });
-    this.store
-      .select(selectProduct)
-      .subscribe((product) => (this.product = product));
+    this.store.select(selectProduct).subscribe((product) => {
+      this.product = product;
+      if (!!this.product) {
+        this.countryNames$ = this.store.select(
+          selectCountryNamesByTags,
+          this.product.countries_tags
+        );
+      }
+    });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
+  }
 
   goBack(): void {
     this.location.back();
@@ -56,5 +67,9 @@ export class ProductDetailComponent implements OnInit {
 
   get ingredients(): string {
     return getProductIngredients(this.product);
+  }
+
+  get productName(): string {
+    return getProductName(this.product);
   }
 }
