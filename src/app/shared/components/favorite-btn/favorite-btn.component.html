@@ -1,0 +1,16 @@
+<button type="button" class="btn" (click)="buttonClicked()">
+  <i
+    class="bi"
+    [ngClass]="{
+      'bi-heart-fill': isFavorite,
+      'bi-heart': !isFavorite,
+      hidden: isLoading
+    }"
+  ></i>
+  <i
+    class="bi bi-heart-half"
+    [ngClass]="{
+      hidden: !isLoading
+    }"
+  ></i>
+</button>

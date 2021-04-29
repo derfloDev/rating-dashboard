@@ -2,13 +2,11 @@
   <button type="button" class="btn btn-primary btn-back" (click)="goBack()">
     Back
   </button>
-  <button type="button" class="btn btn-primary btn-back" (click)="addFavorite()">
-    Fav
-  </button>
   <div class="container" *ngIf="!!product">
     <div class="row">
       <div class="col">
         <app-image-carousel [images]="images"></app-image-carousel>
+        <app-favorite-btn class="fav-btn" [favorites]="favorites$|async" [productId]="product.code" (toggleFavorite)="toggleFavorite($event)"></app-favorite-btn>
       </div>
     </div>
     <div class="row justify-content-between align-items-end badges-scores">

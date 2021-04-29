@@ -1,26 +1,24 @@
-const faunadb = require("faunadb"); /* Import faunaDB sdk */
+const faunadb = require("faunadb");
 require("dotenv").config();
 
-/* configure faunaDB Client with our secret */
 const q = faunadb.query;
 const client = new faunadb.Client({
   secret: process.env.FAUNADB_SERVER_SECRET,
 });
 
-/* export our lambda function as named "handler" export */
 exports.handler = async (event, context, callback) => {
   const { identity, user } = context.clientContext;
   const data = JSON.parse(event.body);
-  console.log("Function `add-product-favorite` invoked", data);
-  // console.log("Identity: ", context);
-  // console.log("User: ", user);
+  console.log("Function `add-beautyFavorite` invoked", data);
   if (!!identity && !!user) {
+    if (!data.productId) {
+      return errror(callback, 400, "ProductId missing.");
+    }
     const ratingItem = {
       userId: user.email,
       productId: data.productId,
     };
     const dbItem = await getDbItem(client, ratingItem);
-    console.log("dbItem", dbItem);
     if (!!dbItem) {
       console.log("Already added", ratingItem);
       return success(callback);
@@ -49,8 +47,8 @@ function errror(callback, status, error) {
 function addDbItem(client, ratingItem, callback) {
   try {
     return client
-      .query(q.Create(q.Collection("product_favorites"), { data: ratingItem }))
-      .then((response) => {
+      .query(q.Create(q.Collection("beauty_favorites"), { data: ratingItem }))
+      .then(() => {
         return success(callback);
       })
       .catch((error) => {
@@ -66,8 +64,8 @@ function getDbItem(client, ratingItem) {
   return client
     .query(
       q.Get(
-        q.Match(q.Index("product_favorites_by_user_and_product"), [
-          ratingItem.email,
+        q.Match(q.Index("beauty_favorites_by_user_and_product"), [
+          ratingItem.userId,
           ratingItem.productId,
         ])
       )
@@ -75,10 +73,12 @@ function getDbItem(client, ratingItem) {
     .then((ret) => ret.data)
     .catch((error) => {
       if (
-        error.requestResult === 404 &&
+        error.requestResult.statusCode === 404 &&
         error.description === "Set not found."
       ) {
         return null;
+      } else {
+        throw new Error(error);
       }
     });
 }

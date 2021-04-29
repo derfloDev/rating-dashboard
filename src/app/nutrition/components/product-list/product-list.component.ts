@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { search } from '../../store/nutrition.actions';
 import {
   selectCurrentPage,
+  selectFavorites,
   selectLoading,
   selectPageSize,
   selectProducts,
@@ -21,6 +22,8 @@ export class ProductListComponent implements OnInit {
   public totalItems$ = this.store.select(selectTotalItems);
   public currentPage$ = this.store.select(selectCurrentPage);
   public pageSize$ = this.store.select(selectPageSize);
+  public favorites$ = this.store.select(selectFavorites);
+
   private searchValue: string = '';
 
   constructor(private store: Store) {}

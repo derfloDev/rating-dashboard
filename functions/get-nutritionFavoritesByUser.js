@@ -10,7 +10,7 @@ const client = new faunadb.Client({
 /* export our lambda function as named "handler" export */
 exports.handler = async (event, context, callback) => {
   const { identity, user } = context.clientContext;
-  console.log("Function `add-product-favorite` invoked", user);
+  console.log("Function `get-nutritionFavoritesByUser` invoked", user);
   if (!!identity && !!user) {
     const dbItems = await getDbItems(client, user.email);
     console.log("dbItems", dbItems);
@@ -42,7 +42,7 @@ async function getDbItems(client, email) {
   return client
     .query(
       q.Map(
-        q.Paginate(q.Match(q.Index("product_favorites_by_user"), [email])),
+        q.Paginate(q.Match(q.Index("nutrition_favorites_by_user"), [email])),
         q.Lambda((x) => q.Get(x))
       )
     )

@@ -4,9 +4,14 @@ import { Observable } from 'rxjs';
 import getImageSource from 'src/app/shared/functions/get-image-sources';
 import getProductIngredients from 'src/app/shared/functions/get-product-ingredients';
 import getProductName from 'src/app/shared/functions/get-product-name';
+import { Favorite } from 'src/app/shared/models/favorite.model';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
 import { Product } from '../../model/product';
-import { productLoaded } from '../../store/nutrition.actions';
+import {
+  addFavorite,
+  productLoaded,
+  removeFavorite,
+} from '../../store/nutrition.actions';
 import { selectIngredientAnalysisNames } from '../../store/nutrition.selector';
 
 @Component({
@@ -17,6 +22,9 @@ import { selectIngredientAnalysisNames } from '../../store/nutrition.selector';
 export class ProductEntryComponent implements OnInit {
   @Input()
   product: Product;
+
+  @Input()
+  favorites: Favorite[];
 
   public ingredientAnalysisNames$: Observable<
     LocalizedName[]
@@ -33,12 +41,21 @@ export class ProductEntryComponent implements OnInit {
   get productIngredients(): string {
     return getProductIngredients(this.product);
   }
-  
+
   get productImage(): string {
     return getImageSource(this.product.selected_images?.front?.display);
   }
-  
+
   showDetails(): void {
     this.store.dispatch(productLoaded({ product: this.product }));
+  }
+
+  toggleFavorite(add: boolean): void {
+    if (add === true) {
+      this.store.dispatch(addFavorite({ productId: this.product.code }));
+    } else {
+      console.log('remove fav');
+      this.store.dispatch(removeFavorite({ productId: this.product.code }));
+    }
   }
 }

@@ -11,6 +11,7 @@ import {
   loadLocalizedIngredientNames,
   loadLocalizedNutrientNames,
   search,
+  loadFavorites,
 } from '../../store/nutrition.actions';
 
 @Component({
@@ -29,10 +30,7 @@ export class ProductOverviewComponent implements OnInit {
     private notificationService: NotificationService,
     private modalService: NgbModal
   ) {
-    this.store.dispatch(loadLocalizedNutrientNames());
-    this.store.dispatch(loadLocalizedIngredientNames());
-    this.store.dispatch(loadLocalizedIngredientAnalysisNames());
-
+    this.loadData();
     this.route.firstChild.params.subscribe((params) => {
       if (!!params.searchTerm) {
         this.searchControl.setValue(params.searchTerm);
@@ -42,6 +40,13 @@ export class ProductOverviewComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  loadData(): void {
+    this.store.dispatch(loadLocalizedNutrientNames());
+    this.store.dispatch(loadLocalizedIngredientNames());
+    this.store.dispatch(loadLocalizedIngredientAnalysisNames());
+    this.store.dispatch(loadFavorites());
+  }
 
   fileUploaded(event: any): void {
     const file: File = event.target.files[0];

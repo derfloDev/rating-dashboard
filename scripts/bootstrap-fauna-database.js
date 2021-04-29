@@ -40,27 +40,59 @@ function createFaunaDB(key) {
   });
 
   /* Based on your requirements, change the schema here */
-  return createCollection(client, "product_favorites")
-    .then(createCollection(client, "product_ratings"))
-    .then(createIndexes(client));
+  return createCollection(client, "nutrition_favorites")
+    .then(createCollection(client, "nutrition_ratings"))
+    .then(createNutritionIndexes(client))
+    .then(createCollection(client, "beauty_favorites"))
+    .then(createCollection(client, "beauty_ratings"))
+    .then(createBeautyIndexes(client));
 }
 
-function createIndexes(client, collectionName, indexName, terms) {
-  return createIndex(client, "product_favorites", "all_product_favorites", [])
+function createBeautyIndexes(client) {
+  const favoritesCollection = "beauty_favorites";
+  return createIndex(client, favoritesCollection, "all_beauty_favorites", [])
     .then(
-      createIndex(client, "product_favorites", "product_favorites_by_user", [
+      createIndex(client, favoritesCollection, "beauty_favorites_by_user", [
         { field: ["data", "userId"] },
       ])
     )
     .then(
       createIndex(
         client,
-        "product_favorites",
-        "product_favorites_by_user_and_product",
+        favoritesCollection,
+        "beauty_favorites_by_user_and_product",
         [{ field: ["data", "userId"] }, { field: ["data", "productId"] }]
       )
     )
-    .then(createIndex(client, "product_ratings", "all_product_ratings", []));
+    .then(createIndex(client, "beauty_ratings", "all_beauty_ratings", []));
+}
+
+function createNutritionIndexes(client) {
+  return createIndex(
+    client,
+    "nutrition_favorites",
+    "all_nutrition_favorites",
+    []
+  )
+    .then(
+      createIndex(
+        client,
+        "nutrition_favorites",
+        "nutrition_favorites_by_user",
+        [{ field: ["data", "userId"] }]
+      )
+    )
+    .then(
+      createIndex(
+        client,
+        "nutrition_favorites",
+        "nutrition_favorites_by_user_and_product",
+        [{ field: ["data", "userId"] }, { field: ["data", "productId"] }]
+      )
+    )
+    .then(
+      createIndex(client, "nutrition_ratings", "all_nutrition_ratings", [])
+    );
 }
 
 function createIndex(client, collectionName, indexName, terms) {

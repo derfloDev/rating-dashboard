@@ -1,4 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
+import { Favorite } from 'src/app/shared/models/favorite.model';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
 import { Product } from '../model/product';
 import * as BeautyActions from './beauty.actions';
@@ -14,6 +15,7 @@ export default interface BeautyState {
   pageCount: number;
   ingredientAnalysisNames: LocalizedName[];
   countryNames: LocalizedName[];
+  favorites: Favorite[];
 }
 
 export const initialBeautyState: BeautyState = {
@@ -26,6 +28,7 @@ export const initialBeautyState: BeautyState = {
   pageSize: 20,
   pageCount: 0,
   countryNames: [],
+  favorites: [],
 };
 
 export const beautyFeatureKey = 'beauty';
@@ -71,5 +74,9 @@ export const beautyReducer = createReducer(
   on(BeautyActions.countryNamesLoaded, (state, action) => ({
     ...state,
     countryNames: action.names,
+  })),
+  on(BeautyActions.favoritesLoaded, (state, action) => ({
+    ...state,
+    favorites: action.favorites,
   }))
 );

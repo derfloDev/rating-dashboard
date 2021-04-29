@@ -5,6 +5,12 @@
       class="background-blur"
       [style.background-image]="'url(' + productImage + ')'"
     ></div>
+    <app-favorite-btn
+      class="fav-btn"
+      [favorites]="favorites"
+      [productId]="product.code"
+      (toggleFavorite)="toggleFavorite($event)"
+    ></app-favorite-btn>
   </div>
   <div class="card-body content">
     <h5

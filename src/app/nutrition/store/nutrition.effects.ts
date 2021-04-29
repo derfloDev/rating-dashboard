@@ -15,6 +15,7 @@ import { LoadMetadataService } from 'src/app/shared/services/load-metadata.servi
 import { OpenfoodfactsService } from '../services/openfoodfacts.service';
 import * as NutritionActions from './nutrition.actions';
 import { selectPageSize, selectProduct } from './nutrition.selector';
+import { FavoriteService } from '../services/favorite.service';
 
 @Injectable()
 export class NutritionEffects {
@@ -142,6 +143,78 @@ export class NutritionEffects {
     )
   );
 
+  loadFavorites$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(NutritionActions.loadFavorites),
+      mergeMap(() =>
+        this.favoritesService.get().pipe(
+          map((favorites) =>
+            NutritionActions.favoritesLoaded({
+              favorites: favorites,
+            })
+          ),
+          catchError((error) => {
+            return of(
+              NutritionActions.favoritesLoadedError({
+                error: error,
+              })
+            );
+          })
+        )
+      )
+    )
+  );
+
+  addFavorite$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(NutritionActions.addFavorite),
+      mergeMap((action) =>
+        this.favoritesService.add(action.productId).pipe(
+          map(() => NutritionActions.favoriteAdded()),
+          catchError((error) => {
+            return of(
+              NutritionActions.favoriteAddedError({
+                error: error,
+              })
+            );
+          })
+        )
+      )
+    )
+  );
+
+  favoriteAdded$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(NutritionActions.favoriteAdded),
+      map(() => NutritionActions.loadFavorites())
+    )
+  );
+
+  removeFavorite$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(NutritionActions.removeFavorite),
+      mergeMap((action) =>
+        this.favoritesService.remove(action.productId).pipe(
+          map(() => NutritionActions.favoriteRemoved()),
+          catchError((error) => {
+            return of(
+              NutritionActions.favoriteRemovedError({
+                error: error,
+              })
+            );
+          })
+        )
+      )
+    )
+  );
+
+  favoriteRemoved$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(NutritionActions.favoriteRemoved),
+      map(() => NutritionActions.loadFavorites())
+    )
+  );
+
   factsLoaded$ = createEffect(
     () =>
       this.actions$.pipe(
@@ -170,6 +243,7 @@ export class NutritionEffects {
     private router: Router,
     private notificationService: NotificationService,
     private loadMetadataService: LoadMetadataService,
-    private store: Store
+    private store: Store,
+    private favoritesService: FavoriteService
   ) {}
 }

@@ -54,3 +54,8 @@ export const selectSearchTerm = createSelector(
   getNutritionState,
   (state: NutritionState) => state.searchTerm
 );
+
+export const selectFavorites = createSelector(
+  getNutritionState,
+  (state: NutritionState) => state.favorites
+);

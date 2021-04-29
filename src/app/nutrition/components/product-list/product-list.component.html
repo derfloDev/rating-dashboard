@@ -4,7 +4,10 @@
       class="col-6 col-sm-4 col-md-3"
       *ngFor="let product of products$ | async"
     >
-      <app-product-entry [product]="product"></app-product-entry>
+      <app-product-entry
+        [product]="product"
+        [favorites]="favorites$ | async"
+      ></app-product-entry>
     </div>
   </div>
   <div class="not-found" *ngIf="(products$ | async).length == 0">

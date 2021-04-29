@@ -1,0 +1,44 @@
+.bi {
+    font-size: 25px;
+
+    $transition: opacity 0.5s ease-in-out;
+    transition: $transition;
+
+    &.bi-heart-fill {
+        color: #ce0000;
+    }
+
+    &.bi-heart-fill,
+    &.bi-heart {
+        position: absolute;
+    }
+
+    &.hidden {
+        opacity: 0;
+    }
+
+    &.bi-heart-half {
+        color: #ce0000;
+        position: relative;
+    }
+}
+
+.btn {
+    outline: none;
+    box-shadow: none;
+
+    $transition: all 0.1s ease-in-out;
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    -ms-transition: $transition;
+    transition: $transition;
+    &:hover {
+        $transformation: scale(1.2);
+        -webkit-transform: $transformation;
+        -moz-transform: $transformation;
+        -o-transform: $transformation;
+        -ms-transform: $transformation;
+        transform: $transformation;
+    }
+}

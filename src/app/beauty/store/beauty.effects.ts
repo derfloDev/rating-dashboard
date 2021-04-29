@@ -15,6 +15,7 @@ import { LoadMetadataService } from 'src/app/shared/services/load-metadata.servi
 import { OpenBeautyfactsService } from '../services/open-beautyfacts.service';
 import * as BeautyActions from './beauty.actions';
 import { selectPageSize, selectProduct } from './beauty.selector';
+import { FavoriteService } from '../services/favorite.service';
 
 @Injectable()
 export class BeautyEffects {
@@ -122,8 +123,6 @@ export class BeautyEffects {
     )
   );
 
-  
-
   loadCountries$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BeautyActions.loadCountryNames),
@@ -146,12 +145,85 @@ export class BeautyEffects {
     )
   );
 
+  loadFavorites$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BeautyActions.loadFavorites),
+      mergeMap(() =>
+        this.favoriteService.get().pipe(
+          map((favorites) =>
+            BeautyActions.favoritesLoaded({
+              favorites: favorites,
+            })
+          ),
+          catchError((error) => {
+            return of(
+              BeautyActions.favoritesLoadedError({
+                error: error,
+              })
+            );
+          })
+        )
+      )
+    )
+  );
+
+  addFavorite$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BeautyActions.addFavorite),
+      mergeMap((action) =>
+        this.favoriteService.add(action.productId).pipe(
+          map(() => BeautyActions.favoriteAdded()),
+          catchError((error) => {
+            return of(
+              BeautyActions.favoriteAddedError({
+                error: error,
+              })
+            );
+          })
+        )
+      )
+    )
+  );
+
+  favoriteAdded$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BeautyActions.favoriteAdded),
+      map(() => BeautyActions.loadFavorites())
+    )
+  );
+
+  removeFavorite$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BeautyActions.removeFavorite),
+      mergeMap((action) =>
+        this.favoriteService.remove(action.productId).pipe(
+          map(() => BeautyActions.favoriteRemoved()),
+          catchError((error) => {
+            return of(
+              BeautyActions.favoriteRemovedError({
+                error: error,
+              })
+            );
+          })
+        )
+      )
+    )
+  );
+
+  favoriteRemoved$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BeautyActions.favoriteRemoved),
+      map(() => BeautyActions.loadFavorites())
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private openBeautyfactsService: OpenBeautyfactsService,
     private router: Router,
     private notificationService: NotificationService,
     private loadMetadataService: LoadMetadataService,
-    private store: Store
+    private store: Store,
+    private favoriteService: FavoriteService
   ) {}
 }

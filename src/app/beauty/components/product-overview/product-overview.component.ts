@@ -9,6 +9,7 @@ import {
   loadLocalizedIngredientAnalysisNames,
   search,
   loadCountryNames,
+  loadFavorites,
 } from '../../store/beauty.actions';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -28,8 +29,7 @@ export class ProductOverviewComponent implements OnInit {
     private notificationService: NotificationService,
     private modalService: NgbModal
   ) {
-    this.store.dispatch(loadCountryNames());
-    this.store.dispatch(loadLocalizedIngredientAnalysisNames());
+    this.loadData();
     this.route.firstChild.params.subscribe((params) => {
       if (!!params.searchTerm) {
         this.searchControl.setValue(params.searchTerm);
@@ -39,6 +39,12 @@ export class ProductOverviewComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  loadData(): void {
+    this.store.dispatch(loadCountryNames());
+    this.store.dispatch(loadLocalizedIngredientAnalysisNames());
+    this.store.dispatch(loadFavorites());
+  }
 
   fileUploaded(event: any): void {
     const file: File = event.target.files[0];

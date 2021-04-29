@@ -1,14 +1,23 @@
 <div class="card">
-  <div class="card-img-top d-flex pointer" (click)="showDetails()">
-    <img [src]="productImage" alt="Product image" />
+  <div class="card-img-top d-flex pointer">
+    <img [src]="productImage" alt="Product image" (click)="showDetails()" />
     <div
       class="background-blur"
       [style.background-image]="'url(' + productImage + ')'"
     ></div>
+    <app-favorite-btn
+      class="fav-btn"
+      [favorites]="favorites"
+      [productId]="product.code"
+      (toggleFavorite)="toggleFavorite($event)"
+    ></app-favorite-btn>
   </div>
   <div class="card-body content">
-    <h5 class="card-title pointer" (click)="showDetails()" [innerText]="productName">
-    </h5>
+    <h5
+      class="card-title pointer"
+      (click)="showDetails()"
+      [innerText]="productName"
+    ></h5>
     <p class="card-text" [innerHtml]="productIngredients"></p>
     <app-ingredients-analysis
       [ingredientsAnalysisTags]="product.ingredients_analysis_tags"

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Product } from '../../model/product';
 import {
+  selectFavorites,
   selectIngredientAnalysisNames,
   selectLoading,
   selectProduct,
@@ -11,8 +12,12 @@ import { Observable } from 'rxjs';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
 import getProductImages from 'src/app/shared/functions/get-product-images';
 import { ActivatedRoute } from '@angular/router';
-import { loadProduct } from '../../store/nutrition.actions';
-import { FavoritesService } from '../../services/favorites.service';
+import {
+  addFavorite,
+  loadProduct,
+  removeFavorite,
+} from '../../store/nutrition.actions';
+import { FavoriteService } from '../../services/favorite.service';
 
 @Component({
   selector: 'app-product',
@@ -27,12 +32,12 @@ export class ProductDetailComponent implements OnInit {
   > = this.store.select(selectIngredientAnalysisNames);
 
   public loading$ = this.store.select(selectLoading);
+  public favorites$ = this.store.select(selectFavorites);
 
   constructor(
     private store: Store,
     private location: Location,
-    private route: ActivatedRoute,
-    private favoritesService: FavoritesService
+    private route: ActivatedRoute
   ) {
     this.route.params.subscribe((params) => {
       if (!!params.productId) {
@@ -42,8 +47,6 @@ export class ProductDetailComponent implements OnInit {
     this.store
       .select(selectProduct)
       .subscribe((product) => (this.product = product));
-
-    this.favoritesService.get().subscribe();
   }
 
   ngOnInit(): void {
@@ -54,11 +57,16 @@ export class ProductDetailComponent implements OnInit {
     this.location.back();
   }
 
-  addFavorite(): void {
-    this.favoritesService.add(this.product.code).subscribe();
-  }
-
   get images(): { name: string; src: string }[] {
     return getProductImages(this.product);
+  }
+
+  toggleFavorite(add: boolean): void {
+    if (add === true) {
+      this.store.dispatch(addFavorite({ productId: this.product.code }));
+    } else {
+      console.log('remove fav');
+      this.store.dispatch(removeFavorite({ productId: this.product.code }));
+    }
   }
 }

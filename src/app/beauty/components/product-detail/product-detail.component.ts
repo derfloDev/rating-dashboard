@@ -7,6 +7,7 @@ import {
   selectIngredientAnalysisNames,
   selectLoading,
   selectProduct,
+  selectFavorites,
 } from '../../store/beauty.selector';
 import { Location } from '@angular/common';
 import { Observable, ObservableLike } from 'rxjs';
@@ -14,7 +15,11 @@ import { LocalizedName } from 'src/app/shared/models/localized-name';
 import getProductIngredients from 'src/app/shared/functions/get-product-ingredients';
 import getProductImages from 'src/app/shared/functions/get-product-images';
 import { ActivatedRoute } from '@angular/router';
-import { loadProduct } from '../../store/beauty.actions';
+import {
+  addFavorite,
+  loadProduct,
+  removeFavorite,
+} from '../../store/beauty.actions';
 import getProductName from 'src/app/shared/functions/get-product-name';
 
 @Component({
@@ -31,6 +36,7 @@ export class ProductDetailComponent implements OnInit {
 
   public loading$ = this.store.select(selectLoading);
   public countryNames$: Observable<string>;
+  public favorites$ = this.store.select(selectFavorites);
 
   constructor(
     private store: Store,
@@ -71,5 +77,14 @@ export class ProductDetailComponent implements OnInit {
 
   get productName(): string {
     return getProductName(this.product);
+  }
+
+  toggleFavorite(add: boolean): void {
+    if (add === true) {
+      this.store.dispatch(addFavorite({ productId: this.product.code }));
+    } else {
+      console.log('remove fav');
+      this.store.dispatch(removeFavorite({ productId: this.product.code }));
+    }
   }
 }
