@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { Store } from '@ngrx/store';
 import { BarcodeService } from 'src/app/shared/services/barcode.service';
 import { NotificationService } from 'src/app/shared/services/notification.service';
+import { selectIsAuthenticated } from 'src/app/user/store/user.selector';
 import {
   loadProduct,
   loadLocalizedIngredientAnalysisNames,
@@ -22,6 +23,7 @@ import {
 })
 export class ProductOverviewComponent implements OnInit {
   searchControl = new FormControl('Nutella'); //'3017620421006');
+  public isAuthenticated$ = this.store.select(selectIsAuthenticated);
 
   constructor(
     private store: Store,
@@ -46,6 +48,10 @@ export class ProductOverviewComponent implements OnInit {
     this.store.dispatch(loadLocalizedIngredientNames());
     this.store.dispatch(loadLocalizedIngredientAnalysisNames());
     this.store.dispatch(loadFavorites());
+  }
+
+  get isMediadeviceSupported(): boolean {
+    return this.barcodeService.isMediaDeviceSupported();
   }
 
   fileUploaded(event: any): void {
@@ -85,7 +91,6 @@ export class ProductOverviewComponent implements OnInit {
 
   barcodeError(error: any): void {
     this.notificationService.error('Barcode not found');
-    // this.notificationService.error(error.toString());
   }
 
   loadProduct(barcode: string): void {
@@ -96,5 +101,13 @@ export class ProductOverviewComponent implements OnInit {
     this.store.dispatch(
       search({ searchTerm: this.searchControl.value, page: 1 })
     );
+  }
+
+  toggleTooltip(tooltip: NgbTooltip, hide: boolean) {
+    if (tooltip.isOpen() || hide) {
+      tooltip.close();
+    } else if (!this.isMediadeviceSupported) {
+      tooltip.open();
+    }
   }
 }

@@ -11,12 +11,13 @@ exports.handler = async (event, context, callback) => {
   const data = JSON.parse(event.body);
   console.log("Function `add-beautyFavorite` invoked", data);
   if (!!identity && !!user) {
-    if (!data.productId) {
+    if (!data.product.code) {
       return errror(callback, 400, "ProductId missing.");
     }
     const ratingItem = {
       userId: user.email,
-      productId: data.productId,
+      productId: data.product.code,
+      product: data.product,
     };
     const dbItem = await getDbItem(client, ratingItem);
     if (!!dbItem) {

@@ -17,7 +17,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductEntryComponent } from './components/product-entry/product-entry.component';
 import { ScoreImageComponent } from './components/score-image/score-image.component';
 import { SharedModule } from '../shared/shared.module';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from '../shared/interceptor/token.interceptor';
@@ -41,6 +41,7 @@ import { TokenInterceptor } from '../shared/interceptor/token.interceptor';
     EffectsModule.forFeature([NutritionEffects]),
     SharedModule,
     NgbModalModule,
+    NgbTooltipModule,
   ],
 })
 export class NutritionModule {}

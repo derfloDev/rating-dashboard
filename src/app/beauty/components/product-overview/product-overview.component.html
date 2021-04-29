@@ -4,7 +4,7 @@
   <hr class="my-4" />
   <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
   <div class="lead">
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-md-between">
       <div class="col-md-auto">
         <form (ngSubmit)="search()">
           <div class="input-group input-group-lg">
@@ -20,13 +20,24 @@
               <button type="button" class="btn btn-primary" (click)="search()">
                 <i class="bi bi-search"></i>
               </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                (click)="scanCode(content)"
+              <div
+                class="tooltip-wrapper btn btn-primary"
+                ngbTooltip="Your device does not support scanning"
+                triggers="manual"
+                #tooltip="ngbTooltip"
+                [ngClass]="{ disabled: !isMediadeviceSupported }"
+                (mouseenter)="toggleTooltip(tooltip, false)"
+                (mouseleave)="toggleTooltip(tooltip, true)"
               >
-                <i class="bi bi-upc-scan"></i>
-              </button>
+                <button
+                  type="button"
+                  class="btn-scan"
+                  [disabled]="!isMediadeviceSupported"
+                  (click)="scanCode(content)"
+                >
+                  <i class="bi bi-upc-scan"></i>
+                </button>
+              </div>
               <input
                 type="file"
                 class="file-upload"
@@ -43,6 +54,34 @@
             </div>
           </div>
         </form>
+      </div>
+      <div class="col-md-auto search-controls">
+        <div class="btn-group" role="group" aria-label="search controls">
+          <button
+            type="button"
+            class="btn btn-outline-primary btn-lg"
+            (click)="collapse.toggle()"
+            [attr.aria-expanded]="!isFilterCollapsed"
+            aria-controls="collapseExample"
+          >
+            Show Filter
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary btn-lg"
+            *ngIf="isAuthenticated$ | async"
+            (click)="toggleFavorites()"
+          >
+            <i
+              class="bi bi-heart"
+              [ngClass]="{
+                'bi-heart': !onlyFavorites,
+                'bi-heart-fill': onlyFavorites
+              }"
+            ></i>
+            Favorites
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -66,5 +105,32 @@
     </div>
   </ng-template>
   <!-- <app-test-outer><app-test-inner></app-test-inner></app-test-outer> -->
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="isFilterCollapsed">
+    <div
+      class="filter-container d-flex flex-wrap justify-content-between justify-content-sm-start mb-3"
+    >
+      <div class="p-2">
+        <label for="typeahead-format">Categories</label>
+        <app-filter-dropdown
+          [values]="categoryNames$ | async"
+          (valueChanged)="categoryChanged($event)"
+        ></app-filter-dropdown>
+      </div>
+      <div class="p-2">
+        <label for="typeahead-format">Brands</label>
+        <app-filter-dropdown
+          [values]="brandNames$ | async"
+          (valueChanged)="brandChanged($event)"
+        ></app-filter-dropdown>
+      </div>
+      <div class="p-2">
+        <label for="typeahead-format">Allergens</label>
+        <app-filter-dropdown
+          [values]="allergenNames$ | async"
+          (valueChanged)="allergenChanged($event)"
+        ></app-filter-dropdown>
+      </div>
+    </div>
+  </div>
   <router-outlet></router-outlet>
 </div>

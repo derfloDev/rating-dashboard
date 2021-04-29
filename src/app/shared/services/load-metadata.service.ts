@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
+import { BrandName } from '../models/brand-name';
+import { CategoryName } from '../models/category-name';
 
 @Injectable({
   providedIn: 'root',
@@ -10,43 +12,38 @@ import { LocalizedName } from 'src/app/shared/models/localized-name';
 export class LoadMetadataService {
   constructor(private httpClient: HttpClient) {}
 
-  getLocalizedNutrientNames(): Observable<any> {
+  getLocalizedNutrientNames(): Observable<LocalizedName[]> {
     const url = '/.netlify/functions/getNutrients';
-    return this.httpClient.get<any>(url).pipe(
-      map((response: any) => {
-        const nutritientNames: LocalizedName[] = response.message;
-        return nutritientNames;
-      })
-    );
+    return this.httpClient.get<LocalizedName[]>(url);
   }
 
-  getLocalizedIngredientNames(): Observable<any> {
+  getLocalizedIngredientNames(): Observable<LocalizedName[]> {
     const url = '/.netlify/functions/getIngredients';
-    return this.httpClient.get<any>(url).pipe(
-      map((response: any) => {
-        const ingretientNames: LocalizedName[] = response.message;
-        return ingretientNames;
-      })
-    );
+    return this.httpClient.get<LocalizedName[]>(url);
   }
 
-  getLocalizedIngredientAnalysisNames(): Observable<any> {
+  getLocalizedIngredientAnalysisNames(): Observable<LocalizedName[]> {
     const url = '/.netlify/functions/getIngredientAnalysis';
-    return this.httpClient.get<any>(url).pipe(
-      map((response: any) => {
-        const ingretientAnylysisNames: LocalizedName[] = response.message;
-        return ingretientAnylysisNames;
-      })
-    );
+    return this.httpClient.get<LocalizedName[]>(url);
   }
 
-  getCountryNames(): Observable<any> {
+  getAllergenNames(): Observable<LocalizedName[]> {
+    const url = '/.netlify/functions/getBeautyAllergens';
+    return this.httpClient.get<LocalizedName[]>(url);
+  }
+
+  getBrandNames(): Observable<BrandName[]> {
+    const url = '/.netlify/functions/getBeautyBrands';
+    return this.httpClient.get<BrandName[]>(url);
+  }
+
+  getCategoryNames(): Observable<CategoryName[]> {
+    const url = '/.netlify/functions/getBeautyCategories';
+    return this.httpClient.get<CategoryName[]>(url);
+  }
+
+  getCountryNames(): Observable<LocalizedName[]> {
     const url = '/.netlify/functions/getCountries';
-    return this.httpClient.get<any>(url).pipe(
-      map((response: any) => {
-        const ingretientAnylysisNames: LocalizedName[] = response.message;
-        return ingretientAnylysisNames;
-      })
-    );
+    return this.httpClient.get<LocalizedName[]>(url);
   }
 }

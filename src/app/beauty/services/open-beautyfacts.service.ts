@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { ApiFilter } from '../model/api-filter';
 import { Product, ProductsResponse, RootObject } from '../model/product';
 
 @Injectable({
@@ -13,21 +14,70 @@ export class OpenBeautyfactsService {
   searchProducts(
     tag: string,
     page: number,
-    pageSize: number
+    pageSize: number,
+    filter: ApiFilter
   ): Observable<ProductsResponse> {
-    const url = `https://de.openbeautyfacts.org/cgi/search.pl?search_terms=${tag}&search_simple=1&action=process&json=1.json&page_size=${pageSize}&page=${page}`;
-    return this.httpClient.get<ProductsResponse>(url).pipe(
-      map((response) => {
-        if (!!response.products) {
-          return response;
-        } else {
-          throw new Error(response.status_verbose);
-        }
-      }),
-      catchError((error) => {
-        return throwError(error);
-      })
-    );
+    const params = this.getQueryparams(tag, page, pageSize, filter);
+    const url = `https://de.openbeautyfacts.org/cgi/search.pl?search_simple=1&action=process&json=1.json`;
+    return this.httpClient
+      .get<ProductsResponse>(url, { params: params })
+      .pipe(
+        map((response) => {
+          if (!!response.products) {
+            return response;
+          } else {
+            throw new Error(response.status_verbose);
+          }
+        }),
+        catchError((error) => {
+          return throwError(error);
+        })
+      );
+  }
+
+  private getQueryparams(
+    tag: string,
+    page: number,
+    pageSize: number,
+    filter: ApiFilter
+  ): HttpParams {
+    let params = new HttpParams();
+    params = params.append('search_terms', tag);
+    params = params.append('page', page.toString());
+    params = params.append('pageSize', pageSize.toString());
+    let tagIndex = 0;
+    if (!!filter.allergen) {
+      params = this.addTagQuery(params, tagIndex, 'allergens', filter.allergen);
+      tagIndex++;
+    }
+    if (!!filter.category) {
+      params = this.addTagQuery(
+        params,
+        tagIndex,
+        'categories',
+        filter.category
+      );
+      tagIndex++;
+    }
+    if (!!filter.brand) {
+      params = this.addTagQuery(params, tagIndex, 'brands', filter.brand);
+      tagIndex++;
+    }
+
+    return params;
+  }
+
+  private addTagQuery(
+    params: HttpParams,
+    tagIndex: number,
+    tagName: string,
+    tagValue: string
+  ): HttpParams {
+    params = params.append(`tagtype_${tagIndex}`, tagName);
+    params = params.append(`tag_contains_${tagIndex}`, 'contains');
+    params = params.append(`tag_${tagIndex}`, tagValue);
+
+    return params;
   }
 
   getFacts(barcode: string): Observable<Product> {

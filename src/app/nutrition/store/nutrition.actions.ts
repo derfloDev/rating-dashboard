@@ -82,7 +82,7 @@ export const favoritesLoadedError = createAction(
 
 export const addFavorite = createAction(
   '[Nutrition] add favorite',
-  props<{ productId: string }>()
+  props<{ product: Product }>()
 );
 export const favoriteAdded = createAction('[Nutrition] favorite added');
 export const favoriteAddedError = createAction(

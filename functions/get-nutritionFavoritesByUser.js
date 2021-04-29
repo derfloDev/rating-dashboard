@@ -13,7 +13,7 @@ exports.handler = async (event, context, callback) => {
   console.log("Function `get-nutritionFavoritesByUser` invoked", user);
   if (!!identity && !!user) {
     const dbItems = await getDbItems(client, user.email);
-    console.log("dbItems", dbItems);
+    // console.log("dbItems", dbItems);
     if (!!dbItems) {
       return success(callback, dbItems);
     } else {

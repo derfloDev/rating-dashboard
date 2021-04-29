@@ -156,7 +156,12 @@
           "options": {
             "browserTarget": "rating-dashboard:build:production",
             "serverTarget": "rating-dashboard:server:production",
-            "routes": ["/"]
+            "routes": ["/"],
+            "scripts": [
+              "node_modules/netlify-identity-widget/build/netlify-identity.js",
+              "node_modules/netlify-identity-widget/build/netlify-identity-widget.js",
+              "node_modules/quagga/dist/quagga.min.js"
+            ]
           },
           "configurations": {
             "production": {}

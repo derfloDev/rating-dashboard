@@ -64,3 +64,23 @@ export const selectFavorites = createSelector(
   getNutritionState,
   (state: BeautyState) => state.favorites
 );
+
+export const selectSearchFilter = createSelector(
+  getNutritionState,
+  (state: BeautyState) => state.searchFilter
+);
+
+export const selectAllergenNames = createSelector(
+  getNutritionState,
+  (state: BeautyState) => state.allergenNames
+);
+
+export const selectCategoryNames = createSelector(
+  getNutritionState,
+  (state: BeautyState) => state.categoryNames
+);
+
+export const selectBrandNames = createSelector(
+  getNutritionState,
+  (state: BeautyState) => state.brandNames
+);

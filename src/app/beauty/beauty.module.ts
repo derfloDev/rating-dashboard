@@ -12,7 +12,14 @@ import { TestOuterComponent } from './components/test-outer/test-outer.component
 import { TestInnerComponent } from './components/test-inner/test-inner.component';
 import { SharedModule } from '../shared/shared.module';
 import { IngredientsTableComponent } from './components/ingredients-table/ingredients-table.component';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbCollapseModule,
+  NgbDropdownModule,
+  NgbModalModule,
+  NgbTooltipModule,
+  NgbTypeaheadConfig,
+  NgbTypeaheadModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -28,6 +35,9 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     NgbModalModule,
+    NgbTooltipModule,
+    NgbCollapseModule,
+    NgbDropdownModule,
     CommonModule,
     BeautyRoutingModule,
     FormsModule,

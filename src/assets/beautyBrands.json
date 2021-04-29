@@ -1,0 +1,2765 @@
+{
+  "en:innate": {
+    "name": {
+      "en": "Innate"
+    },
+    "parents": ["en:l-oreal-professional-products"]
+  },
+  "en:nitromors": {
+    "name": {
+      "en": "Nitromors"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:bull-glue": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Bull Glue"
+    }
+  },
+  "en:perwoll": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Perwoll"
+    }
+  },
+  "en:decleor": {
+    "name": {
+      "en": "Decléor"
+    },
+    "wikidata": {
+      "en": "Q16546558"
+    },
+    "parents": ["en:l-oreal-luxe"]
+  },
+  "en:viking": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Viking"
+    }
+  },
+  "en:magic": {
+    "parents": ["en:l-oreal-consumer-products"],
+    "name": {
+      "en": "Magic"
+    }
+  },
+  "en:schauma": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Schauma"
+    }
+  },
+  "en:lovables": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Lovables"
+    }
+  },
+  "en:axe-lynx": {
+    "wikidata": {
+      "en": "Q791930"
+    },
+    "parents": ["en:unilever"],
+    "name": {
+      "en": "Axe/Lynx"
+    }
+  },
+  "fr:imodium": {
+    "name": {
+      "fr": "Imodium"
+    },
+    "parents": ["en:johnson-johnson"]
+  },
+  "en:poly-swing": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Poly Swing"
+    }
+  },
+  "en:bully": {
+    "name": {
+      "en": "Bully"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:denivit": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Denivit"
+    }
+  },
+  "en:resistol": {
+    "name": {
+      "en": "Resistol"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:signal": {
+    "name": {
+      "en": "Signal"
+    },
+    "parents": ["en:unilever"]
+  },
+  "en:big-d": {
+    "name": {
+      "en": "Big D"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:freshlight": {
+    "name": {
+      "en": "Freshlight"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:20-mule-team-borax": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "20 Mule Team Borax"
+    }
+  },
+  "en:grey": {
+    "name": {
+      "en": "Grey"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:shisheido": {
+    "children": [
+      "en:aqualabel",
+      "en:aupres",
+      "en:ayura",
+      "en:bare-escentuals",
+      "en:beaute-prestige-international",
+      "en:d-program",
+      "en:ipsa",
+      "en:iso-hair",
+      "en:joico",
+      "en:nars-cosmetics",
+      "en:qiora",
+      "en:revital",
+      "en:senscience",
+      "en:uno",
+      "en:uv-white",
+      "en:za",
+      "en:zotos-international",
+      "fr:cle-de-peau",
+      "fr:serge-lutens"
+    ],
+    "name": {
+      "en": "Shisheido"
+    },
+    "wikidata": {
+      "en": "Q728185"
+    }
+  },
+  "fr:h-pour-homme": {
+    "name": {
+      "fr": "H pour HOMME"
+    },
+    "parents": ["en:lascad"]
+  },
+  "en:dry-idea": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Dry Idea"
+    }
+  },
+  "fr:titanoreine": {
+    "parents": ["en:johnson-johnson"],
+    "name": {
+      "fr": "Titanoréine"
+    }
+  },
+  "en:dumdum": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "DumDum"
+    }
+  },
+  "en:eau-ecarlate": {
+    "name": {
+      "en": "Eau Ecarlate"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:em-michelle-phan": {
+    "parents": ["en:l-oreal-active-cosmetics", "en:l-oreal-luxe"],
+    "name": {
+      "en": "EM Michelle Phan"
+    }
+  },
+  "fr:eau-jeune": {
+    "name": {
+      "fr": "Eau Jeune"
+    },
+    "parents": ["en:lascad"]
+  },
+  "en:shu-uemura": {
+    "name": {
+      "en": "Shu Uemura"
+    },
+    "parents": ["en:l-oreal-luxe"]
+  },
+  "en:pemos": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Pemos"
+    }
+  },
+  "fr:serge-lutens": {
+    "parents": ["en:shisheido"],
+    "name": {
+      "fr": "Serge Lutens"
+    }
+  },
+  "fr:slava-zaitsev": {
+    "parents": ["en:lascad"],
+    "name": {
+      "fr": "Slava Zaïtsev"
+    }
+  },
+  "en:taft": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Taft"
+    }
+  },
+  "en:country-colors": {
+    "name": {
+      "en": "Country Colors"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:sard-wonder": {
+    "name": {
+      "en": "Sard Wonder"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:surf": {
+    "name": {
+      "en": "Surf"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:viktor-rolf": {
+    "name": {
+      "en": "Viktor & Rolf"
+    },
+    "parents": ["en:l-oreal-luxe"]
+  },
+  "en:moment": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Moment"
+    }
+  },
+  "en:iso-hair": {
+    "parents": ["en:shisheido"],
+    "name": {
+      "en": "ISO Hair"
+    }
+  },
+  "en:syoss": {
+    "name": {
+      "en": "Syoss"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:ombrelle": {
+    "name": {
+      "en": "Ombrelle"
+    },
+    "parents": ["en:l-oreal-consumer-products"]
+  },
+  "en:urban-decay": {
+    "name": {
+      "en": "Urban Decay"
+    },
+    "parents": ["en:l-oreal-luxe"],
+    "wikidata": {
+      "en": "Q153264"
+    }
+  },
+  "en:plastic-padding": {
+    "name": {
+      "en": "Plastic Padding"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:sofix": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Sofix"
+    }
+  },
+  "en:fa": {
+    "name": {
+      "en": "Fa"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:diosa": {
+    "name": {
+      "en": "Diosa"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:alterna-haircare": {
+    "name": {
+      "en": "Alterna Haircare"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:laboratoires-vendome": {
+    "parents": ["en:johnson-johnson"],
+    "wikidata": {
+      "en": "Q3214523"
+    },
+    "name": {
+      "fr": "Laboratoires Vendôme"
+    }
+  },
+  "en:qiora": {
+    "name": {
+      "en": "Qiora"
+    },
+    "parents": ["en:shisheido"]
+  },
+  "fr:ushuaia": {
+    "parents": ["en:lascad"],
+    "name": {
+      "fr": "Ushuaia"
+    }
+  },
+  "en:estosello": {
+    "name": {
+      "en": "EstoSello"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:biotherm": {
+    "wikidata": {
+      "en": "Q2494771"
+    },
+    "parents": ["en:l-oreal-luxe"],
+    "name": {
+      "en": "Biotherm"
+    }
+  },
+  "en:boston": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Boston"
+    }
+  },
+  "en:boraxo": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Boraxo"
+    }
+  },
+  "en:nars-cosmetics": {
+    "name": {
+      "en": "NARS Cosmetics"
+    },
+    "parents": ["en:shisheido"],
+    "wikidata": {
+      "en": "Q3869356"
+    }
+  },
+  "en:spee": {
+    "name": {
+      "en": "Spee"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:suave": {
+    "parents": ["en:unilever"],
+    "name": {
+      "en": "Suave"
+    }
+  },
+  "en:combat": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Combat"
+    }
+  },
+  "en:vim": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Vim"
+    }
+  },
+  "fr:mennen": {
+    "name": {
+      "fr": "Mennen"
+    },
+    "parents": ["en:lascad"],
+    "wikidata": {
+      "en": "Q6817173"
+    }
+  },
+  "fr:le-petit-marseillais": {
+    "parents": ["en:johnson-johnson"],
+    "name": {
+      "fr": "Le Petit Marseillais"
+    }
+  },
+  "en:septifos": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Septifos"
+    }
+  },
+  "fr:p-tit-dop": {
+    "parents": ["en:lascad"],
+    "name": {
+      "fr": "P'tit Dop"
+    }
+  },
+  "en:maison-martin-margiela": {
+    "name": {
+      "en": "Maison Martin Margiela"
+    },
+    "parents": ["en:l-oreal-luxe"]
+  },
+  "fr:cadum": {
+    "wikidata": {
+      "en": "Q2932784"
+    },
+    "parents": ["en:lascad"],
+    "name": {
+      "fr": "Cadum"
+    }
+  },
+  "en:fab": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Fab"
+    }
+  },
+  "en:mas": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Mas"
+    }
+  },
+  "en:ayura": {
+    "parents": ["en:shisheido"],
+    "name": {
+      "en": "Ayura"
+    }
+  },
+  "en:dixan-piatti": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Dixan Piatti"
+    }
+  },
+  "en:brylcreem": {
+    "parents": ["en:unilever"],
+    "wikidata": {
+      "en": "Q2337259"
+    },
+    "name": {
+      "en": "Brylcreem"
+    }
+  },
+  "en:bruynzeel": {
+    "name": {
+      "en": "Bruynzeel"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:fix-polvo": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Fix Polvo"
+    }
+  },
+  "en:minidou": {
+    "name": {
+      "en": "Minidou"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:clynol": {
+    "name": {
+      "en": "Clynol"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:q-tips": {
+    "parents": ["en:unilever"],
+    "name": {
+      "en": "Q-tips"
+    }
+  },
+  "en:hurricane": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Hurricane"
+    }
+  },
+  "en:econ": {
+    "name": {
+      "en": "Econ"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:l-oreal": {
+    "name": {
+      "en": "L'Oréal"
+    },
+    "wikidata": {
+      "en": "Q156077"
+    },
+    "children": [
+      "en:l-oreal-active-cosmetics",
+      "en:l-oreal-consumer-products",
+      "en:l-oreal-luxe",
+      "en:l-oreal-professional-products",
+      "en:lascad"
+    ]
+  },
+  "en:issey-miyake": {
+    "name": {
+      "en": "Issey Miyake"
+    },
+    "parents": ["en:beaute-prestige-international"]
+  },
+  "en:lascad": {
+    "name": {
+      "en": "LASCAD"
+    },
+    "wikidata": {
+      "en": "Q21294908"
+    },
+    "parents": ["en:l-oreal"],
+    "children": [
+      "fr:bien-etre",
+      "fr:cadum",
+      "fr:daniel-hechter",
+      "fr:dessange",
+      "fr:dop",
+      "fr:eau-jeune",
+      "fr:fluoryl",
+      "fr:franck-provost",
+      "fr:gloria-vanderbilt",
+      "fr:h-pour-homme",
+      "fr:jean-louis-david",
+      "fr:mennen",
+      "fr:mixa",
+      "fr:narta",
+      "fr:p-tit-dop",
+      "fr:savon-le-naturel",
+      "fr:slava-zaitsev",
+      "fr:ushuaia",
+      "fr:vivelle-dop"
+    ]
+  },
+  "en:neutrex": {
+    "name": {
+      "en": "Neutrex"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:vichy": {
+    "name": {
+      "fr": "Vichy"
+    },
+    "parents": ["en:l-oreal-active-cosmetics"],
+    "wikidata": {
+      "en": "Q2079719"
+    }
+  },
+  "en:pritt": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Pritt"
+    }
+  },
+  "fr:vivelle-dop": {
+    "parents": ["en:lascad"],
+    "name": {
+      "fr": "Vivelle Dop"
+    }
+  },
+  "en:makroflex": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Makroflex"
+    }
+  },
+  "en:noxzema": {
+    "wikidata": {
+      "en": "Q7067326"
+    },
+    "parents": ["en:unilever"],
+    "name": {
+      "en": "Noxzema"
+    }
+  },
+  "en:color-ultime": {
+    "name": {
+      "en": "Color Ultîme"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:neutromed": {
+    "name": {
+      "en": "Neutromed"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:deni": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Deni"
+    }
+  },
+  "en:clin": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Clin"
+    }
+  },
+  "en:perfect-mousse": {
+    "name": {
+      "en": "Perfect Mousse"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:softsheen-carson": {
+    "name": {
+      "en": "SoftSheen-Carson"
+    },
+    "parents": ["en:l-oreal-consumer-products"],
+    "wikidata": {
+      "en": "Q10372938"
+    }
+  },
+  "en:pattex": {
+    "name": {
+      "en": "Pattex"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:mir": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Mir"
+    }
+  },
+  "en:indola": {
+    "name": {
+      "en": "Indola"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:pur": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Pur"
+    }
+  },
+  "en:wc-frisch": {
+    "name": {
+      "en": "WC Frisch"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:actifed": {
+    "name": {
+      "fr": "Actifed"
+    },
+    "wikidata": {
+      "en": "Q4676820"
+    },
+    "parents": ["en:johnson-johnson"]
+  },
+  "en:iba": {
+    "name": {
+      "en": "IBA"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:globol": {
+    "name": {
+      "en": "Globol"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:silhouette": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Silhouette"
+    }
+  },
+  "en:pattex-chemopren": {
+    "name": {
+      "en": "Pattex Chemoprén"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:dac": {
+    "name": {
+      "en": "Dac"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:ralph-lauren": {
+    "name": {
+      "en": "Ralph Lauren"
+    },
+    "parents": ["en:l-oreal-luxe"]
+  },
+  "en:oust-descalers": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Oust Descalers"
+    }
+  },
+  "en:bloom": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Bloom"
+    }
+  },
+  "en:teraxyl": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Teraxyl"
+    }
+  },
+  "en:e": {
+    "name": {
+      "en": "E"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:narta": {
+    "name": {
+      "fr": "Narta"
+    },
+    "parents": ["en:lascad"]
+  },
+  "en:ballerina": {
+    "name": {
+      "en": "Ballerina"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:tenn": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Tenn"
+    }
+  },
+  "en:joico": {
+    "parents": ["en:shisheido"],
+    "name": {
+      "en": "Joico"
+    }
+  },
+  "en:palette": {
+    "name": {
+      "en": "Palette"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:k2r": {
+    "name": {
+      "en": "K2R"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:cold-power": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Cold Power"
+    }
+  },
+  "en:lux": {
+    "parents": ["en:unilever"],
+    "name": {
+      "en": "Lux"
+    }
+  },
+  "en:cimsec": {
+    "name": {
+      "en": "Cimsec"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:sista": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Sista"
+    }
+  },
+  "fr:bien-etre": {
+    "parents": ["en:lascad"],
+    "name": {
+      "fr": "Bien-être"
+    }
+  },
+  "fr:dop": {
+    "parents": ["en:lascad"],
+    "name": {
+      "fr": "Dop"
+    }
+  },
+  "en:punch": {
+    "name": {
+      "en": "Punch"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:diadermine": {
+    "name": {
+      "en": "Diadermine"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:pond-s": {
+    "parents": ["en:unilever"],
+    "name": {
+      "en": "Pond's"
+    }
+  },
+  "en:skinceuticals": {
+    "wikidata": {
+      "en": "Q7535296"
+    },
+    "parents": ["en:l-oreal-active-cosmetics"],
+    "name": {
+      "en": "Skinceuticals"
+    }
+  },
+  "en:bio-presto": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Bio Presto"
+    }
+  },
+  "en:lepage": {
+    "name": {
+      "en": "LePage"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:neutrogena": {
+    "parents": ["en:johnson-johnson"],
+    "wikidata": {
+      "en": "Q2451589"
+    },
+    "name": {
+      "fr": "Neutrogena"
+    }
+  },
+  "en:antica-erboristeria": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Antica Erboristeria"
+    }
+  },
+  "en:konzil": {
+    "name": {
+      "en": "Konzil"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:franck-provost": {
+    "parents": ["en:lascad"],
+    "name": {
+      "fr": "Franck Provost"
+    }
+  },
+  "en:cacharel": {
+    "parents": ["en:l-oreal-luxe"],
+    "name": {
+      "en": "Cacharel"
+    }
+  },
+  "en:za": {
+    "name": {
+      "en": "Za"
+    },
+    "parents": ["en:shisheido"]
+  },
+  "en:zen-sect": {
+    "name": {
+      "en": "Zen'sect"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:blonde-schwarzkopf": {
+    "name": {
+      "en": "Blonde Schwarzkopf"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:bc-bonacure": {
+    "name": {
+      "en": "BC Bonacure"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:zendium": {
+    "parents": ["en:unilever"],
+    "name": {
+      "en": "Zendium"
+    }
+  },
+  "en:spree": {
+    "name": {
+      "en": "Spree"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:nordic-blonde": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Nordic Blonde"
+    }
+  },
+  "en:million-color": {
+    "name": {
+      "en": "Million Color"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:supreme-keratin": {
+    "name": {
+      "en": "Supreme Keratin"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:dynamo": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Dynamo"
+    }
+  },
+  "en:osi": {
+    "name": {
+      "en": "Osi"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:garnier": {
+    "name": {
+      "en": "Garnier"
+    },
+    "parents": ["en:l-oreal-consumer-products"],
+    "wikidata": {
+      "en": "Q599755"
+    }
+  },
+  "fr:gloria-vanderbilt": {
+    "parents": ["en:lascad"],
+    "name": {
+      "fr": "Gloria Vanderbilt"
+    }
+  },
+  "en:lord-sheraton": {
+    "name": {
+      "en": "Lord Sheraton"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:general": {
+    "name": {
+      "en": "General"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:doigts-nets": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Doigts Nets"
+    }
+  },
+  "en:essie": {
+    "name": {
+      "en": "Essie"
+    },
+    "parents": ["en:l-oreal-consumer-products"]
+  },
+  "en:dermablend": {
+    "parents": ["en:l-oreal-active-cosmetics"],
+    "name": {
+      "en": "Dermablend"
+    }
+  },
+  "en:perfax": {
+    "name": {
+      "en": "Perfax"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:croc-odor": {
+    "name": {
+      "en": "Croc Odor"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:home-mat-home-keeper": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Home Mat & Home Keeper"
+    }
+  },
+  "en:l-oreal-consumer-products": {
+    "name": {
+      "en": "L'Oreal Consumer products"
+    },
+    "parents": ["en:l-oreal"],
+    "children": [
+      "en:essie",
+      "en:garnier",
+      "en:l-oreal-paris",
+      "en:magic",
+      "en:maybelline",
+      "en:ombrelle",
+      "en:softsheen-carson",
+      "fr:createurs-de-beaute"
+    ]
+  },
+  "en:l-oreal-technique": {
+    "parents": ["en:l-oreal-professional-products"],
+    "name": {
+      "en": "L'Oréal Technique"
+    }
+  },
+  "en:l-oreal-active-cosmetics": {
+    "parents": ["en:l-oreal"],
+    "name": {
+      "en": "L'Oreal Active cosmetics"
+    },
+    "children": [
+      "en:dermablend",
+      "en:em-michelle-phan",
+      "en:inneov",
+      "en:skinceuticals",
+      "fr:la-roche-posay",
+      "fr:roger-gallet",
+      "fr:sanoflore",
+      "fr:vichy"
+    ]
+  },
+  "fr:aveeno": {
+    "name": {
+      "fr": "Aveeno"
+    },
+    "parents": ["en:johnson-johnson"],
+    "wikidata": {
+      "en": "Q4827975"
+    }
+  },
+  "en:wk-ultra": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "WK Ultra"
+    }
+  },
+  "fr:lansoyl": {
+    "name": {
+      "fr": "Lansoÿl"
+    },
+    "parents": ["en:johnson-johnson"]
+  },
+  "en:narciso-rodriguez": {
+    "name": {
+      "en": "Narciso Rodriguez"
+    },
+    "parents": ["en:beaute-prestige-international"]
+  },
+  "fr:compeed": {
+    "name": {
+      "fr": "Compeed"
+    },
+    "parents": ["en:johnson-johnson"],
+    "wikidata": {
+      "en": "Q20078703"
+    }
+  },
+  "en:vape": {
+    "name": {
+      "en": "Vape"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:d-program": {
+    "name": {
+      "en": "D-program"
+    },
+    "parents": ["en:shisheido"]
+  },
+  "en:vernel": {
+    "name": {
+      "en": "Vernel"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:dylon-colour-catcher": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Dylon Colour Catcher"
+    }
+  },
+  "en:revital": {
+    "parents": ["en:shisheido"],
+    "name": {
+      "en": "Revital"
+    }
+  },
+  "en:helene-curtis": {
+    "name": {
+      "en": "Helene Curtis"
+    },
+    "parents": ["en:unilever"]
+  },
+  "en:men-perfect": {
+    "name": {
+      "en": "Men Perfect"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:zotos-international": {
+    "name": {
+      "en": "Zotos International"
+    },
+    "parents": ["en:shisheido"]
+  },
+  "en:weisser-riese": {
+    "name": {
+      "en": "Weisser Riese"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:aquence": {
+    "name": {
+      "en": "Aquence"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:haiermian": {
+    "name": {
+      "en": "Haiermian"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:matrix-essentials": {
+    "name": {
+      "en": "Matrix Essentials"
+    },
+    "parents": ["en:l-oreal-professional-products"]
+  },
+  "en:allume-vite": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Allume-vite"
+    }
+  },
+  "fr:fluoryl": {
+    "name": {
+      "fr": "Fluoryl"
+    },
+    "parents": ["en:lascad"]
+  },
+  "fr:prim-age": {
+    "name": {
+      "fr": "Prim'âge"
+    },
+    "parents": ["en:johnson-johnson"]
+  },
+  "en:strait-styling": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Strait Styling"
+    }
+  },
+  "en:impulse": {
+    "parents": ["en:unilever"],
+    "name": {
+      "en": "Impulse"
+    }
+  },
+  "en:tone": {
+    "name": {
+      "en": "Tone"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:eparcyl": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Eparcyl"
+    }
+  },
+  "en:igora": {
+    "name": {
+      "en": "Igora"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:jean-louis-david": {
+    "parents": ["en:lascad"],
+    "name": {
+      "fr": "Jean–Louis David"
+    }
+  },
+  "en:pears-soap": {
+    "name": {
+      "en": "Pears soap"
+    },
+    "parents": ["en:unilever"],
+    "wikidata": {
+      "en": "Q4046564"
+    }
+  },
+  "en:vademecum": {
+    "name": {
+      "en": "Vademecum"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:pril": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Pril"
+    }
+  },
+  "en:ceresit-stop": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Ceresit Stop"
+    }
+  },
+  "en:cucal": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Cucal"
+    }
+  },
+  "en:diesel": {
+    "parents": ["en:l-oreal-luxe"],
+    "name": {
+      "en": "Diesel"
+    }
+  },
+  "en:novelle": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Novelle"
+    }
+  },
+  "en:kinsale-candles": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Kinsale Candles"
+    }
+  },
+  "en:teroson": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Teroson"
+    }
+  },
+  "en:helena-rubinstein": {
+    "wikidata": {
+      "en": "Q3129665"
+    },
+    "parents": ["en:l-oreal-luxe"],
+    "name": {
+      "en": "Helena Rubinstein"
+    }
+  },
+  "en:twink": {
+    "name": {
+      "en": "Twink"
+    },
+    "parents": ["en:unilever"]
+  },
+  "fr:roc": {
+    "parents": ["en:johnson-johnson"],
+    "name": {
+      "fr": "RoC"
+    }
+  },
+  "en:super-croix": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Super Croix"
+    }
+  },
+  "en:fester": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Fester"
+    }
+  },
+  "en:micolor": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Micolor"
+    }
+  },
+  "en:ariasana": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Ariasana"
+    }
+  },
+  "en:timotei": {
+    "parents": ["en:unilever"],
+    "wikidata": {
+      "en": "Q1997791"
+    },
+    "name": {
+      "en": "Timotei"
+    }
+  },
+  "en:aok": {
+    "name": {
+      "en": "Aok"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:rubson": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Rubson"
+    }
+  },
+  "en:maybelline": {
+    "name": {
+      "en": "Maybelline"
+    },
+    "parents": ["en:l-oreal-consumer-products"],
+    "wikidata": {
+      "en": "Q1351054"
+    }
+  },
+  "en:dylon": {
+    "name": {
+      "en": "Dylon"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:poly-color-cream-hair-dye": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Poly Color Cream Hair Dye"
+    }
+  },
+  "en:ysl": {
+    "name": {
+      "en": "YSL"
+    },
+    "parents": ["en:l-oreal-luxe"]
+  },
+  "en:the-body-shop": {
+    "wikidata": {
+      "en": "Q837851"
+    },
+    "parents": ["en:l-oreal-luxe"],
+    "name": {
+      "en": "The Body Shop"
+    }
+  },
+  "en:paloma-picasso": {
+    "name": {
+      "en": "Paloma Picasso"
+    },
+    "parents": ["en:l-oreal-luxe"]
+  },
+  "en:uno": {
+    "name": {
+      "en": "UNO"
+    },
+    "parents": ["en:shisheido"]
+  },
+  "en:sidol": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Sidol"
+    }
+  },
+  "en:decap-four": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Décap'Four"
+    }
+  },
+  "fr:azzedine-alaia": {
+    "name": {
+      "fr": "Azzedine Alaïa"
+    },
+    "parents": ["en:beaute-prestige-international"]
+  },
+  "en:l-oreal-paris": {
+    "name": {
+      "en": "L'Oréal Paris"
+    },
+    "parents": ["en:l-oreal-consumer-products"]
+  },
+  "en:ceresit": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Ceresit"
+    }
+  },
+  "en:artec": {
+    "name": {
+      "en": "ARTec"
+    },
+    "parents": ["en:l-oreal-professional-products"]
+  },
+  "en:mistol": {
+    "name": {
+      "en": "Mistol"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:drakkar-noir": {
+    "parents": ["en:l-oreal-luxe"],
+    "wikidata": {
+      "en": "Q5305669"
+    },
+    "name": {
+      "en": "Drakkar noir"
+    }
+  },
+  "en:sk-men": {
+    "name": {
+      "en": "SK Men"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:agorex": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Agorex"
+    }
+  },
+  "en:fewa": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Fewa"
+    }
+  },
+  "en:vapona": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Vapona"
+    }
+  },
+  "en:x-tra": {
+    "name": {
+      "en": "X-TRA"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:metylan": {
+    "name": {
+      "en": "Metylan"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:tolu": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Tolu"
+    }
+  },
+  "en:loctite": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Loctite"
+    }
+  },
+  "en:kenra-professional": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Kenra Professional"
+    }
+  },
+  "en:guang-ming": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Guang Ming"
+    }
+  },
+  "en:lifebuoy": {
+    "name": {
+      "en": "Lifebuoy"
+    },
+    "wikidata": {
+      "en": "Q4244899"
+    },
+    "parents": ["en:unilever"]
+  },
+  "en:nectra-color": {
+    "name": {
+      "en": "Nectra Color"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:keraskin-esthetics": {
+    "name": {
+      "fr": "Kéraskin Esthetics"
+    },
+    "parents": ["en:l-oreal-professional-products"]
+  },
+  "en:fels-naptha": {
+    "name": {
+      "en": "Fels-Naptha"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:silan": {
+    "name": {
+      "en": "Silan"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:sellotape": {
+    "name": {
+      "en": "Sellotape"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:witte-reus": {
+    "name": {
+      "en": "Witte Reus"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:bed-head": {
+    "name": {
+      "en": "Bed Head"
+    },
+    "wikidata": {
+      "en": "Q4878948"
+    },
+    "parents": ["en:unilever"]
+  },
+  "fr:biafine": {
+    "parents": ["en:johnson-johnson"],
+    "name": {
+      "fr": "Biafine"
+    }
+  },
+  "en:dixi": {
+    "name": {
+      "en": "Dixi"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:vania": {
+    "parents": ["en:johnson-johnson"],
+    "name": {
+      "fr": "Vania"
+    }
+  },
+  "en:clarisonic": {
+    "wikidata": {
+      "en": "Q5127056"
+    },
+    "parents": ["en:l-oreal-luxe"],
+    "name": {
+      "en": "Clarisonic"
+    }
+  },
+  "en:xtreme": {
+    "name": {
+      "en": "Xtreme"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:dixan": {
+    "name": {
+      "en": "Dixan"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:diadem": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Diadem"
+    }
+  },
+  "en:havu-mantysuopa": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Havu Mäntysuopa"
+    }
+  },
+  "en:kindness": {
+    "name": {
+      "en": "Kindness"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:got2b": {
+    "name": {
+      "en": "Göt2b"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:lakme": {
+    "parents": ["en:unilever"],
+    "wikidata": {
+      "en": "Q6479731"
+    },
+    "name": {
+      "en": "Lakmé"
+    }
+  },
+  "fr:kerastase": {
+    "wikidata": {
+      "en": "Q1999812"
+    },
+    "parents": ["en:l-oreal-professional-products"],
+    "name": {
+      "fr": "Kérastase"
+    }
+  },
+  "en:solvite": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Solvite"
+    }
+  },
+  "en:aqualabel": {
+    "name": {
+      "en": "Aqualabel"
+    },
+    "parents": ["en:shisheido"]
+  },
+  "en:stella-mccartney": {
+    "parents": ["en:l-oreal-luxe"],
+    "name": {
+      "en": "Stella McCartney"
+    }
+  },
+  "en:lancome": {
+    "name": {
+      "en": "Lancôme"
+    },
+    "wikidata": {
+      "en": "Q1541268"
+    },
+    "parents": ["en:l-oreal-luxe"]
+  },
+  "en:vaseline": {
+    "parents": ["en:unilever"],
+    "wikidata": {
+      "en": "Q185120"
+    },
+    "name": {
+      "en": "Vaseline"
+    }
+  },
+  "en:theramed": {
+    "name": {
+      "en": "Theramed"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:haxan": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Häxan"
+    }
+  },
+  "en:la-toja": {
+    "name": {
+      "en": "La Toja"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:gliss-kur": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Gliss Kur"
+    }
+  },
+  "en:snuggle": {
+    "name": {
+      "en": "Snuggle"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:kiehl-s": {
+    "name": {
+      "en": "Kiehl's"
+    },
+    "wikidata": {
+      "en": "Q3196447"
+    },
+    "parents": ["en:l-oreal-luxe"]
+  },
+  "en:inneov": {
+    "parents": ["en:l-oreal-active-cosmetics"],
+    "name": {
+      "en": "Inneov"
+    }
+  },
+  "en:estrella": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Estrella"
+    }
+  },
+  "fr:nett": {
+    "name": {
+      "fr": "Nett"
+    },
+    "parents": ["en:johnson-johnson"]
+  },
+  "en:shu-uemura-art-of-hair": {
+    "name": {
+      "en": "Shu Uemura Art of Hair"
+    },
+    "parents": ["en:l-oreal-professional-products"]
+  },
+  "en:instanet": {
+    "name": {
+      "en": "Instanet"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:listerine": {
+    "parents": ["en:johnson-johnson"],
+    "wikidata": {
+      "en": "Q944073"
+    },
+    "name": {
+      "fr": "Listerine"
+    }
+  },
+  "fr:dessange": {
+    "name": {
+      "fr": "Dessange"
+    },
+    "parents": ["en:lascad"]
+  },
+  "en:purex": {
+    "name": {
+      "en": "Purex"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:perlan": {
+    "name": {
+      "en": "Perlan"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:wd-40": {
+    "name": {
+      "en": "WD-40"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:elie-saab": {
+    "name": {
+      "en": "Elie Saab"
+    },
+    "parents": ["en:beaute-prestige-international"]
+  },
+  "en:kit-racines": {
+    "name": {
+      "en": "Kit Racines"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:losk": {
+    "name": {
+      "en": "Losk"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:supreme-selection": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Supreme Selection"
+    }
+  },
+  "en:wipp-express": {
+    "name": {
+      "en": "Wipp Express"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:keratin-color": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Keratin Color"
+    }
+  },
+  "fr:savon-le-naturel": {
+    "parents": ["en:lascad"],
+    "name": {
+      "fr": "Savon le naturel"
+    }
+  },
+  "en:scorpio": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Scorpio"
+    }
+  },
+  "fr:la-roche-posay": {
+    "parents": ["en:l-oreal-active-cosmetics"],
+    "wikidata": {
+      "en": "Q1356442"
+    },
+    "name": {
+      "fr": "La Roche Posay"
+    }
+  },
+  "en:persil": {
+    "name": {
+      "en": "Persil"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:bonderite": {
+    "name": {
+      "en": "Bonderite"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:sunsilk": {
+    "parents": ["en:unilever"],
+    "wikidata": {
+      "en": "Q596546"
+    },
+    "name": {
+      "en": "Sunsilk"
+    }
+  },
+  "en:furia": {
+    "name": {
+      "en": "Furia"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:licor-del-polo": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Licor del Polo"
+    }
+  },
+  "en:faberge": {
+    "name": {
+      "en": "Faberge"
+    },
+    "parents": ["en:unilever"]
+  },
+  "en:fleuril": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Fleuril"
+    }
+  },
+  "en:dial": {
+    "name": {
+      "en": "Dial"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:magno": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Magno"
+    }
+  },
+  "en:salon-selectives": {
+    "name": {
+      "en": "Salon Selectives"
+    },
+    "parents": ["en:unilever"],
+    "wikidata": {
+      "en": "Q7405676"
+    }
+  },
+  "fr:sanoflore": {
+    "parents": ["en:l-oreal-active-cosmetics"],
+    "name": {
+      "fr": "Sanoflore"
+    }
+  },
+  "fr:jean-paul-gaultier": {
+    "parents": ["en:beaute-prestige-international"],
+    "name": {
+      "fr": "Jean-Paul Gaultier"
+    }
+  },
+  "en:opti": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Opti"
+    }
+  },
+  "en:right-guard": {
+    "name": {
+      "en": "Right Guard"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:drago": {
+    "name": {
+      "en": "Drago"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:degree": {
+    "parents": ["en:unilever"],
+    "name": {
+      "en": "Degree"
+    }
+  },
+  "en:rexona": {
+    "parents": ["en:unilever"],
+    "wikidata": {
+      "en": "Q1183694"
+    },
+    "name": {
+      "en": "Rexona"
+    }
+  },
+  "en:henkel": {
+    "name": {
+      "en": "Henkel"
+    },
+    "children": [
+      "en:20-mule-team-borax",
+      "en:3d-men",
+      "en:agorex",
+      "en:allume-vite",
+      "en:alterna-haircare",
+      "en:antica-erboristeria",
+      "en:aok",
+      "en:aquence",
+      "en:ariasana",
+      "en:ballerina",
+      "en:bc-bonacure",
+      "en:big-d",
+      "en:bio-presto",
+      "en:blonde-schwarzkopf",
+      "en:blondme",
+      "en:bloom",
+      "en:blue-star",
+      "en:bonderite",
+      "en:boraxo",
+      "en:boston",
+      "en:bref",
+      "en:brillance",
+      "en:bruynzeel",
+      "en:bull-glue",
+      "en:bully",
+      "en:cascola",
+      "en:catch",
+      "en:ceresit",
+      "en:ceresit-stop",
+      "en:cimsec",
+      "en:clin",
+      "en:clynol",
+      "en:cold-power",
+      "en:color-mask",
+      "en:color-ultime",
+      "en:coloria",
+      "en:combat",
+      "en:conejo",
+      "en:country-colors",
+      "en:croc-odor",
+      "en:cucal",
+      "en:dac",
+      "en:dato",
+      "en:decap-four",
+      "en:deni",
+      "en:denivit",
+      "en:der-general",
+      "en:diadem",
+      "en:diadermine",
+      "en:dial",
+      "en:diosa",
+      "en:dixan",
+      "en:dixan-piatti",
+      "en:dixi",
+      "en:doigts-nets",
+      "en:drago",
+      "en:dry-idea",
+      "en:dumdum",
+      "en:dylon",
+      "en:dylon-colour-catcher",
+      "en:dynamo",
+      "en:e",
+      "en:eau-ecarlate",
+      "en:econ",
+      "en:eparcyl",
+      "en:essensity",
+      "en:estosello",
+      "en:estrella",
+      "en:fa",
+      "en:fab",
+      "en:fels-naptha",
+      "en:fester",
+      "en:fewa",
+      "en:fibreplex",
+      "en:fix-polvo",
+      "en:fleuril",
+      "en:freshlight",
+      "en:furia",
+      "en:general",
+      "en:gliss-kur",
+      "en:globol",
+      "en:got2b",
+      "en:grey",
+      "en:guang-ming",
+      "en:haiermian",
+      "en:havu-mantysuopa",
+      "en:haxan",
+      "en:home-mat-home-keeper",
+      "en:hurricane",
+      "en:iba",
+      "en:igora",
+      "en:indola",
+      "en:instanet",
+      "en:k2r",
+      "en:kenra-professional",
+      "en:keratin-color",
+      "en:kindness",
+      "en:kinsale-candles",
+      "en:kit-racines",
+      "en:konzil",
+      "en:la-toja",
+      "en:laska",
+      "en:le-chat",
+      "en:lepage",
+      "en:licor-del-polo",
+      "en:live-color-xxl",
+      "en:loctite",
+      "en:lord-sheraton",
+      "en:losk",
+      "en:lovables",
+      "en:magno",
+      "en:makroflex",
+      "en:mas",
+      "en:men-perfect",
+      "en:metylan",
+      "en:micolor",
+      "en:million-color",
+      "en:mini-risk",
+      "en:minidou",
+      "en:mir",
+      "en:miror",
+      "en:mistol",
+      "en:moment",
+      "en:natural-easy",
+      "en:natural-styling",
+      "en:nectra-color",
+      "en:nelsen",
+      "en:neutrakal",
+      "en:neutrex",
+      "en:neutromed",
+      "en:nitromors",
+      "en:nordic-blonde",
+      "en:novelle",
+      "en:opti",
+      "en:osi",
+      "en:osis",
+      "en:oust-descalers",
+      "en:palette",
+      "en:paon-essence-rich",
+      "en:pattex",
+      "en:pattex-chemopren",
+      "en:pemolux",
+      "en:pemos",
+      "en:perfax",
+      "en:perfect-mousse",
+      "en:perlan",
+      "en:perlana",
+      "en:persil",
+      "en:pert",
+      "en:perwoll",
+      "en:plastic-padding",
+      "en:poly-color-cream-hair-dye",
+      "en:poly-swing",
+      "en:polybit",
+      "en:ponal",
+      "en:pril",
+      "en:pritt",
+      "en:punch",
+      "en:punch-dishmatic",
+      "en:pur",
+      "en:purex",
+      "en:renuzit",
+      "en:resistol",
+      "en:rex",
+      "en:right-guard",
+      "en:rubson",
+      "en:sard-wonder",
+      "en:schauma",
+      "en:schwarzkopf",
+      "en:scorpio",
+      "en:seah",
+      "en:sellotape",
+      "en:septifos",
+      "en:sexy-hair",
+      "en:sidol",
+      "en:silan",
+      "en:silhouette",
+      "en:sista",
+      "en:sk-men",
+      "en:smooth-n-shine",
+      "en:snuggle",
+      "en:sofix",
+      "en:soft-scrub",
+      "en:solvite",
+      "en:somat",
+      "en:sonasol",
+      "en:spee",
+      "en:spree",
+      "en:strait-styling",
+      "en:super-croix",
+      "en:supreme-keratin",
+      "en:supreme-selection",
+      "en:surf",
+      "en:syoss",
+      "en:taft",
+      "en:tangit",
+      "en:technomelt",
+      "en:tend",
+      "en:tenn",
+      "en:teraxyl",
+      "en:teroson",
+      "en:terra",
+      "en:theramed",
+      "en:tolu",
+      "en:tone",
+      "en:unibond",
+      "en:vademecum",
+      "en:vape",
+      "en:vapona",
+      "en:vernel",
+      "en:vigor",
+      "en:viking",
+      "en:vim",
+      "en:viva",
+      "en:vu",
+      "en:wc-frisch",
+      "en:wd-40",
+      "en:weisser-riese",
+      "en:wipp-express",
+      "en:witte-reus",
+      "en:wk-ultra",
+      "en:x-tra",
+      "en:xtreme",
+      "en:zen-sect"
+    ]
+  },
+  "en:conejo": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Conejo"
+    }
+  },
+  "en:prince-matchabelli": {
+    "name": {
+      "en": "Prince Matchabelli"
+    },
+    "wikidata": {
+      "en": "Q7244151"
+    },
+    "parents": ["en:unilever"]
+  },
+  "en:viva": {
+    "name": {
+      "en": "Viva"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:essensity": {
+    "name": {
+      "en": "Essensity"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:renuzit": {
+    "name": {
+      "en": "Renuzit"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:blue-star": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Blue Star"
+    }
+  },
+  "fr:createurs-de-beaute": {
+    "name": {
+      "fr": "Créateurs de Beauté"
+    },
+    "wikidata": {
+      "en": "Q1809810"
+    },
+    "parents": ["en:l-oreal-consumer-products"]
+  },
+  "en:uv-white": {
+    "name": {
+      "en": "UV White"
+    },
+    "parents": ["en:shisheido"]
+  },
+  "en:brillance": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Brillance"
+    }
+  },
+  "en:beaute-prestige-international": {
+    "name": {
+      "en": "Beauté Prestige International"
+    },
+    "parents": ["en:shisheido"],
+    "children": [
+      "en:elie-saab",
+      "en:issey-miyake",
+      "en:narciso-rodriguez",
+      "fr:azzedine-alaia",
+      "fr:jean-paul-gaultier"
+    ]
+  },
+  "en:pert": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Pert"
+    }
+  },
+  "en:neutrakal": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Neutrakal"
+    }
+  },
+  "en:osis": {
+    "name": {
+      "en": "Osis+"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:cle-de-peau": {
+    "name": {
+      "fr": "Clé de Peau"
+    },
+    "parents": ["en:shisheido"]
+  },
+  "en:catch": {
+    "name": {
+      "en": "Catch"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:mizani": {
+    "parents": ["en:l-oreal-professional-products"],
+    "name": {
+      "en": "Mizani"
+    }
+  },
+  "en:3d-men": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "[3D]Men"
+    }
+  },
+  "en:polybit": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Polybit"
+    }
+  },
+  "en:sonasol": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Sonasol"
+    }
+  },
+  "en:somat": {
+    "name": {
+      "en": "Somat"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:senscience": {
+    "name": {
+      "en": "Senscience"
+    },
+    "parents": ["en:shisheido"]
+  },
+  "en:live-color-xxl": {
+    "name": {
+      "en": "Live Color XXL"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:unilever": {
+    "children": [
+      "en:axe-lynx",
+      "en:bed-head",
+      "en:brylcreem",
+      "en:degree",
+      "en:dove",
+      "en:faberge",
+      "en:helene-curtis",
+      "en:impulse",
+      "en:lakme",
+      "en:lifebuoy",
+      "en:lux",
+      "en:noxzema",
+      "en:pears-soap",
+      "en:pepsodent",
+      "en:pond-s",
+      "en:prince-matchabelli",
+      "en:q-tips",
+      "en:radox",
+      "en:rexona",
+      "en:salon-selectives",
+      "en:signal",
+      "en:simple",
+      "en:suave",
+      "en:sunsilk",
+      "en:sure",
+      "en:timotei",
+      "en:twink",
+      "en:vaseline",
+      "en:zendium"
+    ],
+    "name": {
+      "en": "Unilever"
+    }
+  },
+  "en:fibreplex": {
+    "name": {
+      "en": "Fibreplex"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:natural-styling": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Natural Styling"
+    }
+  },
+  "en:technomelt": {
+    "name": {
+      "en": "Technomelt"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:der-general": {
+    "name": {
+      "en": "Der General"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:pureology-research": {
+    "parents": ["en:l-oreal-professional-products"],
+    "wikidata": {
+      "en": "Q7261179"
+    },
+    "name": {
+      "en": "PureOlogy Research"
+    }
+  },
+  "en:tend": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Tend"
+    }
+  },
+  "en:l-oreal-professional-products": {
+    "children": [
+      "en:artec",
+      "en:innate",
+      "en:l-oreal-professionnel",
+      "en:l-oreal-technique",
+      "en:matrix-essentials",
+      "en:mizani",
+      "en:pureology-research",
+      "en:redken-5th-avenue-nyc",
+      "en:shu-uemura-art-of-hair",
+      "fr:keraskin-esthetics",
+      "fr:kerastase"
+    ],
+    "name": {
+      "en": "L'Oréal Professional products"
+    },
+    "parents": ["en:l-oreal"]
+  },
+  "fr:nicorette": {
+    "name": {
+      "fr": "Nicorette"
+    },
+    "parents": ["en:johnson-johnson"],
+    "wikidata": {
+      "en": "Q2566669"
+    }
+  },
+  "en:aupres": {
+    "name": {
+      "en": "Aupres"
+    },
+    "parents": ["en:shisheido"]
+  },
+  "en:l-oreal-luxe": {
+    "parents": ["en:l-oreal"],
+    "name": {
+      "en": "L'Oreal Luxe"
+    },
+    "children": [
+      "en:biotherm",
+      "en:cacharel",
+      "en:clarisonic",
+      "en:decleor",
+      "en:diesel",
+      "en:drakkar-noir",
+      "en:em-michelle-phan",
+      "en:giorgio-armani",
+      "en:helena-rubinstein",
+      "en:kiehl-s",
+      "en:lancome",
+      "en:maison-martin-margiela",
+      "en:paloma-picasso",
+      "en:ralph-lauren",
+      "en:shu-uemura",
+      "en:stella-mccartney",
+      "en:the-body-shop",
+      "en:urban-decay",
+      "en:viktor-rolf",
+      "en:ysl",
+      "en:yue-sai"
+    ]
+  },
+  "en:cascola": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Cascola"
+    }
+  },
+  "en:rex": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Rex"
+    }
+  },
+  "en:le-chat": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Le Chat"
+    }
+  },
+  "en:redken-5th-avenue-nyc": {
+    "parents": ["en:l-oreal-professional-products"],
+    "wikidata": {
+      "en": "Q7305998"
+    },
+    "name": {
+      "en": "Redken 5th Avenue NYC"
+    }
+  },
+  "en:laska": {
+    "name": {
+      "en": "Laska"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:microlax": {
+    "name": {
+      "fr": "Microlax"
+    },
+    "parents": ["en:johnson-johnson"]
+  },
+  "en:pemolux": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Pemolux"
+    }
+  },
+  "en:sure": {
+    "parents": ["en:unilever"],
+    "name": {
+      "en": "Sure"
+    }
+  },
+  "en:tangit": {
+    "name": {
+      "en": "Tangit"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:miror": {
+    "name": {
+      "en": "Miror"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:ipsa": {
+    "name": {
+      "en": "IPSA"
+    },
+    "parents": ["en:shisheido"]
+  },
+  "fr:hextril": {
+    "parents": ["en:johnson-johnson"],
+    "name": {
+      "fr": "Hextril"
+    }
+  },
+  "en:soft-scrub": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Soft Scrub"
+    }
+  },
+  "en:unibond": {
+    "name": {
+      "en": "Unibond"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:color-mask": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Color Mask"
+    }
+  },
+  "en:mini-risk": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Mini Risk"
+    }
+  },
+  "en:natural-easy": {
+    "name": {
+      "en": "Natural & Easy"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:daniel-hechter": {
+    "name": {
+      "fr": "Daniel Hechter"
+    },
+    "parents": ["en:lascad"]
+  },
+  "en:radox": {
+    "parents": ["en:unilever"],
+    "wikidata": {
+      "en": "Q7281681"
+    },
+    "name": {
+      "en": "Radox"
+    }
+  },
+  "en:coloria": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Coloria"
+    }
+  },
+  "en:simple": {
+    "parents": ["en:unilever"],
+    "name": {
+      "en": "Simple"
+    }
+  },
+  "en:dove": {
+    "name": {
+      "en": "Dove"
+    },
+    "parents": ["en:unilever"],
+    "wikidata": {
+      "en": "Q962709"
+    }
+  },
+  "en:seah": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Seah"
+    }
+  },
+  "en:sexy-hair": {
+    "name": {
+      "en": "Sexy Hair"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:schwarzkopf": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Schwarzkopf"
+    }
+  },
+  "en:vigor": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Vigor"
+    }
+  },
+  "en:yue-sai": {
+    "parents": ["en:l-oreal-luxe"],
+    "name": {
+      "en": "Yue Sai"
+    }
+  },
+  "fr:roger-gallet": {
+    "parents": ["en:l-oreal-active-cosmetics"],
+    "wikidata": {
+      "en": "Q3438623"
+    },
+    "name": {
+      "fr": "Roger & Gallet"
+    }
+  },
+  "en:pepsodent": {
+    "parents": ["en:unilever"],
+    "wikidata": {
+      "en": "Q2709613"
+    },
+    "name": {
+      "en": "Pepsodent"
+    }
+  },
+  "en:smooth-n-shine": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Smooth 'N Shine"
+    }
+  },
+  "en:nelsen": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Nelsen"
+    }
+  },
+  "en:ponal": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Ponal"
+    }
+  },
+  "en:vu": {
+    "name": {
+      "en": "Vu"
+    },
+    "parents": ["en:henkel"]
+  },
+  "fr:mixa": {
+    "parents": ["en:lascad"],
+    "name": {
+      "fr": "Mixa"
+    }
+  },
+  "en:johnson-johnson": {
+    "name": {
+      "en": "Johnson & Johnson"
+    },
+    "wikidata": {
+      "en": "Q333718"
+    },
+    "children": [
+      "fr:actifed",
+      "fr:aveeno",
+      "fr:biafine",
+      "fr:compeed",
+      "fr:hextril",
+      "fr:imodium",
+      "fr:laboratoires-vendome",
+      "fr:lansoyl",
+      "fr:le-petit-marseillais",
+      "fr:listerine",
+      "fr:microlax",
+      "fr:nett",
+      "fr:neutrogena",
+      "fr:nicorette",
+      "fr:prim-age",
+      "fr:roc",
+      "fr:titanoreine",
+      "fr:vania"
+    ]
+  },
+  "en:l-oreal-professionnel": {
+    "name": {
+      "en": "L'Oréal Professionnel"
+    },
+    "parents": ["en:l-oreal-professional-products"],
+    "wikidata": {
+      "en": "Q6455840"
+    }
+  },
+  "en:dato": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Dato"
+    }
+  },
+  "en:perlana": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Perlana"
+    }
+  },
+  "en:giorgio-armani": {
+    "parents": ["en:l-oreal-luxe"],
+    "name": {
+      "en": "Giorgio Armani"
+    }
+  },
+  "en:paon-essence-rich": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Paon Essence Rich"
+    }
+  },
+  "en:punch-dishmatic": {
+    "name": {
+      "en": "Punch Dishmatic"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:bare-escentuals": {
+    "parents": ["en:shisheido"],
+    "name": {
+      "en": "Bare Escentuals"
+    }
+  },
+  "en:blondme": {
+    "name": {
+      "en": "BlondMe"
+    },
+    "parents": ["en:henkel"]
+  },
+  "en:bref": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Bref"
+    }
+  },
+  "en:terra": {
+    "parents": ["en:henkel"],
+    "name": {
+      "en": "Terra"
+    }
+  }
+}

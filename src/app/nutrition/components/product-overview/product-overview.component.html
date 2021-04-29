@@ -4,7 +4,7 @@
   <hr class="my-4" />
   <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
   <div class="lead">
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-md-between">
       <div class="col-md-auto">
         <form (ngSubmit)="search()">
           <div class="input-group input-group-lg">
@@ -19,13 +19,24 @@
               <button type="button" class="btn btn-primary" (click)="search()">
                 <i class="bi bi-search"></i>
               </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                (click)="scanCode(content)"
+              <div
+                class="tooltip-wrapper btn btn-primary"
+                ngbTooltip="Your device does not support scanning"
+                triggers="manual"
+                #tooltip="ngbTooltip"
+                [ngClass]="{ disabled: !isMediadeviceSupported }"
+                (mouseenter)="toggleTooltip(tooltip, false)"
+                (mouseleave)="toggleTooltip(tooltip, true)"
               >
-                <i class="bi bi-upc-scan"></i>
-              </button>
+                <button
+                  type="button"
+                  class="btn-scan"
+                  [disabled]="!isMediadeviceSupported"
+                  (click)="scanCode(content)"
+                >
+                  <i class="bi bi-upc-scan"></i>
+                </button>
+              </div>
               <input
                 type="file"
                 class="file-upload"
@@ -42,6 +53,16 @@
             </div>
           </div>
         </form>
+      </div>
+      <div class="col-md-auto">
+        <button
+          type="button"
+          class="btn btn-primary"
+          *ngIf="isAuthenticated$ | async"
+        >
+          <i class="bi bi-heart btn-lg"></i>
+          Favorites
+        </button>
       </div>
     </div>
   </div>

@@ -10,8 +10,21 @@ import {
   search,
   loadCountryNames,
   loadFavorites,
+  changeClientSearchFilter,
+  loadCategoryNames,
+  loadBrandNames,
+  loadAllergenNames,
+  changeServerSearchFilter,
 } from '../../store/beauty.actions';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
+import { selectIsAuthenticated } from 'src/app/user/store/user.selector';
+import {
+  selectAllergenNames,
+  selectBrandNames,
+  selectCategoryNames,
+} from '../../store/beauty.selector';
+import { LocalizedString } from '@angular/compiler';
+import { LocalizedName } from 'src/app/shared/models/localized-name';
 
 @Component({
   selector: 'app-product-overview',
@@ -21,6 +34,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ProductOverviewComponent implements OnInit {
   searchControl = new FormControl('Nivea'); //'4005900388490');
+  public isAuthenticated$ = this.store.select(selectIsAuthenticated);
+  public onlyFavorites: boolean = false;
+  public isFilterCollapsed = true;
+  public allergenNames$ = this.store.select(selectAllergenNames);
+  public brandNames$ = this.store.select(selectBrandNames);
+  public categoryNames$ = this.store.select(selectCategoryNames);
 
   constructor(
     private store: Store,
@@ -44,6 +63,13 @@ export class ProductOverviewComponent implements OnInit {
     this.store.dispatch(loadCountryNames());
     this.store.dispatch(loadLocalizedIngredientAnalysisNames());
     this.store.dispatch(loadFavorites());
+    this.store.dispatch(loadCategoryNames());
+    this.store.dispatch(loadBrandNames());
+    this.store.dispatch(loadAllergenNames());
+  }
+
+  get isMediadeviceSupported(): boolean {
+    return this.barcodeService.isMediaDeviceSupported();
   }
 
   fileUploaded(event: any): void {
@@ -92,6 +118,44 @@ export class ProductOverviewComponent implements OnInit {
   search(): void {
     this.store.dispatch(
       search({ searchTerm: this.searchControl.value, page: 1 })
+    );
+  }
+
+  toggleTooltip(tooltip: NgbTooltip, hide: boolean) {
+    if (tooltip.isOpen() || hide) {
+      tooltip.close();
+    } else if (!this.isMediadeviceSupported) {
+      tooltip.open();
+    }
+  }
+
+  toggleFavorites(): void {
+    this.onlyFavorites = !this.onlyFavorites;
+    this.store.dispatch(
+      changeClientSearchFilter({
+        filter: { onlyFavorites: this.onlyFavorites },
+      })
+    );
+  }
+
+  categoryChanged(category: LocalizedName): void {
+    console.log(category);
+    this.store.dispatch(
+      changeServerSearchFilter({ filter: { category: category.value } })
+    );
+  }
+
+  brandChanged(brand: LocalizedName): void {
+    console.log(brand);
+    this.store.dispatch(
+      changeServerSearchFilter({ filter: { brand: brand.value } })
+    );
+  }
+
+  allergenChanged(allergen: LocalizedName): void {
+    console.log(allergen);
+    this.store.dispatch(
+      changeServerSearchFilter({ filter: { allergen: allergen.value } })
     );
   }
 }

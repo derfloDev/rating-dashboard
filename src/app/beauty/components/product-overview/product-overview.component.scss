@@ -1,3 +1,7 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
 .lead {
     margin-bottom: 1rem;
 }
@@ -17,4 +21,33 @@
     video {
         width: 100%;
     }
+}
+
+.btn-scan {
+    color: #fff;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    &:disabled,
+    &[disabled] {
+        cursor: not-allowed;
+    }
+}
+
+.filter-container {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+@include media-breakpoint-down(sm) {
+    .search-controls {
+        margin-top: 1rem;
+    }
+}
+
+.dropdown-menu {
+    max-height: 300px;
+    overflow-y: auto;
 }

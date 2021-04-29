@@ -1,11 +1,17 @@
 <div class="card">
-  <div class="card-img-top d-flex pointer">
-    <img [src]="productImage" alt="Product image" />
+  <div class="card-img-top d-flex">
+    <img
+      [src]="productImage"
+      class="pointer"
+      (click)="showDetails()"
+      alt="Product image"
+    />
     <div
       class="background-blur"
       [style.background-image]="'url(' + productImage + ')'"
     ></div>
     <app-favorite-btn
+      *ngIf="isAuthenticated$ | async"
       class="fav-btn"
       [favorites]="favorites"
       [productId]="product.code"
@@ -15,6 +21,7 @@
   <div class="card-body content">
     <h5
       class="card-title pointer"
+      (click)="showDetails()"
       [innerText]="product.brands + ' ' + productName"
     ></h5>
     <p class="card-text" [innerHtml]="productIngredients"></p>

@@ -169,7 +169,7 @@ export class NutritionEffects {
     this.actions$.pipe(
       ofType(NutritionActions.addFavorite),
       mergeMap((action) =>
-        this.favoritesService.add(action.productId).pipe(
+        this.favoritesService.add(action.product).pipe(
           map(() => NutritionActions.favoriteAdded()),
           catchError((error) => {
             return of(

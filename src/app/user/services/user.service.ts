@@ -6,10 +6,9 @@ import * as UserActions from '../store/user.actions';
 import { UserState } from '../store/user.reducer';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
   constructor(private readonly store: Store<UserState>) {
     netlifyIdentity.init();
     netlifyIdentity.on('init', (user: User) => console.log('init', user));
@@ -26,11 +25,11 @@ export class UserService {
     netlifyIdentity.on('login', (user: User) => {
       console.log('login', user);
       netlifyIdentity.close();
-      this.store.dispatch(UserActions.loggedIn({ user: user }))
+      this.store.dispatch(UserActions.loggedIn({ user: user }));
     });
     const user = netlifyIdentity.currentUser();
     if (!!user) {
-      this.store.dispatch(UserActions.loggedIn({ user: user }))
+      this.store.dispatch(UserActions.loggedIn({ user: user }));
     }
   }
 

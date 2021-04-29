@@ -20,6 +20,10 @@ export class BarcodeService {
     }
   }
 
+  isMediaDeviceSupported(): boolean {
+    return this.mediaDevicesSupported;
+  }
+
   initSingle(src: string): Observable<string> {
     return new Observable((subscriber) => {
       Quagga.decodeSingle(

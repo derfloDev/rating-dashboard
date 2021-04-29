@@ -1,0 +1,23 @@
+<input
+  type="text"
+  class="form-control"
+  (focus)="focus$.next($any($event).target.value)"
+  (click)="click$.next($any($event).target.value)"
+  [(ngModel)]="model"
+  [ngbTypeahead]="searchCategory"
+  [resultFormatter]="formatter"
+  [inputFormatter]="inputFormatter"
+  #instance="ngbTypeahead"
+  (selectItem)="itemSelected($event)"
+  [resultTemplate]="rt"
+  (focusout)="focusOut()"
+/>
+
+<ng-template #rt let-r="result" let-t="term">
+  <!-- <img
+    [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/' + r['flag']"
+    class="mr-1"
+    style="width: 16px"
+  /> -->
+  <ngb-highlight [result]="r.value" [term]="t"></ngb-highlight>
+</ng-template>

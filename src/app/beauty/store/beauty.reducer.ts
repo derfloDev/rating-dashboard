@@ -1,4 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
+import { BrandName } from 'src/app/shared/models/brand-name';
+import { CategoryName } from 'src/app/shared/models/category-name';
 import { Favorite } from 'src/app/shared/models/favorite.model';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
 import { Product } from '../model/product';
@@ -7,6 +9,7 @@ import * as BeautyActions from './beauty.actions';
 export default interface BeautyState {
   loading: boolean;
   searchTerm: string;
+  searchFilter: any;
   currentProduct?: Product;
   products: Product[];
   totalItems: number;
@@ -16,11 +19,15 @@ export default interface BeautyState {
   ingredientAnalysisNames: LocalizedName[];
   countryNames: LocalizedName[];
   favorites: Favorite[];
+  allergenNames: LocalizedName[];
+  brandNames: BrandName[];
+  categoryNames: CategoryName[];
 }
 
 export const initialBeautyState: BeautyState = {
   products: [],
   searchTerm: '',
+  searchFilter: {},
   loading: false,
   ingredientAnalysisNames: [],
   totalItems: 0,
@@ -29,12 +36,23 @@ export const initialBeautyState: BeautyState = {
   pageCount: 0,
   countryNames: [],
   favorites: [],
+  allergenNames: [],
+  brandNames: [],
+  categoryNames: [],
 };
 
 export const beautyFeatureKey = 'beauty';
 
 export const beautyReducer = createReducer(
   initialBeautyState,
+  on(BeautyActions.resetProducts, (state, action) => ({
+    ...state,
+    products: [],
+    loading: false,
+    currentProduct: null,
+    searchTerm: '',
+    curentPage: 1,
+  })),
   on(BeautyActions.loadProduct, (state, action) => ({
     ...state,
     loading: true,
@@ -78,5 +96,25 @@ export const beautyReducer = createReducer(
   on(BeautyActions.favoritesLoaded, (state, action) => ({
     ...state,
     favorites: action.favorites,
+  })),
+  on(BeautyActions.changeClientSearchFilter, (state, action) => ({
+    ...state,
+    searchFilter: { ...state.searchFilter, ...action.filter },
+  })),
+  on(BeautyActions.changeServerSearchFilter, (state, action) => ({
+    ...state,
+    searchFilter: { ...state.searchFilter, ...action.filter },
+  })),
+  on(BeautyActions.allergenNamesLoaded, (state, action) => ({
+    ...state,
+    allergenNames: action.names,
+  })),
+  on(BeautyActions.brandNamesLoaded, (state, action) => ({
+    ...state,
+    brandNames: action.names,
+  })),
+  on(BeautyActions.categoryNamesLoaded, (state, action) => ({
+    ...state,
+    categoryNames: action.names,
   }))
 );

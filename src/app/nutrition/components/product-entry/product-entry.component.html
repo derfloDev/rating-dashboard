@@ -1,11 +1,12 @@
 <div class="card">
-  <div class="card-img-top d-flex pointer">
-    <img [src]="productImage" alt="Product image" (click)="showDetails()" />
+  <div class="card-img-top d-flex">
+    <img [src]="productImage" class="pointer" alt="Product image" (click)="showDetails()" />
     <div
       class="background-blur"
       [style.background-image]="'url(' + productImage + ')'"
     ></div>
     <app-favorite-btn
+      *ngIf="isAuthenticated$ | async"
       class="fav-btn"
       [favorites]="favorites"
       [productId]="product.code"

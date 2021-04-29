@@ -14,19 +14,24 @@ exports.handler = async function (event, context) {
       }),
     };
   }
+  const fallbackLanguage = "en";
   const language = event.queryStringParameters.lang || "de";
   const ingredients = await response.json();
   const nutritientNames = [];
 
-  Object.entries(ingredients).forEach(([key, value]) => {
+  Object.entries(ingredients).forEach(([key, data]) => {
+    let value = data.name[language];
+    if (!value) {
+      value = data.name[fallbackLanguage];
+    }
     nutritientNames.push({
       key: key.replace(/^[^:]+:/, ""),
-      value: value.name[language],
+      value: value,
     });
   });
 
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: nutritientNames }),
+    body: JSON.stringify(nutritientNames),
   };
 };

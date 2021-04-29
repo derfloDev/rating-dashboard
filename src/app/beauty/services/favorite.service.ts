@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Product } from '../model/product';
 
 @Injectable({
   providedIn: 'root',
@@ -9,15 +10,14 @@ import { map } from 'rxjs/operators';
 export class FavoriteService {
   constructor(private httpClient: HttpClient) {}
 
-  add(productId: string): Observable<any> {
+  add(product: Product): Observable<any> {
     const url = '/.netlify/functions/add-beautyFavorite';
     return this.httpClient
       .post<any>(url, {
-        productId: productId,
+        product: product,
       })
       .pipe(
         map((response: any) => {
-          console.log(response);
           return response;
         })
       );
@@ -31,7 +31,6 @@ export class FavoriteService {
       })
       .pipe(
         map((response: any) => {
-          console.log(response);
           return response;
         })
       );
@@ -41,7 +40,6 @@ export class FavoriteService {
     const url = '/.netlify/functions/get-beautyFavoritesByUser';
     return this.httpClient.get<any>(url).pipe(
       map((response: any) => {
-        console.log(response);
         return response;
       })
     );

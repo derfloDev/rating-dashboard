@@ -1,4 +1,4 @@
-const fileName = "ingredientAnalysis.json";
+const fileName = "nutritionAllergens.json";
 const fetch = require("node-fetch");
 
 exports.handler = async function (event, context) {
@@ -16,18 +16,17 @@ exports.handler = async function (event, context) {
   }
   const fallbackLanguage = "en";
   const language = event.queryStringParameters.lang || "de";
-  const ingredients = await response.json();
-  const nutritientNames = [];
-
-  Object.entries(ingredients).forEach(([key, data]) => {
+  const returnValues = [];
+  const items = await response.json();
+  Object.entries(items).forEach(([key, data]) => {
     let value = data.name[language];
-    if (!value) {
-      value = data.name[fallbackLanguage];
+    if(!value){
+      value = data.name[fallbackLanguage]
     }
-    nutritientNames.push({ key: key, value: value });
+    returnValues.push({ key: key, value: value });
   });
   return {
     statusCode: 200,
-    body: JSON.stringify(nutritientNames),
+    body: JSON.stringify(returnValues),
   };
 };

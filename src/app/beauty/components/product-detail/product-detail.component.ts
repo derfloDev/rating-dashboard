@@ -21,6 +21,7 @@ import {
   removeFavorite,
 } from '../../store/beauty.actions';
 import getProductName from 'src/app/shared/functions/get-product-name';
+import { selectIsAuthenticated } from 'src/app/user/store/user.selector';
 
 @Component({
   selector: 'app-product-detail',
@@ -37,6 +38,7 @@ export class ProductDetailComponent implements OnInit {
   public loading$ = this.store.select(selectLoading);
   public countryNames$: Observable<string>;
   public favorites$ = this.store.select(selectFavorites);
+  public isAuthenticated$ = this.store.select(selectIsAuthenticated);
 
   constructor(
     private store: Store,
@@ -81,7 +83,7 @@ export class ProductDetailComponent implements OnInit {
 
   toggleFavorite(add: boolean): void {
     if (add === true) {
-      this.store.dispatch(addFavorite({ productId: this.product.code }));
+      this.store.dispatch(addFavorite({ product: this.product }));
     } else {
       console.log('remove fav');
       this.store.dispatch(removeFavorite({ productId: this.product.code }));

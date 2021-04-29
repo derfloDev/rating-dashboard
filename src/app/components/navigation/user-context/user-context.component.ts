@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { UserMetadata } from 'src/app/user/model/userMetadata';
 import * as UserActions from 'src/app/user/store/user.actions';
 import { selectIsAuthenticated } from 'src/app/user/store/user.selector';
