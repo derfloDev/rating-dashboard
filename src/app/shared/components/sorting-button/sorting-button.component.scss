@@ -1,0 +1,15 @@
+:host {
+    padding: 0;
+}
+
+.btn.btn-sort {
+    padding: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    button.btn-lg {
+        color: #fff;
+        background: none;
+        border: none;
+        outline: none;
+    }
+}

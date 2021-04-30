@@ -2,27 +2,27 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
 import BeautyState, { beautyFeatureKey } from './beauty.reducer';
 
-export const getNutritionState = createFeatureSelector<BeautyState>(
+export const getBeautyState = createFeatureSelector<BeautyState>(
   beautyFeatureKey
 );
 
 export const selectProduct = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.currentProduct
 );
 
 export const selectProducts = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.products
 );
 
 export const selectIngredientAnalysisNames = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.ingredientAnalysisNames
 );
 
 export const selectCountryNames = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.countryNames
 );
 
@@ -36,51 +36,56 @@ export const selectCountryNamesByTags = createSelector(
 );
 
 export const selectLoading = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.loading
 );
 
 export const selectCurrentPage = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.curentPage
 );
 
 export const selectTotalItems = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.totalItems
 );
 
 export const selectPageSize = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.pageSize
 );
 
 export const selectSearchTerm = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.searchTerm
 );
 
 export const selectFavorites = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.favorites
 );
 
 export const selectSearchFilter = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.searchFilter
 );
 
 export const selectAllergenNames = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.allergenNames
 );
 
 export const selectCategoryNames = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.categoryNames
 );
 
 export const selectBrandNames = createSelector(
-  getNutritionState,
+  getBeautyState,
   (state: BeautyState) => state.brandNames
+);
+
+export const selectAdditiveNames = createSelector(
+  getBeautyState,
+  (state: BeautyState) => state.additiveNames
 );

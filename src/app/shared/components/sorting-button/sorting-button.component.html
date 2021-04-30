@@ -1,0 +1,19 @@
+<div ngbDropdown class="d-inline-block btn btn-sort btn-primary">
+  <button
+    class="btn btn-lg"
+    id="sort-by"
+    ngbDropdownToggle
+    (click)="$event.preventDefault()"
+  >
+    {{ !!currentSorting ? currentSorting : "Sortierung" }}
+  </button>
+  <div ngbDropdownMenu aria-labelledby="sort-by">
+    <button
+      ngbDropdownItem
+      *ngFor="let sorting of sortings"
+      (click)="filterChanged(sorting)"
+    >
+      {{ sorting.value }}
+    </button>
+  </div>
+</div>

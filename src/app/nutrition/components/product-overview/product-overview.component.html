@@ -10,6 +10,7 @@
           <div class="input-group input-group-lg">
             <input
               type="search"
+              id="form1"
               placeholder="Productname or code"
               aria-label="Productname or code"
               class="form-control"
@@ -50,19 +51,40 @@
               >
                 <i class="bi bi-upload"></i>
               </button>
+              <app-sorting-button
+                (sortingChanged)="filterChanged($event)"
+              ></app-sorting-button>
             </div>
           </div>
         </form>
       </div>
-      <div class="col-md-auto">
-        <button
-          type="button"
-          class="btn btn-primary"
-          *ngIf="isAuthenticated$ | async"
-        >
-          <i class="bi bi-heart btn-lg"></i>
-          Favorites
-        </button>
+      <div class="col-md-auto search-controls">
+        <div class="btn-group" role="group" aria-label="search controls">
+          <button
+            type="button"
+            class="btn btn-outline-primary btn-lg"
+            (click)="collapse.toggle()"
+            [attr.aria-expanded]="!isFilterCollapsed"
+            aria-controls="collapseExample"
+          >
+            {{ isFilterCollapsed ? "Show Filter" : "Hide Filter" }}
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary btn-lg"
+            *ngIf="isAuthenticated$ | async"
+            (click)="toggleFavorites()"
+          >
+            <i
+              class="bi bi-heart"
+              [ngClass]="{
+                'bi-heart': !onlyFavorites,
+                'bi-heart-fill': onlyFavorites
+              }"
+            ></i>
+            Favorites
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -85,5 +107,20 @@
       <p>Place the barcode in front of your camera.</p>
     </div>
   </ng-template>
+  <!-- <app-test-outer><app-test-inner></app-test-inner></app-test-outer> -->
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="isFilterCollapsed">
+    <app-product-filter
+      (filterChanged)="filterChanged($event)"
+      [additiveNames]="additiveNames$ | async"
+      [allergenNames]="allergenNames$ | async"
+      [brandNames]="brandNames$ | async"
+      [categoryNames]="categoryNames$ | async"
+      [ingredientsFromPalmOil]="ingredientsFromPalmOil"
+      [nutrimentNames]="nutrimentNames$ | async"
+      [nutritionGrades]="nutritionGrades"
+      (nutrimentChanged)="nutrimentChange($event)"
+      idPrefix="nutrition"
+    ></app-product-filter>
+  </div>
   <router-outlet></router-outlet>
 </div>

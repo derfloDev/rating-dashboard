@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { ApiFilter } from '../model/api-filter';
+import { ApiFilter } from 'src/app/shared/models/api-filter';
 import { Product, ProductsResponse, RootObject } from '../model/product';
 
 @Injectable({
@@ -42,7 +42,9 @@ export class OpenBeautyfactsService {
     filter: ApiFilter
   ): HttpParams {
     let params = new HttpParams();
-    params = params.append('search_terms', tag);
+    if (!!tag) {
+      params = params.append('search_terms', tag);
+    }
     params = params.append('page', page.toString());
     params = params.append('pageSize', pageSize.toString());
     let tagIndex = 0;
@@ -62,6 +64,15 @@ export class OpenBeautyfactsService {
     if (!!filter.brand) {
       params = this.addTagQuery(params, tagIndex, 'brands', filter.brand);
       tagIndex++;
+    }
+    if (!!filter.ingredientsFromPalmOil) {
+      params = params.append(
+        `ingredients_from_palm_oil`,
+        filter.ingredientsFromPalmOil
+      );
+    }
+    if (!!filter.sortBy) {
+      params = params.append(`sort_by`, filter.sortBy);
     }
 
     return params;

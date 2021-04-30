@@ -1,9 +1,9 @@
 import { createAction, props } from '@ngrx/store';
+import { ApiFilter } from 'src/app/shared/models/api-filter';
 import { BrandName } from 'src/app/shared/models/brand-name';
 import { CategoryName } from 'src/app/shared/models/category-name';
 import { Favorite } from 'src/app/shared/models/favorite.model';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
-import { ApiFilter } from '../model/api-filter';
 import { Product } from '../model/product';
 
 export const loadProduct = createAction(
@@ -50,48 +50,49 @@ export const localizedIngredientAnalysisNamesLoaded = createAction(
   '[Beauty] ingredient analysis names loaded',
   props<{ names: LocalizedName[] }>()
 );
+export const loadMetadata = createAction('[Beauty] load metadata');
 export const metadataLoadedError = createAction(
   '[Beauty] metadata loaded error',
   props<{ error: any }>()
 );
 
-export const loadFavorites = createAction('[Nutrition] load favorites');
+export const loadFavorites = createAction('[Beauty] load favorites');
 export const favoritesLoaded = createAction(
-  '[Nutrition] favorites loaded',
+  '[Beauty] favorites loaded',
   props<{ favorites: Favorite[] }>()
 );
 export const favoritesLoadedError = createAction(
-  '[Nutrition] favorites loaded error',
+  '[Beauty] favorites loaded error',
   props<{ error: any }>()
 );
 
 export const addFavorite = createAction(
-  '[Nutrition] add favorite',
+  '[Beauty] add favorite',
   props<{ product: Product }>()
 );
-export const favoriteAdded = createAction('[Nutrition] favorite added');
+export const favoriteAdded = createAction('[Beauty] favorite added');
 export const favoriteAddedError = createAction(
-  '[Nutrition] favorite added error',
+  '[Beauty] favorite added error',
   props<{ error: any }>()
 );
 
 export const removeFavorite = createAction(
-  '[Nutrition] removed favorite',
+  '[Beauty] removed favorite',
   props<{ productId: string }>()
 );
-export const favoriteRemoved = createAction('[Nutrition] favorite removed');
+export const favoriteRemoved = createAction('[Beauty] favorite removed');
 export const favoriteRemovedError = createAction(
-  '[Nutrition] favorite removed error',
+  '[Beauty] favorite removed error',
   props<{ error: any }>()
 );
 
 export const changeClientSearchFilter = createAction(
-  '[Nutrition] change client search filter',
+  '[Beauty] change client search filter',
   props<{ filter: any }>()
 );
 
 export const changeServerSearchFilter = createAction(
-  '[Nutrition] change server search filter',
+  '[Beauty] change server search filter',
   props<{ filter: ApiFilter }>()
 );
 
@@ -112,3 +113,12 @@ export const allergenNamesLoaded = createAction(
   '[Beauty] allergen names loaded',
   props<{ names: LocalizedName[] }>()
 );
+
+export const loadAddititveNames = createAction(
+  '[Beauty] load additive names'
+);
+export const addititveNamesLoaded = createAction(
+  '[Beauty] additive names loaded',
+  props<{ names: CategoryName[] }>()
+);
+

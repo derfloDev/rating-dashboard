@@ -27,18 +27,48 @@ export class LoadMetadataService {
     return this.httpClient.get<LocalizedName[]>(url);
   }
 
-  getAllergenNames(): Observable<LocalizedName[]> {
+  getBeautyAllergenNames(): Observable<LocalizedName[]> {
     const url = '/.netlify/functions/getBeautyAllergens';
     return this.httpClient.get<LocalizedName[]>(url);
   }
 
-  getBrandNames(): Observable<BrandName[]> {
+  getBeautyBrandNames(): Observable<BrandName[]> {
     const url = '/.netlify/functions/getBeautyBrands';
     return this.httpClient.get<BrandName[]>(url);
   }
 
-  getCategoryNames(): Observable<CategoryName[]> {
+  getBeautyCategoryNames(): Observable<CategoryName[]> {
     const url = '/.netlify/functions/getBeautyCategories';
+    return this.httpClient.get<CategoryName[]>(url);
+  }
+
+  getNutritionAllergenNames(): Observable<LocalizedName[]> {
+    const url = '/.netlify/functions/getNutritionAllergens';
+    return this.httpClient.get<LocalizedName[]>(url);
+  }
+
+  getNutritionBrandNames(): Observable<BrandName[]> {
+    const url = '/.netlify/functions/getNutritionBrands';
+    return this.httpClient.get<BrandName[]>(url);
+  }
+
+  getNutritionAdditiveNames(): Observable<CategoryName[]> {
+    const url = '/.netlify/functions/getNutritionAdditives';
+    return this.httpClient.get<CategoryName[]>(url);
+  }
+
+  getNutrientLevels(): Observable<LocalizedName[]> {
+    const url = '/.netlify/functions/getNutrientLevels';
+    return this.httpClient.get<LocalizedName[]>(url);
+  }
+
+  getBeautyAdditiveNames(): Observable<CategoryName[]> {
+    const url = '/.netlify/functions/getBeautyAdditives';
+    return this.httpClient.get<CategoryName[]>(url);
+  }
+
+  getNutritionCategoryNames(): Observable<CategoryName[]> {
+    const url = '/.netlify/functions/getNutritionCategories';
     return this.httpClient.get<CategoryName[]>(url);
   }
 

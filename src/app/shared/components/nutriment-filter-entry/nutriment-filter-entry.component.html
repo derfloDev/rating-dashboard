@@ -1,0 +1,30 @@
+<div class="d-flex">
+  <div class="p-2">
+    <label for="nutriment-key">Nährstoff</label>
+    <app-filter-dropdown
+      class="p-2"
+      id="nutriment-key"
+      [values]="nutrimentNames"
+      (valueChanged)="keyChanged($event.key)"
+    ></app-filter-dropdown>
+  </div>
+  <div class="p-2">
+    <label for="nutriment-operator">Operator</label>
+    <app-filter-dropdown
+      class="p-2"
+      id="nutriment-operator"
+      [values]="operators"
+      (valueChanged)="operatorChanged($event.key)"
+    ></app-filter-dropdown>
+  </div>
+  <div class="p-2">
+    <label for="nutriment-value">Wert</label>
+    <input
+      type="number"
+      class="form-control"
+      id="nutriment-value"
+      placeholder="100"
+      (focusout)="valueChanged($event)"
+    />
+  </div>
+</div>

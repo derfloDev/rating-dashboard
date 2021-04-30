@@ -59,3 +59,33 @@ export const selectFavorites = createSelector(
   getNutritionState,
   (state: NutritionState) => state.favorites
 );
+
+export const selectSearchFilter = createSelector(
+  getNutritionState,
+  (state: NutritionState) => state.searchFilter
+);
+
+export const selectAllergenNames = createSelector(
+  getNutritionState,
+  (state: NutritionState) => state.allergenNames
+);
+
+export const selectCategoryNames = createSelector(
+  getNutritionState,
+  (state: NutritionState) => state.categoryNames
+);
+
+export const selectBrandNames = createSelector(
+  getNutritionState,
+  (state: NutritionState) => state.brandNames
+);
+
+export const selectAdditiveNames = createSelector(
+  getNutritionState,
+  (state: NutritionState) => state.additiveNames
+);
+
+export const selectNutrientLevelNames = createSelector(
+  getNutritionState,
+  (state: NutritionState) => state.nutrientLevelNames
+);

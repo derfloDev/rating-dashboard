@@ -3,17 +3,29 @@ import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { Store } from '@ngrx/store';
+import { filter } from 'rxjs/operators';
+import { LocalizedName } from 'src/app/shared/models/localized-name';
+import { NutrimentFilter } from 'src/app/shared/models/nutriment-filter';
 import { BarcodeService } from 'src/app/shared/services/barcode.service';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { selectIsAuthenticated } from 'src/app/user/store/user.selector';
 import {
   loadProduct,
-  loadLocalizedIngredientAnalysisNames,
-  loadLocalizedIngredientNames,
-  loadLocalizedNutrientNames,
   search,
-  loadFavorites,
+  changeClientSearchFilter,
+  changeServerSearchFilter,
+  loadMetadata,
+  addNutrimentFilter,
+  removeNutrimentFilter,
 } from '../../store/nutrition.actions';
+import {
+  selectAdditiveNames,
+  selectAllergenNames,
+  selectBrandNames,
+  selectCategoryNames,
+  selectNutrientLevelNames,
+  selectNutritienNames,
+} from '../../store/nutrition.selector';
 
 @Component({
   selector: 'app-product-overview',
@@ -22,8 +34,16 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class ProductOverviewComponent implements OnInit {
-  searchControl = new FormControl('Nutella'); //'3017620421006');
+  searchControl = new FormControl('');
   public isAuthenticated$ = this.store.select(selectIsAuthenticated);
+  public onlyFavorites: boolean = false;
+  public isFilterCollapsed = true;
+  public allergenNames$ = this.store.select(selectAllergenNames);
+  public brandNames$ = this.store.select(selectBrandNames);
+  public categoryNames$ = this.store.select(selectCategoryNames);
+  public additiveNames$ = this.store.select(selectAdditiveNames);
+  public nutrientLevelNames$ = this.store.select(selectNutrientLevelNames);
+  public nutrimentNames$ = this.store.select(selectNutritienNames);
 
   constructor(
     private store: Store,
@@ -32,7 +52,7 @@ export class ProductOverviewComponent implements OnInit {
     private notificationService: NotificationService,
     private modalService: NgbModal
   ) {
-    this.loadData();
+    this.store.dispatch(loadMetadata());
     this.route.firstChild.params.subscribe((params) => {
       if (!!params.searchTerm) {
         this.searchControl.setValue(params.searchTerm);
@@ -42,13 +62,6 @@ export class ProductOverviewComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-  loadData(): void {
-    this.store.dispatch(loadLocalizedNutrientNames());
-    this.store.dispatch(loadLocalizedIngredientNames());
-    this.store.dispatch(loadLocalizedIngredientAnalysisNames());
-    this.store.dispatch(loadFavorites());
-  }
 
   get isMediadeviceSupported(): boolean {
     return this.barcodeService.isMediaDeviceSupported();
@@ -109,5 +122,46 @@ export class ProductOverviewComponent implements OnInit {
     } else if (!this.isMediadeviceSupported) {
       tooltip.open();
     }
+  }
+
+  toggleFavorites(): void {
+    this.onlyFavorites = !this.onlyFavorites;
+    this.store.dispatch(
+      changeClientSearchFilter({
+        filter: { onlyFavorites: this.onlyFavorites },
+      })
+    );
+  }
+
+  filterChanged(event: { key: string; value: string }): void {
+    this.store.dispatch(
+      changeServerSearchFilter({ filter: { [event.key]: event.value } })
+    );
+  }
+
+  nutrimentChange(event: { add: boolean; filter: NutrimentFilter }): void {
+    if (event.add === true) {
+      this.store.dispatch(addNutrimentFilter({ filter: event.filter }));
+    } else {
+      this.store.dispatch(removeNutrimentFilter({ filter: event.filter }));
+    }
+  }
+
+  get ingredientsFromPalmOil(): LocalizedName[] {
+    return [
+      { key: 'with', value: 'Ja' },
+      { key: 'without', value: 'Nein' },
+      { key: 'indifferent', value: 'Egal' },
+    ];
+  }
+
+  get nutritionGrades(): LocalizedName[] {
+    return [
+      { key: 'A', value: 'A' },
+      { key: 'B', value: 'B' },
+      { key: 'C', value: 'C' },
+      { key: 'D', value: 'D' },
+      { key: 'E', value: 'E' },
+    ];
   }
 }

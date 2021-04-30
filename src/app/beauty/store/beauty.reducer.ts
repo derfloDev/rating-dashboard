@@ -22,6 +22,7 @@ export default interface BeautyState {
   allergenNames: LocalizedName[];
   brandNames: BrandName[];
   categoryNames: CategoryName[];
+  additiveNames: CategoryName[];
 }
 
 export const initialBeautyState: BeautyState = {
@@ -39,6 +40,7 @@ export const initialBeautyState: BeautyState = {
   allergenNames: [],
   brandNames: [],
   categoryNames: [],
+  additiveNames: [],
 };
 
 export const beautyFeatureKey = 'beauty';
@@ -116,5 +118,9 @@ export const beautyReducer = createReducer(
   on(BeautyActions.categoryNamesLoaded, (state, action) => ({
     ...state,
     categoryNames: action.names,
+  })),
+  on(BeautyActions.addititveNamesLoaded, (state, action) => ({
+    ...state,
+    additiveNames: action.names,
   }))
 );

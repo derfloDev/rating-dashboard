@@ -1,4 +1,4 @@
-const fileName = "nutritionCategories.json";
+const fileName = "beautyAdditives.json";
 const fetch = require("node-fetch");
 
 exports.handler = async function (event, context) {
@@ -14,6 +14,7 @@ exports.handler = async function (event, context) {
       }),
     };
   }
+
   const returnValues = [];
   const items = await response.json();
   Object.entries(items.tags).forEach(([key, data]) => {

@@ -51,6 +51,9 @@
               >
                 <i class="bi bi-upload"></i>
               </button>
+              <app-sorting-button
+                (sortingChanged)="filterChanged($event)"
+              ></app-sorting-button>
             </div>
           </div>
         </form>
@@ -64,7 +67,7 @@
             [attr.aria-expanded]="!isFilterCollapsed"
             aria-controls="collapseExample"
           >
-            Show Filter
+            {{ isFilterCollapsed ? "Show Filter" : "Hide Filter" }}
           </button>
           <button
             type="button"
@@ -106,31 +109,15 @@
   </ng-template>
   <!-- <app-test-outer><app-test-inner></app-test-inner></app-test-outer> -->
   <div #collapse="ngbCollapse" [(ngbCollapse)]="isFilterCollapsed">
-    <div
-      class="filter-container d-flex flex-wrap justify-content-between justify-content-sm-start mb-3"
-    >
-      <div class="p-2">
-        <label for="typeahead-format">Categories</label>
-        <app-filter-dropdown
-          [values]="categoryNames$ | async"
-          (valueChanged)="categoryChanged($event)"
-        ></app-filter-dropdown>
-      </div>
-      <div class="p-2">
-        <label for="typeahead-format">Brands</label>
-        <app-filter-dropdown
-          [values]="brandNames$ | async"
-          (valueChanged)="brandChanged($event)"
-        ></app-filter-dropdown>
-      </div>
-      <div class="p-2">
-        <label for="typeahead-format">Allergens</label>
-        <app-filter-dropdown
-          [values]="allergenNames$ | async"
-          (valueChanged)="allergenChanged($event)"
-        ></app-filter-dropdown>
-      </div>
-    </div>
+    <app-product-filter
+      (filterChanged)="filterChanged($event)"
+      [additiveNames]="additiveNames$ | async"
+      [allergenNames]="allergenNames$ | async"
+      [brandNames]="brandNames$ | async"
+      [categoryNames]="categoryNames$ | async"
+      [ingredientsFromPalmOil]="ingredientsFromPalmOil"
+      idPrefix="beauty"
+    ></app-product-filter>
   </div>
   <router-outlet></router-outlet>
 </div>

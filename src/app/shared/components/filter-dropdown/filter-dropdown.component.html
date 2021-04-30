@@ -14,10 +14,6 @@
 />
 
 <ng-template #rt let-r="result" let-t="term">
-  <!-- <img
-    [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/' + r['flag']"
-    class="mr-1"
-    style="width: 16px"
-  /> -->
   <ngb-highlight [result]="r.value" [term]="t"></ngb-highlight>
+  <a style="float: right" *ngIf="r.url" target="_blank" [href]="r.url">infos</a>
 </ng-template>

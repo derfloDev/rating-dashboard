@@ -49,7 +49,7 @@ export class BeautyEffects {
       ofType(BeautyActions.search),
       withLatestFrom(this.store.select(selectSearchFilter)),
       map(([action, searchFilter]) => {
-        if (action.searchTerm == '' && Object.keys(!searchFilter).length == 0) {
+        if (action.searchTerm == '' && Object.keys(searchFilter).length == 0) {
           return BeautyActions.resetProducts();
         } else if (isNaN(parseInt(action.searchTerm))) {
           return BeautyActions.searchProducts({
@@ -242,7 +242,7 @@ export class BeautyEffects {
     this.actions$.pipe(
       ofType(BeautyActions.loadCategoryNames),
       mergeMap(() =>
-        this.loadMetadataService.getCategoryNames().pipe(
+        this.loadMetadataService.getBeautyCategoryNames().pipe(
           map((names) =>
             BeautyActions.categoryNamesLoaded({
               names: names,
@@ -264,7 +264,7 @@ export class BeautyEffects {
     this.actions$.pipe(
       ofType(BeautyActions.loadAllergenNames),
       mergeMap(() =>
-        this.loadMetadataService.getAllergenNames().pipe(
+        this.loadMetadataService.getBeautyAllergenNames().pipe(
           map((names) =>
             BeautyActions.allergenNamesLoaded({
               names: names,
@@ -286,7 +286,7 @@ export class BeautyEffects {
     this.actions$.pipe(
       ofType(BeautyActions.loadBrandNames),
       mergeMap(() =>
-        this.loadMetadataService.getBrandNames().pipe(
+        this.loadMetadataService.getBeautyBrandNames().pipe(
           map((names) =>
             BeautyActions.brandNamesLoaded({
               names: names,
@@ -301,6 +301,45 @@ export class BeautyEffects {
           })
         )
       )
+    )
+  );
+
+  loadAdditives$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BeautyActions.loadAddititveNames),
+      mergeMap(() =>
+        this.loadMetadataService.getBeautyAdditiveNames().pipe(
+          map((names) =>
+            BeautyActions.addititveNamesLoaded({
+              names: names,
+            })
+          ),
+          catchError((error) => {
+            return of(
+              BeautyActions.metadataLoadedError({
+                error: error,
+              })
+            );
+          })
+        )
+      )
+    )
+  );
+
+  loadMetadata$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BeautyActions.loadMetadata),
+      mergeMap(() => {
+        const returnValue = [];
+        returnValue.push(BeautyActions.loadBrandNames());
+        returnValue.push(BeautyActions.loadLocalizedIngredientAnalysisNames());
+        returnValue.push(BeautyActions.loadFavorites());
+        returnValue.push(BeautyActions.loadCategoryNames());
+        returnValue.push(BeautyActions.loadBrandNames());
+        returnValue.push(BeautyActions.loadAllergenNames());
+        returnValue.push(BeautyActions.loadAddititveNames());
+        return returnValue;
+      })
     )
   );
 

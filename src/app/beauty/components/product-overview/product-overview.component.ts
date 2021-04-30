@@ -6,24 +6,19 @@ import { NotificationService } from 'src/app/shared/services/notification.servic
 import { BarcodeService } from 'src/app/shared/services/barcode.service';
 import {
   loadProduct,
-  loadLocalizedIngredientAnalysisNames,
   search,
-  loadCountryNames,
-  loadFavorites,
   changeClientSearchFilter,
-  loadCategoryNames,
-  loadBrandNames,
-  loadAllergenNames,
   changeServerSearchFilter,
+  loadMetadata,
 } from '../../store/beauty.actions';
 import { NgbModal, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { selectIsAuthenticated } from 'src/app/user/store/user.selector';
 import {
+  selectAdditiveNames,
   selectAllergenNames,
   selectBrandNames,
   selectCategoryNames,
 } from '../../store/beauty.selector';
-import { LocalizedString } from '@angular/compiler';
 import { LocalizedName } from 'src/app/shared/models/localized-name';
 
 @Component({
@@ -33,13 +28,14 @@ import { LocalizedName } from 'src/app/shared/models/localized-name';
   encapsulation: ViewEncapsulation.None,
 })
 export class ProductOverviewComponent implements OnInit {
-  searchControl = new FormControl('Nivea'); //'4005900388490');
+  searchControl = new FormControl('');
   public isAuthenticated$ = this.store.select(selectIsAuthenticated);
   public onlyFavorites: boolean = false;
   public isFilterCollapsed = true;
   public allergenNames$ = this.store.select(selectAllergenNames);
   public brandNames$ = this.store.select(selectBrandNames);
   public categoryNames$ = this.store.select(selectCategoryNames);
+  public additiveNames$ = this.store.select(selectAdditiveNames);
 
   constructor(
     private store: Store,
@@ -48,7 +44,7 @@ export class ProductOverviewComponent implements OnInit {
     private notificationService: NotificationService,
     private modalService: NgbModal
   ) {
-    this.loadData();
+    this.store.dispatch(loadMetadata());
     this.route.firstChild.params.subscribe((params) => {
       if (!!params.searchTerm) {
         this.searchControl.setValue(params.searchTerm);
@@ -58,15 +54,6 @@ export class ProductOverviewComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-  loadData(): void {
-    this.store.dispatch(loadCountryNames());
-    this.store.dispatch(loadLocalizedIngredientAnalysisNames());
-    this.store.dispatch(loadFavorites());
-    this.store.dispatch(loadCategoryNames());
-    this.store.dispatch(loadBrandNames());
-    this.store.dispatch(loadAllergenNames());
-  }
 
   get isMediadeviceSupported(): boolean {
     return this.barcodeService.isMediaDeviceSupported();
@@ -138,24 +125,17 @@ export class ProductOverviewComponent implements OnInit {
     );
   }
 
-  categoryChanged(category: LocalizedName): void {
-    console.log(category);
+  filterChanged(event: { key: string; value: string }): void {
     this.store.dispatch(
-      changeServerSearchFilter({ filter: { category: category.value } })
+      changeServerSearchFilter({ filter: { [event.key]: event.value } })
     );
   }
 
-  brandChanged(brand: LocalizedName): void {
-    console.log(brand);
-    this.store.dispatch(
-      changeServerSearchFilter({ filter: { brand: brand.value } })
-    );
-  }
-
-  allergenChanged(allergen: LocalizedName): void {
-    console.log(allergen);
-    this.store.dispatch(
-      changeServerSearchFilter({ filter: { allergen: allergen.value } })
-    );
+  get ingredientsFromPalmOil(): LocalizedName[] {
+    return [
+      { key: 'with', value: 'Ja' },
+      { key: 'without', value: 'Nein' },
+      { key: 'indifferent', value: 'Egal' },
+    ];
   }
 }

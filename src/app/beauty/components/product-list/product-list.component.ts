@@ -50,9 +50,7 @@ export class ProductListComponent implements OnInit {
   }
 
   pageChanged(page: number): void {
-    if (!!this.searchValue) {
-      this.store.dispatch(search({ searchTerm: this.searchValue, page: page }));
-    }
+    this.store.dispatch(search({ searchTerm: this.searchValue, page: page }));
   }
 
   get filteredProducts(): Product[] {

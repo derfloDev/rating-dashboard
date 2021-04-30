@@ -1,0 +1,86 @@
+<div
+  class="filter-container d-flex flex-wrap justify-content-between justify-content-sm-start mb-3"
+>
+  <div class="p-2" *ngIf="categoryNames?.length > 0">
+    <label [for]="idPrefix + '_category'">Kategorien</label>
+    <app-filter-dropdown
+      [id]="idPrefix + '_category'"
+      [values]="categoryNames"
+      (valueChanged)="valueChanged('category', $event.value)"
+    ></app-filter-dropdown>
+  </div>
+  <div class="p-2" *ngIf="brandNames?.length > 0">
+    <label [for]="idPrefix + '_brand'">Marken</label>
+    <app-filter-dropdown
+      [id]="idPrefix + '_brand'"
+      [values]="brandNames"
+      (valueChanged)="valueChanged('brand', $event.value)"
+    ></app-filter-dropdown>
+  </div>
+  <div class="p-2" *ngIf="allergenNames?.length > 0">
+    <label [for]="idPrefix+'_allergen'">Allergene</label>
+    <app-filter-dropdown
+      [id]="idPrefix + '_allergen'"
+      [values]="allergenNames"
+      (valueChanged)="valueChanged('allergen', $event.value)"
+    ></app-filter-dropdown>
+  </div>
+  <div class="p-2" *ngIf="additiveNames?.length > 0">
+    <label [for]="idPrefix + '_additive'">Zusatzstoffe</label>
+    <app-filter-dropdown
+      [id]="idPrefix + '_additive'"
+      [values]="additiveNames"
+      (valueChanged)="valueChanged('additive', $event.value)"
+    ></app-filter-dropdown>
+  </div>
+  <div class="p-2" *ngIf="nutritionGrades?.length > 0">
+    <label [for]="idPrefix + '_nutrition-grade'">Nutrition Grade</label>
+    <app-filter-dropdown
+      [id]="idPrefix + '_nutrition-grade'"
+      [values]="nutritionGrades"
+      (valueChanged)="valueChanged('nutritionGrade', $event.value)"
+    ></app-filter-dropdown>
+  </div>
+  <div class="p-2" *ngIf="ingredientsFromPalmOil?.length > 0">
+    <label [for]="idPrefix + '_ingredients-from-palm-oil'"
+      >Zutaten aus Palmöl</label
+    >
+    <app-filter-dropdown
+      [id]="idPrefix + '_ingredients-from-palm-oil'"
+      [values]="ingredientsFromPalmOil"
+      (valueChanged)="valueChanged('ingredientsFromPalmOil', $event.key)"
+    ></app-filter-dropdown>
+  </div>
+  <div *ngIf="nutrimentNames?.length > 0">
+    <div
+      *ngFor="let nutrimentFilter of nutrimentFilters; let i = index"
+      class="d-flex"
+    >
+      <app-nutriment-filter-entry
+        [nutrimentNames]="nutrimentNames"
+        (filterChanged)="nutrimentChange($event)"
+        #filterComponent
+      ></app-nutriment-filter-entry>
+      <button
+        type="button"
+        class="btn"
+        (click)="removeNutrimentFilter(i, filterComponent)"
+        [ngClass]="{ invisible: nutrimentFilters.length == 1 }"
+      >
+        <i class="bi bi-x-circle"></i>
+      </button>
+      <button
+        type="button"
+        class="btn"
+        (click)="addNutrimentFilter()"
+        *ngIf="i == 0"
+      >
+        <i class="bi bi-plus-circle"></i>
+      </button>
+    </div>
+    <!-- <app-nutriment-filter-entry
+      [nutrimentNames]="nutrimentNames"
+      (filterChanged)="nutrimentChange($event)"
+    ></app-nutriment-filter-entry> -->
+  </div>
+</div>
